@@ -15,57 +15,56 @@
 
     nav {
       background-color: #f0ede6;
-      padding: 12px;
+      padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #d6d0c4;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav button {
       color: #1a3a2a;
       background: none;
       border: none;
-      margin: 0 12px;
-      font-size: 14px;
+      margin: 0 10px;
+      font-size: 13px;
       cursor: pointer;
       font-family: 'Inter', sans-serif;
       letter-spacing: 0.08em;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
     }
 
-    nav button:hover {
-      color: #2e6b45;
-    }
+    nav button:hover { color: #2e6b45; border-bottom-color: #2e6b45; }
 
     .page { display: none; }
 
     .page.active {
       display: block;
-      animation: fadeup 0.5s ease;
+      animation: fadeup 0.4s ease;
     }
 
     @keyframes fadeup {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
       color: #1a3a2a;
-      font-size: 56px;
+      font-size: 52px;
       margin-top: 60px;
       font-family: 'Playfair Display', serif;
       font-weight: 600;
+      line-height: 1.2;
     }
 
     h2 {
       color: #1a3a2a;
-      font-size: 42px;
+      font-size: 38px;
       margin-top: 60px;
       font-family: 'Playfair Display', serif;
     }
@@ -80,15 +79,14 @@
     }
 
     .tagline {
-      font-size: 16px;
-      text-align: right;
+      font-size: 15px;
+      text-align: center;
       color: #2e6b45;
       font-style: italic;
+      margin-top: 6px;
     }
 
-    section {
-      padding: 50px;
-    }
+    section { padding: 50px 20px; }
 
     .videos {
       display: flex;
@@ -97,10 +95,7 @@
       flex-wrap: wrap;
     }
 
-    iframe {
-      border-radius: 8px;
-      border: none;
-    }
+    iframe { border-radius: 8px; border: none; }
 
     .tableau-wrapper {
       width: 90%;
@@ -131,18 +126,16 @@
       text-align: center;
     }
 
-    .help-card .card-icon {
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
+    .help-card .card-icon { font-size: 28px; margin-bottom: 10px; }
 
     .help-card .card-label {
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 0.1em;
       color: #2e6b45;
       text-transform: uppercase;
       margin-bottom: 8px;
       font-family: 'Inter', sans-serif;
+      font-weight: 500;
     }
 
     .help-card .card-value {
@@ -160,39 +153,239 @@
       font-family: 'Inter', sans-serif;
     }
 
-    .help-card a {
-      color: #1a3a2a;
-      text-decoration: none;
-    }
-
-    .help-card a:hover {
-      color: #2e6b45;
-      text-decoration: underline;
-    }
+    .help-card a { color: #1a3a2a; text-decoration: none; }
+    .help-card a:hover { color: #2e6b45; text-decoration: underline; }
 
     .pema-btn {
       display: inline-block;
       margin-top: 32px;
-      padding: 14px 32px;
+      padding: 13px 30px;
       background-color: #1a3a2a;
       color: #f0ede6;
-      font-size: 16px;
+      font-size: 15px;
       font-family: 'Inter', sans-serif;
       border-radius: 10px;
       text-decoration: none;
+      transition: background 0.2s;
     }
 
-    .pema-btn:hover {
+    .pema-btn:hover { background-color: #2e6b45; }
+
+    .section-divider {
+      max-width: 680px;
+      margin: 50px auto 0;
+      border: none;
+      border-top: 1px solid #d6d0c4;
+    }
+
+    /* ── ABOUT PAGE CARDS ── */
+    .about-header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .about-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #5a7a66;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .about-divider {
+      width: 36px;
+      height: 2px;
+      background: #1a4a30;
+      margin: 14px auto 10px;
+      border-radius: 2px;
+    }
+
+    .about-intro {
+      font-size: 15px;
+      color: #5a7a66;
+      font-family: 'Inter', sans-serif;
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .about-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .about-card {
+      background: #ffffff;
+      border: 0.5px solid rgba(0,0,0,0.1);
+      border-radius: 14px;
+      padding: 22px 24px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .about-card:hover {
+      border-color: rgba(46,107,69,0.35);
+      box-shadow: 0 2px 12px rgba(26,58,42,0.07);
+    }
+
+    .about-card-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .icon-story { background: #e8f0e9; }
+    .icon-proto { background: #e3ecf5; }
+
+    .about-card-icon svg { width: 22px; height: 22px; }
+
+    .about-card-body { flex: 1; min-width: 0; }
+
+    .about-card-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #5a7a66;
+      margin-bottom: 4px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .about-card-title {
+      font-size: 19px;
+      font-family: 'Playfair Display', serif;
+      color: #1a3a2a;
+      margin-bottom: 7px;
+    }
+
+    .about-card-desc {
+      font-size: 14px;
+      color: #4a6a58;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.65;
+      margin-bottom: 14px;
+      max-width: 100%;
+    }
+
+    .about-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 14px;
+      border-radius: 8px;
+      border: 0.5px solid rgba(0,0,0,0.18);
+      background: transparent;
+      color: #1a3a2a;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.15s;
+    }
+
+    .about-card-btn:hover { background: #f2f6f3; }
+
+    .about-card-btn-primary {
+      background: #1a3a2a;
+      color: #e8f5ee;
+      border-color: #1a3a2a;
+    }
+
+    .about-card-btn-primary:hover { background: #2e6b45; border-color: #2e6b45; }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: left;
+      padding-bottom: 10px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #c8d9cc;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 36px 58px;
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: 12px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
       background-color: #2e6b45;
+      border: 3px solid #f0ede6;
+      box-shadow: 0 0 0 2px #2e6b45;
+    }
+
+    .timeline-dot.open { background-color: #f0ede6; }
+
+    .timeline-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2e6b45;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .timeline-title {
+      font-size: 20px;
+      font-family: 'Playfair Display', serif;
+      color: #1a3a2a;
+      margin-bottom: 8px;
+    }
+
+    .timeline-text {
+      font-size: 15px;
+      color: #2c4a38;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.75;
+      max-width: 100%;
+      margin: 0;
     }
 
     footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       color: #5a7a66;
       padding: 20px;
       font-family: 'Inter', sans-serif;
       text-align: center;
       margin-top: 40px;
       border-top: 1px solid #d6d0c4;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #f0ede6;
     }
 
   </style>
@@ -201,9 +394,9 @@
 <body>
 
   <nav>
-    <div style="display: flex; align-items: center; gap: 10px;">
+    <div style="display:flex;align-items:center;gap:10px;">
       <img src="internwellness.png" width="45" style="border-radius:50%;" onerror="this.style.display='none'"/>
-      <strong style="color: #1a3a2a; font-size: 13px;">wellbeing for interns</strong>
+      <strong style="color:#1a3a2a;font-size:13px;">wellbeing for interns</strong>
     </div>
     <div>
       <button onclick="showPage('home')">HOME</button>
@@ -220,79 +413,70 @@
   <section class="page active" id="page-home">
     <h1>Your wellbeing matters here.</h1>
     <p class="tagline">made for interns by an intern</p>
-    <p>Internships are exciting but they can be overwhelming too. This is your safe space to breathe, reset, and take care of yourself.</p>
 
-    <!-- REMEMBER CARD -->
-    <div style="
-      max-width: 580px;
-      margin: 20px auto 0;
-      background-color: #eef4f0;
-      border-radius: 14px;
-      padding: 32px 36px;
-      text-align: left;
-    ">
-      <div style="
-        font-size: 11px;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: #2e6b45;
-        font-family: 'Inter', sans-serif;
-        font-weight: 600;
-        margin-bottom: 12px;
-      ">Remember</div>
-
-      <div style="
-        font-size: 30px;
-        font-family: 'Playfair Display', serif;
-        color: #1a3a2a;
-        margin-bottom: 18px;
-        line-height: 1.3;
-      ">It's okay to not be okay.</div>
-
-      <p style="
-        max-width: 100%;
-        margin: 0 0 16px 0;
-        color: #2c4a38;
-        font-size: 15px;
-        line-height: 1.75;
-        font-family: 'Inter', sans-serif;
-        text-align: left;
-      ">
-        Internships can be challenging, and it's completely normal to feel stressed or overwhelmed. The most important thing is to acknowledge what you're feeling and take a small step toward support whether that's a breathing exercise, talking to your friends and the elders, or simply taking a break.
+    <div style="max-width:580px;margin:28px auto 0;background-color:#eef4f0;border-radius:14px;padding:32px 36px;text-align:left;">
+      <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#2e6b45;font-family:'Inter',sans-serif;font-weight:600;margin-bottom:12px;">Remember</div>
+      <div style="font-size:28px;font-family:'Playfair Display',serif;color:#1a3a2a;margin-bottom:18px;line-height:1.3;">It's okay to not be okay.</div>
+      <p style="max-width:100%;margin:0 0 16px 0;color:#2c4a38;font-size:15px;line-height:1.75;font-family:'Inter',sans-serif;text-align:left;">
+        Internships can be challenging, and it's completely normal to feel stressed or overwhelmed. The most important thing is to acknowledge what you're feeling and take a small step toward support — whether that's a breathing exercise, talking to your friends and the elders, or simply taking a break.
       </p>
-
-      <p style="
-        max-width: 100%;
-        margin: 0;
-        color: #2c4a38;
-        font-size: 15px;
-        line-height: 1.75;
-        font-family: 'Inter', sans-serif;
-        text-align: left;
-      ">
-        This platform was built because your wellbeing matters not just your productivity.
+      <p style="max-width:100%;margin:0;color:#2c4a38;font-size:15px;line-height:1.75;font-family:'Inter',sans-serif;text-align:left;">
+        This platform was built because your wellbeing matters — not just your productivity.
       </p>
     </div>
-
   </section>
 
   <!-- ABOUT -->
   <section class="page" id="page-about">
-    <h2>About</h2>
-    <h3 style="font-size: 35px; font-family: 'Playfair Display', serif; color: #2e6b45;">Meet the person behind this project</h3>
-    <img src="pic.png" alt="Intern Wellness" style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover; margin: 20px 0; border: 3px solid #2e6b45;" onerror="this.style.display='none'"/>
-    <p style="max-width: 550px; text-align: justify; margin: 24px auto; color: #2c4a38; font-size: 16px; line-height: 1.7; font-family: 'Inter', sans-serif;">
-      My name is Jamyang Chozom, currently an intern at Bhutan Data Scientist Pvt. Ltd. During my internship, I observed that many interns experience stress and burnout, often without openly expressing it. Initially, my internship project was focused on the integration of AI in credit default analysis. However, while conducting research for this topic and simultaneously managing my personal life alongside internship responsibilities, I began to experience significant stress. I found it challenging to maintain a balance between work and personal commitments, which led to difficulties such as missing deadlines for logbooks and reflections.
-      <br><br>
-      This personal experience prompted me to reflect more deeply on the challenges faced by interns. As a result, I decided to shift my project focus to intern stress and wellbeing.
-      This inspired me to create a platform that transforms insights into practical support. It provides a space where interns can access simple tools to relax, manage stress, and improve their overall well-being.
-    </p>
+
+    <div class="about-header">
+      <p class="about-eyebrow">Portfolio</p>
+      <h2 style="margin-top: 8px;">Intern behind the project</h2>
+      <div class="about-divider"></div>
+      <p class="about-intro">Sonam's journey building an AI companion for intern mental wellness.</p>
+    </div>
+
+    <div class="about-cards">
+
+      <!-- Story card -->
+      <div class="about-card">
+        <div class="about-card-icon icon-story">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2e6b42" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h9"/>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+        </div>
+        <div class="about-card-body">
+          <p class="about-card-tag">The story behind this platform</p>
+          <div class="about-card-title">Jamyang's journey</div>
+          <p class="about-card-desc">From stress and silence to finding support read the personal experience that inspired this platform.</p>
+          <a href="story.docx" target="_blank" class="about-card-btn about-card-btn-primary">Read the story</a>
+        </div>
+      </div>
+
+      <!-- Prototype card -->
+      <div class="about-card">
+        <div class="about-card-icon icon-proto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2a5c8a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <div class="about-card-body">
+          <p class="about-card-tag">Prototype</p>
+          <div class="about-card-title">Intern Companion AI</div>
+          <p class="about-card-desc">Explore the prototype how AI agent works: mood check, AI companion, and recommendations working together.</p>
+          <a href="prototype for intern stress and wellbeing.pptx.mp4" target="_blank" class="about-card-btn">View prototype →</a>
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <!-- BREATHING -->
   <section class="page" id="page-breathing">
     <h2>Breathing Exercise</h2>
-    <p style="max-width: 550px; margin: 24px auto; color: #2c4a38; font-size: 16px; line-height: 1.7; text-align: justify; font-family: 'Inter', sans-serif;">
+    <p style="max-width:550px;margin:24px auto;color:#2c4a38;font-size:16px;line-height:1.7;text-align:justify;font-family:'Inter',sans-serif;">
       Stress doesn't just affect the mind. It can be felt in the body too. Sometimes, it can feel like a heavy weight on your shoulders, as if something is pulling you down.
       <br><br>
       To manage this, a simple breathing exercise can make a big difference. It helps calm the mind, relax the body, and bring your focus back to the present moment.
@@ -310,10 +494,10 @@
   <!-- MUSIC -->
   <section class="page" id="page-music">
     <h2>Soothing Music</h2>
-    <p style="max-width: 550px; margin: 24px auto; color: #2c4a38; font-size: 16px; line-height: 1.7; text-align: justify; font-family: 'Inter', sans-serif;">
+    <p style="max-width:550px;margin:24px auto;color:#2c4a38;font-size:16px;line-height:1.7;text-align:justify;font-family:'Inter',sans-serif;">
       Music has a powerful effect on our emotions and can be a great tool for managing stress. When you're feeling overwhelmed, try listening to some soothing music. It can help calm your mind and create a sense of peace.
     </p>
-    <p>Here are some of my favorite calming tracks that I listen to when I need to unwind:</p>
+    <p style="max-width:550px;margin:0 auto 24px;color:#2c4a38;font-size:16px;line-height:1.7;font-family:'Inter',sans-serif;">Here are some of my favorite calming tracks that I listen to when I need to unwind:</p>
     <div class="videos">
       <iframe width="290" height="163" src="https://www.youtube.com/embed/bP9gMpl1gyQ"></iframe>
       <iframe width="290" height="163" src="https://www.youtube.com/embed/hgUGe1cf3So?si=fldhd71d0LhBn7Le"></iframe>
@@ -324,14 +508,14 @@
   <!-- MEDITATION -->
   <section class="page" id="page-meditation">
     <h2>Meditation</h2>
-    <p style="max-width: 550px; margin: 24px auto; color: #2c4a38; font-size: 16px; line-height: 1.7; text-align: justify; font-family: 'Inter', sans-serif;">
+    <p style="max-width:550px;margin:24px auto;color:#2c4a38;font-size:16px;line-height:1.7;text-align:justify;font-family:'Inter',sans-serif;">
       Meditation is a practice that can help you find calm and clarity amidst the chaos of daily life. It allows you to take a step back, observe your thoughts without judgment, and cultivate a sense of inner peace.
       <br><br>
       If you're new to meditation, start with just a few minutes each day. Find a quiet space, sit comfortably, and focus on your breath. When your mind wanders, gently bring your attention back to your breath.
       <br><br>
       Over time, you may find that meditation helps reduce stress, improve focus, and enhance your overall well-being.
     </p>
-    <p>Here are some guided meditation videos to help you get started:</p>
+    <p style="max-width:550px;margin:0 auto 24px;color:#2c4a38;font-size:16px;line-height:1.7;font-family:'Inter',sans-serif;">Here are some guided meditation videos to help you get started:</p>
     <div class="videos">
       <iframe width="290" height="163" src="https://www.youtube.com/embed/ssss7V1_eyA"></iframe>
       <iframe width="290" height="163" src="https://www.youtube.com/embed/ZToicYcHIOU"></iframe>
@@ -342,13 +526,10 @@
   <section class="page" id="page-findings">
     <h2>Findings</h2>
     <p>These are the insights from my findings.</p>
-
     <div class="tableau-wrapper">
-      <div class='tableauPlaceholder' id='viz1775810549047' style='position: relative; width: 100%;'>
+      <div class='tableauPlaceholder' id='viz1775810549047' style='position:relative;width:100%;'>
         <noscript>
-          <a href='#'>
-            <img alt=' ' src='https://public.tableau.com/static/images/st/stressandwellbeingofinternsGCBSfinal/Dashboard1/1_rss.png' style='border: none'/>
-          </a>
+          <a href='#'><img alt=' ' src='https://public.tableau.com/static/images/st/stressandwellbeingofinternsGCBSfinal/Dashboard1/1_rss.png' style='border:none'/></a>
         </noscript>
         <object class='tableauViz' style='display:none;'>
           <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
@@ -377,14 +558,12 @@
         vizElement.parentNode.insertBefore(scriptElement, vizElement);
       </script>
     </div>
-
   </section>
 
   <!-- GET HELP -->
   <section class="page" id="page-contact">
     <h2>Get Help</h2>
-    <p>You are not alone. If you're feeling overwhelmed, stressed, or just need someone to talk to reach out. Help is available.</p>
-
+    <p>You are not alone. If you're feeling overwhelmed, stressed, or just need someone to talk to — reach out. Help is available.</p>
     <div class="help-cards">
       <div class="help-card">
         <div class="card-icon">🆘</div>
@@ -392,47 +571,29 @@
         <div class="card-value">1010</div>
         <div class="card-sub">If you or someone is in immediate danger</div>
       </div>
-
       <div class="help-card">
         <div class="card-icon">🗯️</div>
         <div class="card-label">Mental Health Helpline</div>
         <div class="card-value">1098</div>
         <div class="card-sub">Call for mental health support</div>
       </div>
-
       <div class="help-card">
         <div class="card-icon">✉️</div>
         <div class="card-label">Helpline Email</div>
-        <div class="card-value" style="font-size: 15px; margin-top: 6px;">
+        <div class="card-value" style="font-size:15px;margin-top:6px;">
           <a href="mailto:helpline@thepema.gov.bt">helpline@thepema.gov.bt</a>
         </div>
         <div class="card-sub">Email for mental health &amp; protection support</div>
       </div>
     </div>
-
     <a href="https://thepema.gov.bt/" target="_blank" class="pema-btn">Visit The PEMA</a>
-
   </section>
 
   <!-- FOOTER -->
-  <footer style="
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #5a7a66;
-    padding: 20px;
-    font-family: 'Inter', sans-serif;
-    text-align: center;
-    margin-top: 40px;
-    border-top: 1px solid #d6d0c4;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #f0ede6;
-  ">
-    <p style="margin: 5px 0;">&copy; 2026 Jamyang Chozom. All rights reserved.</p>
-    <a href="https://github.com/jamyangc/BDS-project" target="_blank" style="margin-top: 10px;">
-      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width:26px; height:26px; opacity: 0.6;">
+  <footer>
+    <p style="margin:5px 0;">&copy; 2026 Jamyang Chozom. All rights reserved.</p>
+    <a href="https://github.com/jamyangc/BDS-project" target="_blank" style="margin-top:10px;">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width:26px;height:26px;opacity:0.6;">
     </a>
   </footer>
 
