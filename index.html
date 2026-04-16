@@ -171,26 +171,9 @@
 
     .pema-btn:hover { background-color: #2e6b45; }
 
-    .section-divider {
-      max-width: 680px;
-      margin: 50px auto 0;
-      border: none;
-      border-top: 1px solid #d6d0c4;
-    }
-
     /* ── ABOUT PAGE CARDS ── */
     .about-header {
       text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .about-eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #5a7a66;
-      font-family: 'Inter', sans-serif;
-      font-weight: 500;
       margin-bottom: 10px;
     }
 
@@ -201,16 +184,6 @@
       margin: 14px auto 10px;
       border-radius: 2px;
     }
-
-    .about-intro {
-      font-size: 15px;
-      color: #5a7a66;
-      font-family: 'Inter', sans-serif;
-      max-width: 480px;
-      margin: 0 auto 36px;
-      line-height: 1.7;
-    }
-
     .about-cards {
       display: flex;
       flex-direction: column;
@@ -298,79 +271,7 @@
 
     .about-card-btn:hover { background: #f2f6f3; }
 
-    .about-card-btn-primary {
-      background: #1a3a2a;
-      color: #e8f5ee;
-      border-color: #1a3a2a;
-    }
 
-    .about-card-btn-primary:hover { background: #2e6b45; border-color: #2e6b45; }
-
-    /* ── TIMELINE ── */
-    .timeline {
-      position: relative;
-      max-width: 680px;
-      margin: 0 auto;
-      text-align: left;
-      padding-bottom: 10px;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 20px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: #c8d9cc;
-    }
-
-    .timeline-item {
-      position: relative;
-      padding: 0 0 36px 58px;
-    }
-
-    .timeline-item:last-child { padding-bottom: 0; }
-
-    .timeline-dot {
-      position: absolute;
-      left: 12px;
-      top: 4px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background-color: #2e6b45;
-      border: 3px solid #f0ede6;
-      box-shadow: 0 0 0 2px #2e6b45;
-    }
-
-    .timeline-dot.open { background-color: #f0ede6; }
-
-    .timeline-label {
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #2e6b45;
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
-
-    .timeline-title {
-      font-size: 20px;
-      font-family: 'Playfair Display', serif;
-      color: #1a3a2a;
-      margin-bottom: 8px;
-    }
-
-    .timeline-text {
-      font-size: 15px;
-      color: #2c4a38;
-      font-family: 'Inter', sans-serif;
-      line-height: 1.75;
-      max-width: 100%;
-      margin: 0;
-    }
 
     footer {
       display: flex;
@@ -413,20 +314,9 @@
   <section class="page active" id="page-home">
     <h1>Your wellbeing matters here.</h1>
     <p class="tagline">made for interns by an intern</p>
-
-    <div style="max-width:580px;margin:28px auto 0;background-color:#eef4f0;border-radius:14px;padding:32px 36px;text-align:left;">
-      <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#2e6b45;font-family:'Inter',sans-serif;font-weight:600;margin-bottom:12px;">Remember</div>
-      <div style="font-size:28px;font-family:'Playfair Display',serif;color:#1a3a2a;margin-bottom:18px;line-height:1.3;">It's okay to not be okay.</div>
-      <p style="max-width:100%;margin:0 0 16px 0;color:#2c4a38;font-size:15px;line-height:1.75;font-family:'Inter',sans-serif;text-align:left;">
-        Internships can be challenging, and it's completely normal to feel stressed or overwhelmed. The most important thing is to acknowledge what you're feeling and take a small step toward support — whether that's a breathing exercise, talking to your friends and the elders, or simply taking a break.
-      </p>
-      <p style="max-width:100%;margin:0;color:#2c4a38;font-size:15px;line-height:1.75;font-family:'Inter',sans-serif;text-align:left;">
-        This platform was built because your wellbeing matters not just your productivity.
-      </p>
-    </div>
+    <a href="#" onclick="showPage('about')" class="pema-btn">Click to see story board →</a>
   </section>
 
-  <!-- ABOUT -->
   <!-- ABOUT -->
 <section class="page" id="page-about">
 
@@ -497,8 +387,6 @@
       To manage this, a simple breathing exercise can make a big difference. It helps calm the mind, relax the body, and bring your focus back to the present moment.
       <br><br>
       If you're feeling stressed, try this: Take a moment to focus on your breath. Inhale deeply through your nose for a count of four. Hold your breath for a count of four. Then exhale slowly through your mouth for a count of six.
-      <br><br>
-      Repeat this cycle for a few minutes. You may notice your body starting to relax and your mind becoming calmer.
     </p>
     <div class="videos">
       <iframe width="290" height="163" src="https://www.youtube.com/embed/eZBa63NZbbE"></iframe>
@@ -539,41 +427,19 @@
 
   <!-- FINDINGS -->
   <section class="page" id="page-findings">
-    <h2>Findings</h2>
-    <p>These are the insights from my internship project.</p>
-    <div class="tableau-wrapper">
-      <div class='tableauPlaceholder' id='viz1775810549047' style='position:relative;width:100%;'>
-        <noscript>
-          <a href='#'><img alt=' ' src='https://public.tableau.com/static/images/st/stressandwellbeingofinternsGCBSfinal/Dashboard1/1_rss.png' style='border:none'/></a>
-        </noscript>
-        <object class='tableauViz' style='display:none;'>
-          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-          <param name='embed_code_version' value='3' />
-          <param name='site_root' value='' />
-          <param name='name' value='stressandwellbeingofinternsGCBSfinal&#47;Dashboard1' />
-          <param name='tabs' value='yes' />
-          <param name='toolbar' value='yes' />
-          <param name='static_image' value='https://public.tableau.com/static/images/st/stressandwellbeingofinternsGCBSfinal/Dashboard1/1.png' />
-          <param name='animate_transition' value='yes' />
-          <param name='display_static_image' value='yes' />
-          <param name='display_spinner' value='yes' />
-          <param name='display_overlay' value='yes' />
-          <param name='display_count' value='yes' />
-          <param name='language' value='en-US' />
-          <param name='filter' value='publish=yes' />
-        </object>
-      </div>
-      <script type='text/javascript'>
-        var divElement = document.getElementById('viz1775810549047');
-        var vizElement = divElement.getElementsByTagName('object')[0];
-        vizElement.style.width = '100%';
-        vizElement.style.height = '650px';
-        var scriptElement = document.createElement('script');
-        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-        vizElement.parentNode.insertBefore(scriptElement, vizElement);
-      </script>
-    </div>
-  </section>
+  <h2>Findings</h2>
+  <p>These are the insights from my internship project.</p>
+
+  <div class="tableau-wrapper">
+    <iframe 
+      src="https://public.tableau.com/views/stressandwellbeingofinternsGCBSfinal/Story1?:showVizHome=no"
+      width="100%" 
+      height="650" 
+      style="border:none;border-radius:14px;">
+    </iframe>
+  </div>
+</section>
+      
 
   <!-- GET HELP -->
   <section class="page" id="page-contact">
