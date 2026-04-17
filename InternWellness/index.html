@@ -18,9 +18,8 @@
     <div>
       <button onclick="showPage('home')">HOME</button>
       <button onclick="showPage('about')">ABOUT</button>
-      <button onclick="showPage('breathing')">BREATHING</button>
-      <button onclick="showPage('music')">MUSIC</button>
-      <button onclick="showPage('meditation')">MEDITATION</button>
+      <button onclick="showPage('mood')">MOOD CHECK</button>
+      <button onclick="showPage('resources')">RESOURCES</button>
       <button onclick="showPage('findings')">FINDINGS</button>
       <button onclick="showPage('contact')">GET HELP</button>
     </div>
@@ -29,121 +28,145 @@
   <!-- HOME -->
   <section class="page active" id="page-home">
 
-  <h1>welcome</h1>
-  <h2>Your wellbeing matters here.</h2>
-  <p class="tagline">made for interns by an intern</p>
-  <p> This website is designed to support interns or any other person in managing their wellbeing.</p>
+    <h1>welcome</h1>
+    <h2>Your wellbeing matters here.</h2>
+    <p class="tagline">made for interns by an intern</p>
+    <p>This website is designed to support interns or any other person in managing their wellbeing.</p>
 
-  <!-- NEW CONTENT -->
-  <div class="about-cards">
+    <div class="about-cards">
 
-    <!-- Fictional Story -->
-  <p>learn about this website by reading and watching the content below:</p>
-    <div class="about-card">
-      <div class="about-card-icon icon-story"></div>
-      <div class="about-card-body">
-        <p class="about-card-tag">Fictional Story</p>
-        <div class="about-card-title">Sonam’s Journey</div>
-        <p class="about-card-desc">
-          A story about an intern’s experience from excitement to stress, and how she learns to cope and grow.
-        </p>
-        <a href="story.pdf" class="about-card-btn">Read story →</a>
-        <br><br>
-        <a href="video.mp4" class="about-card-btn">Watch video →</a>
+      <p>learn about this website by reading and watching the content below:</p>
+
+      <!-- Story -->
+      <div class="about-card">
+        <div class="about-card-icon icon-story"></div>
+        <div class="about-card-body">
+          <p class="about-card-tag">Fictional Story</p>
+        
+          <p class="about-card-desc">
+            A story about anexperience from excitement to stress, and how she learns to cope and grow.
+          </p>
+          <a href="story.pdf" class="about-card-btn">Read story ➡️ </a>
+          <br><br>
+          <a href="video.mp4" class="about-card-btn">Watch video ➡️</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Prototype -->
-    <div class="about-card">
-      <div class="about-card-icon icon-proto"></div>
-      <div class="about-card-body">
-        <p class="about-card-tag">Prototype</p>
-        <div class="about-card-title">Intern Companion AI</div>
-        <p class="about-card-desc">
-          A simple AI-based idea designed to support interns with stress, guidance, and wellbeing.
-        </p>
-        <a href="prototype for intern stress and wellbeing.pptx.mp4" class="about-card-btn">
-          Watch prototype →
-        </a>
+      <!-- Prototype -->
+      <div class="about-card">
+        <div class="about-card-icon icon-proto"></div>
+        <div class="about-card-body">
+          <p class="about-card-tag">Prototype</p>
+          <div class="about-card-title">Intern Companion AI</div>
+          <p class="about-card-desc">
+            A simple AI-based idea designed to support interns with stress, guidance, and wellbeing.
+          </p>
+          <a href="prototype for intern stress and wellbeing.pptx.mp4" class="about-card-btn">
+            Watch prototype ➡️
+          </a>
+        </div>
       </div>
-    </div>
 
-  </div>
-</section>
+    </div>
+  </section>
 
   <!-- ABOUT -->
-  
-
   <section class="page" id="page-about">
     <h1>about project</h1>
+
     <div class="about-cards">
       <p style="max-width:600px; margin: 0 auto 30px; text-align: justify;">
-      
-    This project was created to highlight the often unseen challenges interns face during their professional journey. 
-    While internships are meant to be a learning experience, many interns struggle with stress, pressure, and emotional wellbeing.
-    <br><br>
-    This platform shares stories, insights, and simple tools to help interns better understand and manage their stress.
-    It combines personal experiences with practical support such as breathing exercises, music, and meditation.
-    <br><br>
-    Created as part of my internship journey, this project reflects both lived eperience and a desire to support others in similar situations.
-  </p>
+        This project was created to highlight the often unseen challenges interns face during their professional journey. 
+        While internships are meant to be a learning experience, many interns struggle with stress, pressure, and emotional wellbeing.
+        <br><br>
+        This platform shares stories, insights, and simple tools to help interns better understand and manage their stress.
+        It combines personal experiences with practical support such as breathing exercises, music, and meditation.
+        <br><br>
+        Created as part of my internship journey, this project reflects both lived experience and a desire to support others in similar situations.
+      </p>
 
       <div class="about-card">
         <div class="about-card-icon icon-story"></div>
         <div class="about-card-body">
           <p class="about-card-tag">The story behind this platform</p>
-          <div class="about-card-title">Jamyang's journey</div>
+          <div class="about-card-title">My internship journey</div>
           <p class="about-card-desc">From stress and silence to finding support.</p>
-          <a href="person behind the project.pdf" class="about-card-btn">Read the story →</a>
+          <a href="person behind the project.pdf" class="about-card-btn">Read the story ➡️</a>
         </div>
       </div>
 
-
     </div>
   </section>
+  <section class="page" id="page-mood">
+  <h2>How are you feeling today?</h2>
 
-  <!-- BREATHING -->
-  <section class="page" id="page-breathing">
-    <h2>Breathing Exercise</h2>
-    <p class="text" style="max-width:600px; margin: 0 auto 30px; text-align: justify;">
-      <br> Stress doesn't just affect the mind. It can be felt in the body too. Sometimes, it can feel like a heavy weight on your shoulders, as if something is pulling you down. <br>
-      <br> To manage this, a simple breathing exercise can make a big difference. It helps calm the mind, relax the body, and bring your focus back to the present moment.<br>
-      <br> If you're feeling stressed, try this: Take a moment to focus on your breath. Inhale deeply through your nose for a count of four. Hold your breath for a count of four. Then exhale slowly through your mouth for a count of six. <br>
-    </p>
+  <div style="margin-top:20px;">
+    <button onclick="checkMood('happy')" class="pema-btn">😊 Happy</button>
+    <button onclick="checkMood('neutral')" class="pema-btn">😐 Neutral</button>
+    <button onclick="checkMood('stressed')" class="pema-btn">😣 Stressed</button>
+    <button onclick="checkMood('sad')" class="pema-btn">😔 Sad</button>
+  </div>
 
-    <div class="videos">
-      <iframe src="https://www.youtube.com/embed/eZBa63NZbbE"></iframe>
-      <iframe src="https://www.youtube.com/embed/tEmt1Znux58"></iframe>
+  <div id="moodResult" style="margin-top:40px;"></div>
+
+  <!-- MUSIC PLAYER (hidden initially) -->
+  <div id="musicPlayer" style="margin-top:20px; display:none;">
+    <iframe 
+      id="musicFrame"
+      width="300" height="170"
+      src=""
+      allow="autoplay">
+    </iframe>
+  </div>
+</section>
+
+  <!-- RESOURCES -->
+  <section class="page" id="page-resources">
+
+    <h2>Resources for Wellbeing</h2>
+
+    <!-- BREATHING -->
+    <div class="resource-block">
+      <h3>Breathing Exercise</h3>
+      <p>
+        Stress affects both mind and body. Breathing exercises help calm your system and bring you back to the present.
+        Try inhaling for 4 seconds, holding for 4, and exhaling for 6.
+      </p>
+
+      <div class="videos">
+        <iframe src="https://www.youtube.com/embed/eZBa63NZbbE"></iframe>
+        <iframe src="https://www.youtube.com/embed/tEmt1Znux58"></iframe>
+      </div>
     </div>
-  </section>
 
-  <!-- MUSIC -->
-  <section class="page" id="page-music">
-    <h2>Soothing Music</h2>
-    <p>Music has a powerful effect on our emotions and can be a great tool for managing stress. When you're feeling overwhelmed, try listening to some soothing music. It can help calm your mind and create a sense of peace.
-    </p>
+    <!-- MUSIC -->
+    <div class="resource-block">
+      <h3>Soothing Music</h3>
+      <p>
+        Music can help reduce stress and improve mood. Listen when you feel overwhelmed.
+      </p>
 
-    <div class="videos">
-      <iframe src="https://www.youtube.com/embed/bP9gMpl1gyQ"></iframe>
-      <iframe src="https://www.youtube.com/embed/hgUGe1cf3So"></iframe>
-      <iframe src="https://www.youtube.com/embed/IPmXzg0ZL80"></iframe>
+      <div class="videos">
+        <iframe src="https://www.youtube.com/embed/bP9gMpl1gyQ"></iframe>
+        <iframe src="https://www.youtube.com/embed/hgUGe1cf3So"></iframe>
+        <iframe src="https://www.youtube.com/embed/IPmXzg0ZL80"></iframe>
+      </div>
     </div>
-  </section>
 
-  <!-- MEDITATION -->
-  <section class="page" id="page-meditation">
-    <h2>Meditation</h2>
-    <p>Meditation is a practice that can help you find calm and clarity amidst the chaos of daily life. It allows you to take a step back, observe your thoughts without judgment, and cultivate a sense of inner peace.
-    <br><br>
-    If you're new to meditation, start with just a few minutes each day. Find a quiet space, sit comfortably, and focus on your breath. When your mind wanders, gently bring your attention back to your breath.
-    <br><br>
-    Over time, you may find that meditation helps reduce stress, improve focus, and enhance your overall well-being.
-    </p>
+    <!-- MEDITATION -->
+    <div class="resource-block">
+      <h3>Meditation</h3>
+      <p>
+        Meditation helps you observe thoughts without judgment and build inner peace.
+        Start with just a few minutes daily.
+      </p>
 
-    <div class="videos">
-      <iframe src="https://www.youtube.com/embed/ssss7V1_eyA"></iframe>
-      <iframe src="https://www.youtube.com/embed/ZToicYcHIOU"></iframe>
+      <div class="videos">
+        <iframe src="https://www.youtube.com/embed/ssss7V1_eyA"></iframe>
+        <iframe src="https://www.youtube.com/embed/ZToicYcHIOU"></iframe>
+      </div>
     </div>
+
   </section>
 
   <!-- FINDINGS -->
@@ -158,37 +181,53 @@
   </section>
 
   <!-- GET HELP -->
-  <section class="page" id="page-contact">
-    <h2>Get Help</h2>
+<section class="page" id="page-contact">
+  <h2>Get Help</h2>
 
-    <div class="help-cards">
+  <div class="help-cards">
 
-      <div class="help-card">
-        <div class="card-icon">🆘</div>
-        <div class="card-label">Emergency</div>
-        <div class="card-value">1010</div>
-      </div>
-
-      <div class="help-card">
-        <div class="card-icon">🗯️</div>
-        <div class="card-label">Mental Health</div>
-        <div class="card-value">1098</div>
-      </div>
-
-      <div class="help-card">
-        <div class="card-icon">✉️</div>
-        <div class="card-label">Email</div>
-        <div class="card-value">
-          <a href="mailto:helpline@thepema.gov.bt">helpline@thepema.gov.bt</a>
-        </div>
-      </div>
-
+    <div class="help-card">
+      <div class="card-icon">🆘</div>
+      <div class="card-label">Emergency</div>
+      <div class="card-value">1010</div>
     </div>
-  </section>
 
+    <div class="help-card">
+      <div class="card-icon">🗯️</div>
+      <div class="card-label">Mental Health</div>
+      <div class="card-value">1098</div>
+    </div>
+
+    <div class="help-card">
+      <div class="card-icon">✉️</div>
+      <div class="card-label">Contact</div>
+      <div class="card-value">
+        <a href="mailto:helpline@thepema.gov.bt">
+          helpline@thepema.gov.bt
+        </a>
+      </div>
+    </div>
+
+    <!-- PEMA BUTTON CARD -->
+    <div class="help-card">
+      <div class="card-icon">🌐</div>
+      <div class="card-label">PEMA Website</div>
+
+      <a href="https://thepema.gov.bt/" target="_blank" class="pema-btn">
+        Visit The PEMA ➡️
+      </a>
+    </div>
+
+  </div>
+</section>
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 Jamyang Chozom</p>
+    <p>&copy; 2026 Jamyang Chozom. All rights reserved.</p>
+    <a href="https://github.com/jamyangc/BDS-project" target="_blank">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" 
+         alt="GitHub" 
+         style="width:26px;height:26px;opacity:0.6;">
+    </a>
   </footer>
 
   <script src="script.js"></script>
