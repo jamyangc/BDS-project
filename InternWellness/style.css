@@ -247,3 +247,48 @@ footer {
   background-color: #f0ede6;
   text-align: center; 
 }
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  nav div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  nav button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  h1 { font-size: 28px; }
+  h2 { font-size: 22px; }
+
+  .about-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-card {
+    width: 90%; 
+  }
+
+  .videos {
+    flex-direction: column;
+  }
+
+  .videos iframe {
+    width: 100%;
+    height: 200px;
+  }
+
+  .help-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
