@@ -2,8 +2,8 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
-  background-color: #f0ede6;
-  font-family: 'Inter', sans-serif;
+  background-color: #ddc7da;
+  font-family: 'Source Serif 4', serif;
 }
 
 /* ── NAV ── */
@@ -26,7 +26,7 @@ nav button {
   margin: 0 10px;
   font-size: 13px;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Source Serif 4', serif;
   letter-spacing: 0.08em;
   padding: 6px 0;
   border-bottom: 2px solid transparent;
@@ -41,7 +41,8 @@ nav button:hover {
 /* ── PAGE SYSTEM ── */
 .page {
   display: none;
-  padding: 50px 20px;
+  padding: 50px 20px 150px;
+
 }
 
 .page.active {
@@ -59,7 +60,7 @@ h1 {
   color: #1a3a2a;
   font-size: 52px;
   margin-top: 60px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Source Serif 4', serif;
   font-weight: 600;
   line-height: 1.2;
   animation: floaty 3s infinite ease-in-out;
@@ -69,7 +70,7 @@ h2 {
   color: #1a3a2a;
   font-size: 38px;
   margin-top: 30px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Source Serif 4', serif;
   animation: floaty 3s infinite ease-in-out;
 }
 
@@ -84,7 +85,7 @@ p {
   font-size: 16px;
   max-width: 500px;
   margin: 0 auto 30px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Lora', serif;
   line-height: 1.7;
 }
 
@@ -119,7 +120,7 @@ iframe {
 }
 
 .resource-block h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Source Serif 4', serif;
   color: #1a3a2a;
   margin-bottom: 10px;
 }
