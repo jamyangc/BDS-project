@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #ddc7da;
-  font-family: 'Source Serif 4', serif;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 /* ── NAV ── */
@@ -20,13 +20,13 @@ nav {
 }
 
 nav button {
-  color: #1a3a2a;
+  color: #3a1a3a;
   background: none;
   border: none;
   margin: 0 10px;
   font-size: 13px;
   cursor: pointer;
-  font-family: 'Source Serif 4', serif;
+  font-family: 'Courier New', monospace; /* ✅ fixed from LiquidCrystal */
   letter-spacing: 0.08em;
   padding: 6px 0;
   border-bottom: 2px solid transparent;
@@ -34,7 +34,7 @@ nav button {
 }
 
 nav button:hover {
-  color: #2e6b45;
+  color: #656b2e;
   border-bottom-color: #2e6b45;
 }
 
@@ -42,7 +42,6 @@ nav button:hover {
 .page {
   display: none;
   padding: 50px 20px 150px;
-
 }
 
 .page.active {
@@ -60,17 +59,17 @@ h1 {
   color: #1a3a2a;
   font-size: 52px;
   margin-top: 60px;
-  font-family: 'Source Serif 4', serif;
+  font-family: 'Courier New', monospace;
   font-weight: 600;
   line-height: 1.2;
   animation: floaty 3s infinite ease-in-out;
 }
 
 h2 {
-  color: #1a3a2a;
+  color: black;
   font-size: 38px;
   margin-top: 30px;
-  font-family: 'Source Serif 4', serif;
+  font-family: 'Courier New', Courier, monospace;
   animation: floaty 3s infinite ease-in-out;
 }
 
@@ -81,11 +80,11 @@ h2 {
 
 /* ── TEXT ── */
 p {
-  color: #2c4a38;
+  color: black;
   font-size: 16px;
   max-width: 500px;
   margin: 0 auto 30px;
-  font-family: 'Lora', serif;
+  font-family: 'Courier New', Courier, monospace;
   line-height: 1.7;
 }
 
@@ -109,7 +108,7 @@ iframe {
   border: none;
 }
 
-/* ── RESOURCE BLOCK (NEW CLEAN UI) ── */
+/* ── RESOURCE BLOCK ── */
 .resource-block {
   background: #fff;
   border-radius: 14px;
@@ -121,7 +120,7 @@ iframe {
 
 .resource-block h3 {
   font-family: 'Source Serif 4', serif;
-  color: #1a3a2a;
+  color: #000704;
   margin-bottom: 10px;
 }
 
@@ -161,7 +160,7 @@ iframe {
 .help-card .card-label {
   font-size: 11px;
   letter-spacing: 0.1em;
-  color: #2e6b45;
+  color: black;
   text-transform: uppercase;
   margin-bottom: 8px;
 }
@@ -170,13 +169,14 @@ iframe {
   font-size: 22px;
   font-weight: 600;
   color: #1a3a2a;
-  font-family: 'Playfair Display', serif;
+  font-family: 'lora', serif;
 }
 
 /* ── ABOUT CARDS ── */
 .about-cards {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* ✅ fixed — side by side on desktop */
+  flex-wrap: wrap;
   gap: 14px;
   max-width: 620px;
   margin: 0 auto;
@@ -217,12 +217,12 @@ iframe {
 .about-card-title {
   font-size: 19px;
   font-family: 'Playfair Display', serif;
-  color: #1a3a2a;
+  color: black;
 }
 
 .about-card-desc {
   font-size: 14px;
-  color: #4a6a58;
+  color: #000000;
   line-height: 1.65;
 }
 
@@ -232,7 +232,7 @@ iframe {
   border-radius: 8px;
   border: 0.5px solid rgba(0,0,0,0.18);
   text-decoration: none;
-  color: #1a3a2a;
+  color: #000302;
 }
 
 .about-card-btn:hover {
@@ -246,8 +246,10 @@ footer {
   border-top: 1px solid #fffefd;
   margin-top: 40px;
   background-color: #f0ede6;
-  text-align: center; 
+  text-align: center;
 }
+
+/* ── MOBILE RESPONSIVE ── */
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
@@ -271,12 +273,12 @@ footer {
   h2 { font-size: 22px; }
 
   .about-cards {
-    flex-direction: column;
+    flex-direction: column; /* stacks on mobile */
     align-items: center;
   }
 
   .about-card {
-    width: 90%; 
+    width: 90%;
   }
 
   .videos {
@@ -292,4 +294,129 @@ footer {
     flex-direction: column;
     align-items: center;
   }
+}
+
+/* ── CHAT TOGGLE BUTTON ── */
+#chat-toggle {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  background: #1a3a2a;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* ── CHAT WINDOW ── */
+#chat-win {
+  position: fixed;
+  bottom: 90px;
+  right: 22px;
+  width: 320px;
+  height: 420px;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  z-index: 999;
+  display: none; /* ✅ hidden by default */
+}
+
+#chat-win.open {
+  display: flex;
+  flex-direction: column; /* ✅ fixed — moved here */
+}
+
+/* ── CHAT HEADER ── */
+.chdr {
+  background: #1a3a2a;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chdr button {
+  background: none;       /* ✅ fixed — styled close button */
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* ── CHAT MESSAGES ── */
+#cmsgs {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+  text-align: left;
+}
+
+.cmsg { margin: 6px 0; display: flex; }
+.cmsg.user { justify-content: flex-end; }
+
+.cmb {
+  padding: 8px 10px;
+  border-radius: 10px;
+  max-width: 75%;
+  background: #e8f0e9;
+}
+
+.cmsg.user .cmb {
+  background: #1a3a2a;
+  color: white;
+}
+
+/* ── QUICK REPLIES ── */
+.cqr {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 8px;
+  border-top: 1px solid #ddd;
+}
+
+.cqr button {
+  font-size: 11px;
+  padding: 5px 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #f0ede6;
+}
+
+/* ── CHAT INPUT ── */
+.cinp {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.cinp textarea {
+  flex: 1;
+  border: none;
+  padding: 8px;
+  resize: none;
+  font-family: inherit;
+  height: 40px;       
+  outline: none;      
+}
+
+.cinp textarea:focus {
+  outline: none;  
+}
+
+.cinp button {
+  background: #1a3a2a;
+  color: white;
+  border: none;
+  padding: 0 14px;
+  cursor: pointer;
 }
