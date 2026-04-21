@@ -12,8 +12,8 @@
 
   <nav>
     <div class="logo">
-      <img src="pic.png!bw700" width="45" onerror="this.style.display='none'"/>
-      <strong>wellbeing for interns</strong>
+      <img src="pic.png!bw700" width="45" onerror="this.style.display='none'"/> <!-- ✅ fixed src -->
+      <strong>wellbeing hub</strong>
     </div>
 
     <div>
@@ -43,11 +43,11 @@
         <div class="about-card-icon icon-story"></div>
         <div class="about-card-body">
           <p class="about-card-tag">Fictional Story</p>
-        
+          <div class="about-card-title">Intern Story</div> <!-- ✅ added missing title -->
           <p class="about-card-desc">
             A story about an experience from excitement to stress, and how she learns to cope and grow.
           </p>
-          <a href="story.pdf" class="about-card-btn">Read story ➡️ </a>
+          <a href="story.pdf" class="about-card-btn">Read story ➡️</a>
           <br><br>
           <a href="story video.mp4" class="about-card-btn">Watch video ➡️</a>
         </div>
@@ -58,13 +58,11 @@
         <div class="about-card-icon icon-proto"></div>
         <div class="about-card-body">
           <p class="about-card-tag">Prototype</p>
-          <div class="about-card-title">Intern AI-agent </div>
+          <div class="about-card-title">Intern AI-agent</div>
           <p class="about-card-desc">
             A simple AI-based idea designed to support interns with stress, guidance, and wellbeing.
           </p>
-          <a href="video.mp4" class="about-card-btn">
-            Watch prototype ➡️
-          </a>
+          <a href="video.mp4" class="about-card-btn">Watch prototype ➡️</a>
         </div>
       </div>
 
@@ -77,7 +75,7 @@
 
     <div class="about-cards">
       <p style="max-width:600px; margin: 0 auto 30px; text-align: justify;">
-        This project was created to highlight the often unseen challenges interns face during their professional journey. 
+        This project was created to highlight the often unseen challenges interns face during their professional journey.
         While internships are meant to be a learning experience, many interns struggle with stress, pressure, and emotional wellbeing.
         <br><br>
         This platform shares stories, insights, and simple tools to help interns better understand and manage their stress.
@@ -98,28 +96,30 @@
 
     </div>
   </section>
+
+  <!-- MOOD CHECK -->
   <section class="page" id="page-mood">
-  <h2>How are you feeling today?</h2>
+    <h2>How are you feeling today?</h2>
 
-  <div style="margin-top:20px;">
-    <button onclick="checkMood('happy')" class="pema-btn">😊 Happy</button>
-    <button onclick="checkMood('neutral')" class="pema-btn">😐 Neutral</button>
-    <button onclick="checkMood('stressed')" class="pema-btn">😣 Stressed</button>
-    <button onclick="checkMood('sad')" class="pema-btn">😔 Sad</button>
-  </div>
+    <div style="margin-top:20px;">
+      <button onclick="checkMood('happy')" class="pema-btn">😊 Happy</button>
+      <button onclick="checkMood('neutral')" class="pema-btn">😐 Neutral</button>
+      <button onclick="checkMood('stressed')" class="pema-btn">😣 Stressed</button>
+      <button onclick="checkMood('sad')" class="pema-btn">😔 Sad</button>
+    </div>
 
-  <div id="moodResult" style="margin-top:40px;"></div>
+    <div id="moodResult" style="margin-top:40px;"></div>
 
-  <!-- MUSIC PLAYER (hidden initially) -->
-  <div id="musicPlayer" style="margin-top:20px; display:none;">
-    <iframe 
-      id="musicFrame"
-      width="300" height="170"
-      src=""
-      allow="autoplay">
-    </iframe>
-  </div>
-</section>
+    <!-- MUSIC PLAYER (hidden initially) -->
+    <div id="musicPlayer" style="margin-top:20px; display:none;">
+      <iframe
+        id="musicFrame"
+        width="300" height="170"
+        src=""
+        allow="autoplay">
+      </iframe>
+    </div>
+  </section>
 
   <!-- RESOURCES -->
   <section class="page" id="page-resources">
@@ -133,10 +133,9 @@
         Stress affects both mind and body. Breathing exercises help calm your system and bring you back to the present.
         Try inhaling for 4 seconds, holding for 4, and exhaling for 6.
       </p>
-
       <div class="videos">
-        <iframe src="https://www.youtube.com/embed/eZBa63NZbbE"></iframe>
-        <iframe src="https://www.youtube.com/embed/tEmt1Znux58"></iframe>
+        <iframe src="https://www.youtube.com/embed/eZBa63NZbbE" width="360" height="215"></iframe> <!-- ✅ added size -->
+        <iframe src="https://www.youtube.com/embed/tEmt1Znux58" width="360" height="215"></iframe>
       </div>
     </div>
 
@@ -146,11 +145,10 @@
       <p>
         Music can help reduce stress and improve mood. Listen when you feel overwhelmed.
       </p>
-
       <div class="videos">
-        <iframe src="https://www.youtube.com/embed/bP9gMpl1gyQ"></iframe>
-        <iframe src="https://www.youtube.com/embed/hgUGe1cf3So"></iframe>
-        <iframe src="https://www.youtube.com/embed/IPmXzg0ZL80"></iframe>
+        <iframe src="https://www.youtube.com/embed/bP9gMpl1gyQ" width="360" height="215"></iframe>
+        <iframe src="https://www.youtube.com/embed/hgUGe1cf3So" width="360" height="215"></iframe>
+        <iframe src="https://www.youtube.com/embed/IPmXzg0ZL80" width="360" height="215"></iframe>
       </div>
     </div>
 
@@ -161,10 +159,9 @@
         Meditation helps you observe thoughts without judgment and build inner peace.
         Start with just a few minutes daily.
       </p>
-
       <div class="videos">
-        <iframe src="https://www.youtube.com/embed/ssss7V1_eyA"></iframe>
-        <iframe src="https://www.youtube.com/embed/ZToicYcHIOU"></iframe>
+        <iframe src="https://www.youtube.com/embed/ssss7V1_eyA" width="360" height="215"></iframe>
+        <iframe src="https://www.youtube.com/embed/ZToicYcHIOU" width="360" height="215"></iframe>
       </div>
     </div>
 
@@ -175,60 +172,75 @@
     <h2>Findings</h2>
 
     <div class="tableau-wrapper">
-      <iframe 
+      <iframe
         src="https://public.tableau.com/views/stressandwellbeingofinternsGCBSfinal/Story1?:showVizHome=no"
-        width="100%" height="650"></iframe>
+        width="100%" height="650" frameborder="0"></iframe> <!-- ✅ added frameborder -->
     </div>
   </section>
 
   <!-- GET HELP -->
-<section class="page" id="page-contact">
-  <h2>Get Help</h2>
-  <p>If you're struggling, you're not alone. Here are some resources to support you:</p>
+  <section class="page" id="page-contact">
+    <h2>Get Help</h2>
+    <p>If you're struggling, you're not alone. Here are some resources to support you:</p>
 
-  <div class="help-cards">
+    <div class="help-cards">
 
-    <div class="help-card">
-      <div class="card-icon">🆘</div>
-      <div class="card-label">Emergency</div>
-      <div class="card-value">1010</div>
-    </div>
-
-    <div class="help-card">
-      <div class="card-icon">🗯️</div>
-      <div class="card-label">Mental Health</div>
-      <div class="card-value">1098</div>
-    </div>
-
-    <div class="help-card">
-      <div class="card-icon">✉️</div>
-      <div class="card-label">Contact</div>
-      <div class="card-value">
-        <a href="mailto:helpline@thepema.gov.bt">
-          helpline@thepema.gov.bt
-        </a>
+      <div class="help-card">
+        <div class="card-icon">🆘</div>
+        <div class="card-label">Emergency</div>
+        <div class="card-value">1010</div>
       </div>
+
+      <div class="help-card">
+        <div class="card-icon">🗯️</div>
+        <div class="card-label">Mental Health</div>
+        <div class="card-value">1098</div>
+      </div>
+
+      <div class="help-card">
+        <div class="card-icon">✉️</div>
+        <div class="card-label">Contact</div>
+        <div class="card-value">
+          <a href="mailto:helpline@thepema.gov.bt">helpline@thepema.gov.bt</a>
+        </div>
+      </div>
+
+      <div class="help-card">
+        <div class="card-icon">🌐</div>
+        <div class="card-label">PEMA Website</div>
+        <a href="https://thepema.gov.bt/" target="_blank" class="pema-btn">Visit The PEMA ➡️</a>
+      </div>
+
     </div>
+  </section>
 
-    <!-- PEMA BUTTON CARD -->
-    <div class="help-card">
-      <div class="card-icon">🌐</div>
-      <div class="card-label">PEMA Website</div>
-
-      <a href="https://thepema.gov.bt/" target="_blank" class="pema-btn">
-        Visit The PEMA ➡️
-      </a>
+  <!-- CHAT -->
+  <button id="chat-toggle">🗨️</button> 
+  <div id="chat-win">
+    <div class="chdr">
+      <div>🌿 your wellbeing friend</div>
+      <button id="chx">✖</button>
     </div>
-
+    <div id="cmsgs"></div>
+    <div class="cqr">
+      <button onclick="csq(this)">😰 I'm stressed</button>  
+      <button onclick="csq(this)">😴 I'm exhausted</button>
+      <button onclick="csq(this)">😢 I'm overwhelmed</button>
+    
+    </div>
+    <div class="cinp">
+      <textarea id="cci"></textarea>
+      <button id="csb">Send</button>
+    </div>
   </div>
-</section>
+
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2026 Jamyang Chozom. All rights reserved.</p>
     <a href="https://github.com/jamyangc/BDS-project" target="_blank">
-    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" 
-         alt="GitHub" 
-         style="width:26px;height:26px;opacity:0.6;">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+           alt="GitHub"
+           style="width:26px;height:26px;opacity:0.6;">
     </a>
   </footer>
 
