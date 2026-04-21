@@ -57,3 +57,4 @@ function checkMood(mood) {
     </div>
   `;
 }
+
