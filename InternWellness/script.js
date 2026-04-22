@@ -39,7 +39,7 @@ function checkMood(mood) {
     action = `<button onclick="showPage('resources')" class="pema-btn">Start Breathing 🌬️</button>`;
   }
 
-  if (mood === "sad") {
+  else if (mood === "sad") {
     message = "You are feeling down 😔";
     suggestion = "You are not alone. Consider calming music or reaching out.";
     action = `
@@ -57,8 +57,6 @@ function checkMood(mood) {
     </div>
   `;
 }
-
-const API_KEY = "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"
 
 let history = []
 
@@ -80,20 +78,19 @@ async function send(text){
   history.push({ role:"user",content: text});
 
   try{
-  const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-    method: "POST",
-    headers: {    "Content-Type": "application/json",
-        "Authorization": "Bearer " + API_KEY
-      },
-    body: JSON.stringify({
-      model: "llama-3.3-70b-versatile",
-      max_tokens:200,
-      messages: [
-        { role: "system", content: "You are a supportive wellbeing assistant for interns oranyone who feels stressed." },
-        ...history
-      ]
-    })
-  });
+    const res = await fetch("/chat", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    messages: [
+      { role: "system", content: "You are a supportive wellbeing assistant for interns or anyone who feels stressed." },
+      ...history
+    ]
+  })
+});
+  
   const data = await res.json();
   const reply = data.choices[0].message.content;
   history.push({ role: "assistant", content: reply });
