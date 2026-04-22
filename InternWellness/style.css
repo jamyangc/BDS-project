@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #ddc7da;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Ariel';
 }
 
 /* ── NAV ── */
@@ -26,7 +26,7 @@ nav button {
   margin: 0 10px;
   font-size: 13px;
   cursor: pointer;
-  font-family: 'Courier New', monospace; /* ✅ fixed from LiquidCrystal */
+  font-family: 'Ariel';
   letter-spacing: 0.08em;
   padding: 6px 0;
   border-bottom: 2px solid transparent;
@@ -81,10 +81,10 @@ h2 {
 /* ── TEXT ── */
 p {
   color: black;
-  font-size: 16px;
+  font-size: 20px;
   max-width: 500px;
   margin: 0 auto 30px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Ariel';
   line-height: 1.7;
 }
 
@@ -325,7 +325,7 @@ footer {
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0,0,0,0.25);
   z-index: 999;
-  display: none; /* ✅ hidden by default */
+  display: none; 
 }
 
 #chat-win.open {
