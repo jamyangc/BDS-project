@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Intern Wellbeing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+
+    body {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f0ede6;
+      font-family: 'Inter', sans-serif;
+    }
+
+    nav {
+      background-color: #f0ede6;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #d6d0c4;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav button {
+      color: #1a3a2a;
+      background: none;
+      border: none;
+      margin: 0 10px;
+      font-size: 13px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.08em;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    nav button:hover { color: #2e6b45; border-bottom-color: #2e6b45; }
+
+    .page { display: none; }
+
+    .page.active {
+      display: block;
+      animation: fadeup 0.4s ease;
+    }
+
+    @keyframes fadeup {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      color: #1a3a2a;
+      font-size: 52px;
+      margin-top: 60px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h2 {
+      color: #1a3a2a;
+      font-size: 38px;
+      margin-top: 60px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    p {
+      color: #2c4a38;
+      font-size: 16px;
+      max-width: 500px;
+      margin: 0 auto 30px;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+    }
+
+    section { padding: 50px 20px; }
+
+    .tableau-wrapper {
+      width: 90%;
+      max-width: 960px;
+      margin: 20px auto;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(26,58,42,0.10);
+    }
+
+    /* ================= CHAT ================= */
+
+    #chat-toggle {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: none;
+      background: #1a3a2a;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    #chat-win {
+      position: fixed;
+      bottom: 90px;
+      right: 22px;
+      width: 320px;
+      height: 420px;
+      background: #fff;
+      border-radius: 14px;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      z-index: 999;
+    }
+
+    #chat-win.open { display: flex; }
+
+    .chdr {
+      background: #1a3a2a;
+      color: white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #cmsgs {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    .cmsg { margin: 6px 0; display: flex; }
+    .cmsg.user { justify-content: flex-end; }
+
+    .cmb {
+      padding: 8px 10px;
+      border-radius: 10px;
+      max-width: 75%;
+      background: #e8f0e9;
+    }
+
+    .cmsg.user .cmb {
+      background: #1a3a2a;
+      color: white;
+    }
+
+    .cqr {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 8px;
+      border-top: 1px solid #ddd;
+    }
+
+    .cqr button {
+      font-size: 11px;
+      padding: 5px 8px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #f0ede6;
+    }
+
+    .cinp {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+
+    .cinp textarea {
+      flex: 1;
+      border: none;
+      padding: 8px;
+      resize: none;
+      font-family: inherit;
+    }
+
+    .cinp button {
+      background: #1a3a2a;
+      color: white;
+      border: none;
+      padding: 0 14px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <strong style="color:#1a3a2a;font-size:13px;">wellbeing for interns</strong>
+  </div>
+
+  <div>
+    <button onclick="showPage('home')">HOME</button>
+    <button onclick="showPage('about')">ABOUT</button>
+    <button onclick="showPage('breathing')">BREATHING</button>
+    <button onclick="showPage('music')">MUSIC</button>
+    <button onclick="showPage('meditation')">MEDITATION</button>
+    <button onclick="showPage('findings')">FINDINGS</button>
+    <button onclick="showPage('contact')">GET HELP</button>
+  </div>
+</nav>
+
+<!-- ================= ALL YOUR ORIGINAL CONTENT KEPT ================= -->
+
+<section class="page active" id="page-home">
+  <h1>Your wellbeing matters here.</h1>
+</section>
+
+<section class="page" id="page-about">
+  <h2>About Page</h2>
+</section>
+
+<section class="page" id="page-breathing">
+  <h2>Breathing Exercise</h2>
+</section>
+
+<section class="page" id="page-music">
+  <h2>Music</h2>
+</section>
+
+<section class="page" id="page-meditation">
+  <h2>Meditation</h2>
+</section>
+
+<section class="page" id="page-findings">
+  <div class="tableau-wrapper">
+    <!-- your tableau code stays EXACTLY -->
+    <h2>Findings</h2>
+  </div>
+</section>
+
+<section class="page" id="page-contact">
+  <h2>Get Help</h2>
+</section>
+
+<!-- ================= CHAT UI ADDED ================= -->
+
+<button id="chat-toggle">💬</button>
+
+<div id="chat-win">
+  <div class="chdr">
+    <div>🌿 Wellbeing Assistant</div>
+    <button id="chx">✖</button>
+  </div>
+
+  <div id="cmsgs"></div>
+
+  <div class="cqr">
+    <button onclick="csq(this)">😰 I'm stressed</button>
+    <button onclick="csq(this)">😴 I'm exhausted</button>
+    <button onclick="csq(this)">😢 I'm overwhelmed</button>
+    <button onclick="csq(this)">💡 Give me tips</button>
+  </div>
+
+  <div class="cinp">
+    <textarea id="cci"></textarea>
+    <button id="csb">Send</button>
+  </div>
+</div>
+
+<script>
+
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+}
+
+const API_KEY = "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";
+
+let history = [];
+
+const win = document.getElementById("chat-win");
+const toggle = document.getElementById("chat-toggle");
+const msgs = document.getElementById("cmsgs");
+const input = document.getElementById("cci");
+const sendBtn = document.getElementById("csb");
+
+toggle.onclick = () => win.classList.toggle("open");
+document.getElementById("chx").onclick = () => win.classList.remove("open");
+
+function csq(btn){ send(btn.innerText); }
+
+sendBtn.onclick = () => {
+  send(input.value);
+  input.value = "";
+};
+
+async function send(text){
+  if(!text) return;
+
+  addMsg("user", text);
+  history.push({role:"user",content:text});
+
+  try{
+    const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "Authorization":"Bearer " + API_KEY
+      },
+      body: JSON.stringify({
+        model:"llama-3.3-70b-versatile",
+        messages:[
+          {role:"system",content:"You are a supportive wellbeing assistant for interns."},
+          ...history
+        ]
+      })
+    });
+
+    const data = await res.json();
+    const reply = data.choices[0].message.content;
+
+    history.push({role:"assistant",content:reply});
+    addMsg("ai", reply);
+
+  }catch(err){
+    addMsg("ai","Error: "+err.message);
+  }
+}
+
+function addMsg(role,text){
+  const div = document.createElement("div");
+  div.className = "cmsg "+(role==="user"?"user":"");
+  div.innerHTML = `<div class="cmb">${text}</div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+</script>
+
+</body>
+</html>

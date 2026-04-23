@@ -1,0 +1,25 @@
+{
+  "name": "bds-project-main",
+  "version": "1.0.0",
+  "description": "the files and folders uploaded are output from my intern project on stress and wellbeing of interns of GCBS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamyangc/BDS-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jamyangc/BDS-project/issues"
+  },
+  "homepage": "https://github.com/jamyangc/BDS-project#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}

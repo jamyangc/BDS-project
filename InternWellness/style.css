@@ -126,13 +126,16 @@ iframe {
 
 /* ── TABLEAU ── */
 .tableau-wrapper {
-  width: 90%;
+  width: 80%;
+  height: 400;
   max-width: 960px;
   margin: 20px auto;
   background: #fff;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 2px 16px rgba(26,58,42,0.10);
+  padding: 20px 20px 80px; 
+
 }
 
 /* ── HELP CARDS ── */
