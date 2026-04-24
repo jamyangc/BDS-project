@@ -106,3 +106,38 @@ function addMsg(role, text) {
   msgs.appendChild(div);
   msgs.scrollTop = msgs.scrollHeight;
 } 
+
+// ── DAILY VIDEO PLAYER ──
+const musicVideos = ["SpQ8-xiDYWI", "hgUGe1cf3So","2OEL4P1Rz04", "5qap5aO4i9A", "DWcJFNfaw9c"];
+const meditationVideos = ["inpok4MKVLM", "ZToicYcHIOU", "6p_yaNFSYao", ""];
+const breathingVideos = ["YRPh_GaiL8s", "aXItOY0sLRY", "odADwWzHR24"];
+
+const today = new Date().getDate();
+
+function playCategory(type) {
+  let videos = [];
+  let message = "";
+
+  if (type === "music") {
+    videos = musicVideos;
+    message = "Relax with soothing music 🎧";
+  } else if (type === "meditation") {
+    videos = meditationVideos;
+    message = "Take a moment to meditate 🧘";
+  } else if (type === "breathing") {
+    videos = breathingVideos;
+    message = "Follow this breathing exercise 🌬️";
+  }
+
+  const videoId = videos[today % videos.length];
+
+  document.getElementById("message").innerText = message;
+  document.getElementById("videoPlayer").innerHTML = `
+    <iframe width="400" height="220"
+      src="https://www.youtube.com/embed/${videoId}"
+      frameborder="0"
+      allowfullscreen
+      style="border-radius:12px; margin-top:15px;">
+    </iframe>
+  `;
+}
