@@ -108,7 +108,7 @@ function addMsg(role, text) {
 } 
 
 // ── DAILY VIDEO PLAYER ──
-const musicVideos = ["JdqL89ZZwFw", "hgUGe1cf3So","2OEL4P1Rz04", "5qap5aO4i9A", "DWcJFNfaw9c"];
+const musicVideos = ["JdqL89ZZwFw", "hgUGe1cf3So", "5qap5aO4i9A", "DWcJFNfaw9c"];
 const meditationVideos = ["inpok4MKVLM", "ZToicYcHIOU", "6p_yaNFSYao", ""];
 const breathingVideos = ["YRPh_GaiL8s", "aXItOY0sLRY", "odADwWzHR24"];
 
