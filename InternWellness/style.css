@@ -6,6 +6,16 @@ body {
   font-family: 'Ariel';
 }
 
+.intro-wrapper {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 40px;
+  background: #eba8a8;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  text-align: justify;
+  font-family: cursive;
+}
 /* ── NAV ── */
 nav {
   background-color: #ffffff;
