@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #ddc7da;
-  font-family: 'Ariel';
+  font-family: 'cursive';
 }
 
 .intro-wrapper {
@@ -14,8 +14,9 @@ body {
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   text-align: justify;
-  font-family: cursive;
+  font-family: 'cursive';
 }
+
 /* ── NAV ── */
 nav {
   background-color: #ffffff;
@@ -36,7 +37,7 @@ nav button {
   margin: 0 10px;
   font-size: 13px;
   cursor: pointer;
-  font-family: 'Ariel';
+  font-family: 'Cursive';
   letter-spacing: 0.08em;
   padding: 6px 0;
   border-bottom: 2px solid transparent;
@@ -69,7 +70,7 @@ h1 {
   color: #1a3a2a;
   font-size: 52px;
   margin-top: 60px;
-  font-family: 'Courier New', monospace;
+  font-family: 'Cursive';
   font-weight: 600;
   line-height: 1.2;
   animation: floaty 3s infinite ease-in-out;
@@ -79,7 +80,7 @@ h2 {
   color: black;
   font-size: 38px;
   margin-top: 30px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Cursive';
   animation: floaty 3s infinite ease-in-out;
 }
 
@@ -94,7 +95,7 @@ p {
   font-size: 20px;
   max-width: 500px;
   margin: 0 auto 30px;
-  font-family: 'Ariel';
+  font-family: 'Cursive';
   line-height: 1.7;
 }
 
@@ -129,7 +130,7 @@ iframe {
 }
 
 .resource-block h3 {
-  font-family: 'Source Serif 4', serif;
+  font-family: 'cursive';
   color: #000704;
   margin-bottom: 10px;
 }
@@ -144,8 +145,7 @@ iframe {
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 2px 16px rgba(26,58,42,0.10);
-  padding: 20px 20px 80px; 
-
+  padding: 20px 20px 80px;
 }
 
 /* ── HELP CARDS ── */
@@ -182,74 +182,124 @@ iframe {
   font-size: 22px;
   font-weight: 600;
   color: #1a3a2a;
-  font-family: 'lora', serif;
+  font-family: 'cursive';
 }
 
-/* ── ABOUT CARDS ── */
+/* ── ABOUT CARDS (story/prototype) ── */
 .about-cards {
-  display: flex;
-  flex-direction: row; /* ✅ fixed — side by side on desktop */
-  flex-wrap: wrap;
-  gap: 14px;
-  max-width: 620px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  max-width: 800px;
   margin: 0 auto;
-  text-align: left;
 }
 
 .about-card {
-  background: #fff;
+  background: #f5f3ee;
   border-radius: 14px;
-  padding: 22px 24px;
-  display: flex;
-  gap: 18px;
-  align-items: flex-start;
-  transition: box-shadow 0.15s;
-  border: 0.5px solid rgba(0,0,0,0.1);
+  padding: 1.5rem 1.25rem;
 }
 
-.about-card:hover {
-  box-shadow: 0 2px 12px rgba(26,58,42,0.07);
-}
-
-.about-card-icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 10px;
-}
-
-.icon-story { background: #e8f0e9; }
-.icon-proto { background: #e3ecf5; }
-
-.about-card-tag {
-  font-size: 10px;
+.about-card h4 {
+  font-size: 15px;
   font-weight: 600;
-  text-transform: uppercase;
-  color: #5a7a66;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
 }
 
-.about-card-title {
-  font-size: 19px;
-  font-family: 'Playfair Display', serif;
-  color: black;
-}
-
-.about-card-desc {
-  font-size: 14px;
-  color: #000000;
-  line-height: 1.65;
-}
-
-.about-card-btn {
+.about-card p {
   font-size: 13px;
-  padding: 7px 14px;
-  border-radius: 8px;
-  border: 0.5px solid rgba(0,0,0,0.18);
-  text-decoration: none;
-  color: #000302;
+  color: #666;
+  line-height: 1.6;
+  max-width: 100%;
+  margin: 0;
 }
 
-.about-card-btn:hover {
-  background: #f2f6f3;
+/* ── INFO CARDS (4 cards on home) ── */
+.about-info-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: left;
+  min-height: 400px; /* 👈 add this */
+}
+
+
+
+.about-info-card {
+  background: white;
+  border-radius: 14px;
+  padding: 1.5rem 2rem; /* FIXED */
+  border: 1px solid #e0d4ec;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-sizing: border-box;
+  min-height: 240px; /* 👈 THIS makes box bigger */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers content nicely */
+}
+
+
+.about-icon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.about-info-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.about-info-card p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 100%;
+  text-align: left;
+}
+
+/* ── ABOUT PAGE ── */
+.about-section {
+  padding: 3rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-tag {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: #6a8f6a;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.about-heading {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.about-heading em {
+  color: #6a8f6a;
+  font-style: italic;
+}
+
+.about-desc {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 2.5rem;
 }
 
 /* ── FOOTER ── */
@@ -286,12 +336,11 @@ footer {
   h2 { font-size: 22px; }
 
   .about-cards {
-    flex-direction: column; /* stacks on mobile */
-    align-items: center;
+    grid-template-columns: 1fr;
   }
 
-  .about-card {
-    width: 90%;
+  .about-info-cards {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .videos {
@@ -338,12 +387,12 @@ footer {
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0,0,0,0.25);
   z-index: 999;
-  display: none; 
+  display: none;
 }
 
 #chat-win.open {
   display: flex;
-  flex-direction: column; /* ✅ fixed — moved here */
+  flex-direction: column;
 }
 
 /* ── CHAT HEADER ── */
@@ -357,7 +406,7 @@ footer {
 }
 
 .chdr button {
-  background: none;       /* ✅ fixed — styled close button */
+  background: none;
   border: none;
   color: white;
   cursor: pointer;
@@ -418,12 +467,12 @@ footer {
   padding: 8px;
   resize: none;
   font-family: inherit;
-  height: 40px;       
-  outline: none;      
+  height: 40px;
+  outline: none;
 }
 
 .cinp textarea:focus {
-  outline: none;  
+  outline: none;
 }
 
 .cinp button {
