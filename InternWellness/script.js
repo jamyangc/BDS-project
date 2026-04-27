@@ -36,7 +36,9 @@ function checkMood(mood) {
   else if (mood === "stressed") {
     message = "Your stress level seems high 😣";
     suggestion = "Take a break and try breathing exercises.";
-    action = `<button onclick="showPage('resources')" class="pema-btn">Start Breathing 🌬️</button>`;
+    action = `<button onclick="showPage('resources')" class="pema-btn">Start Breathing 🌬️</button>
+    <br><br>
+    <button onclick="showPage('contact')" class="pema-btn">Get Help 🚨</button>`;
   }
 
   else if (mood === "sad") {
@@ -44,8 +46,6 @@ function checkMood(mood) {
     suggestion = "You are not alone. Consider calming music or reaching out.";
     action = `
       <button onclick="showPage('resources')" class="pema-btn">Play Music 🎵</button>
-      <br><br>
-      <button onclick="showPage('contact')" class="pema-btn">Get Help 🚨</button>
     `;
   }
 
@@ -85,7 +85,7 @@ async function send(text){
   },
   body: JSON.stringify({
     messages: [
-      { role: "system", content: "You are a supportive wellbeing assistant for interns or anyone who feels stressed." },
+      { role: "system", content: "You are a supportive wellbeing assistant for interns or anyone who feels stressed or those who are not stressed too." },
       ...history
     ]
   })
@@ -109,8 +109,8 @@ function addMsg(role, text) {
 
 // ── DAILY VIDEO PLAYER ──
 const musicVideos = ["zFs8CnOeAA4","t14n8Uhq-5U","hgUGe1cf3So","JdqL89ZZwFw", "Njt1io9jakQ"];
-const meditationVideos = ["inpok4MKVLM", "ZToicYcHIOU", "6p_yaNFSYao", ""];
-const breathingVideos = ["YRPh_GaiL8s", "aXItOY0sLRY", "odADwWzHR24"];
+const meditationVideos = ["j734gLbQFbU", "inpok4MKVLM", "ru4hdcMmlwQ", "ssss7V1_eyA"];
+const breathingVideos = ["YRPh_GaiL8s", "aXItOY0sLRY", "odADwWzHR24", "tEmt1Znux58"];
 
 const today = new Date().getDate();
 
