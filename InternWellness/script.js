@@ -108,7 +108,7 @@ function addMsg(role, text) {
 } 
 
 // ── DAILY VIDEO PLAYER ──
-const musicVideos = ["JdqL89ZZwFw", "hgUGe1cf3So", "5qap5aO4i9A", "DWcJFNfaw9c"];
+const musicVideos = ["zFs8CnOeAA4","t14n8Uhq-5U","hgUGe1cf3So","JdqL89ZZwFw", "Njt1io9jakQ"];
 const meditationVideos = ["inpok4MKVLM", "ZToicYcHIOU", "6p_yaNFSYao", ""];
 const breathingVideos = ["YRPh_GaiL8s", "aXItOY0sLRY", "odADwWzHR24"];
 
@@ -141,3 +141,4 @@ function playCategory(type) {
     </iframe>
   `;
 }
+
