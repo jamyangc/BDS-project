@@ -118,6 +118,7 @@ iframe {
   border-radius: 8px;
   border: none;
   max-width: 100%;
+  width: 100%;
 }
 
 /* ── RESOURCE BLOCK ── */
