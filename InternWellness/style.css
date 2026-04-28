@@ -118,7 +118,7 @@ iframe {
   border-radius: 8px;
   border: none;
   max-width: 100%;
-  width: 100%;
+  /* removed width: 100% — was stretching on laptop */
 }
 
 /* ── RESOURCE BLOCK ── */
@@ -479,18 +479,23 @@ footer {
   }
 
   .help-cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.help-card {
-  max-width: 100%;
-  padding: 16px;
-}
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 0 12px;
+  }
 
   .help-card {
-    max-width: 340px;
-    width: 100%;
+    max-width: 100%;
+    padding: 20px 12px;
+  }
+
+  .help-card .card-value {
+    font-size: 18px;
+  }
+
+  .help-card .card-label {
+    font-size: 10px;
   }
 
   .tableau-wrapper {
@@ -539,7 +544,20 @@ footer {
 
   #chat-win {
     width: calc(100vw - 16px);
-    right: 8px;
-    bottom: 80px;
+    right: 12px;
+    bottom: 100px;
+  }
+
+  /* iframes only go full width on phone */
+  iframe {
+    width: 100%;
+  }
+
+  #videoPlayer iframe {
+    height: 150px;
+  }
+
+  #musicFrame {
+    height: 50px;
   }
 }
