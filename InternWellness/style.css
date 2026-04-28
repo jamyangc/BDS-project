@@ -384,7 +384,7 @@ footer {
   border-radius: 10px;
   max-width: 75%;
   background: #e8f0e9;
-  font-family: "Playfair Display";
+  font-family:  'Playfair Display', serif;
 }
 
 .cmsg.user .cmb {
