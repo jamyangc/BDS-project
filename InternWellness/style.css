@@ -223,25 +223,22 @@ iframe {
   max-width: 800px;
   margin: 2rem auto;
   text-align: left;
-  min-height: 400px; /* 👈 add this */
+  min-height: 400px;
 }
-
-
 
 .about-info-card {
   background: white;
   border-radius: 14px;
-  padding: 1.5rem 2rem; /* FIXED */
+  padding: 1.5rem 2rem;
   border: 1px solid #e0d4ec;
   text-align: left;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   box-sizing: border-box;
-  min-height: 240px; /* 👈 THIS makes box bigger */
+  min-height: 240px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* centers content nicely */
+  justify-content: center;
 }
-
 
 .about-icon {
   font-size: 24px;
@@ -310,52 +307,6 @@ footer {
   margin-top: 40px;
   background-color: #f0ede6;
   text-align: center;
-}
-
-/* ── MOBILE RESPONSIVE ── */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-
-  nav div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px;
-  }
-
-  nav button {
-    font-size: 12px;
-    padding: 6px 10px;
-  }
-
-  h1 { font-size: 28px; }
-  h2 { font-size: 22px; }
-
-  .about-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .about-info-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .videos {
-    flex-direction: column;
-  }
-
-  .videos iframe {
-    width: 100%;
-    height: 200px;
-  }
-
-  .help-cards {
-    flex-direction: column;
-    align-items: center;
-  }
 }
 
 /* ── CHAT TOGGLE BUTTON ── */
@@ -481,4 +432,106 @@ footer {
   border: none;
   padding: 0 14px;
   cursor: pointer;
+}
+
+/* ── RESPONSIVE: TABLET ── */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  nav div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  nav button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  h1 { font-size: 36px; }
+  h2 { font-size: 26px; }
+
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .about-info-cards {
+    grid-template-columns: repeat(2, 1fr);
+    min-height: unset;
+  }
+
+  .videos {
+    flex-direction: column;
+  }
+
+  .videos iframe {
+    width: 100%;
+    height: 200px;
+  }
+
+  .help-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .help-card {
+    max-width: 340px;
+    width: 100%;
+  }
+
+  .tableau-wrapper {
+    width: 95%;
+  }
+}
+
+/* ── RESPONSIVE: PHONE ── */
+@media (max-width: 480px) {
+  h1 { font-size: 28px; margin-top: 30px; }
+  h2 { font-size: 22px; }
+  p  { font-size: 15px; }
+
+  .page {
+    padding: 20px 14px 100px;
+  }
+
+  .intro-wrapper {
+    margin: 16px 12px;
+    padding: 20px 16px;
+  }
+
+  .about-info-cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 1rem auto;
+  }
+
+  .about-info-card {
+    min-height: unset;
+    padding: 1rem 1.1rem;
+  }
+
+  .resource-block {
+    padding: 16px 14px;
+  }
+
+  .tableau-wrapper {
+    width: 100%;
+    padding: 12px 10px 40px;
+  }
+
+  .tableau-wrapper iframe {
+    height: 300px;
+  }
+
+  #chat-win {
+    width: calc(100vw - 16px);
+    right: 8px;
+    bottom: 80px;
+  }
 }
