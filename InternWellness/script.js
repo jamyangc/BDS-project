@@ -168,7 +168,7 @@ function checkMood(mood) {
   document.getElementById("moodResult").innerHTML = `
     <p>${message}</p>
     <a href="#page-resources" onclick="showPage('resources')" 
-       style="display:inline-block; margin-top:10px; color:#2e6b45; font-weight:bold;">
+       style="display:inline-block; margin-top:10px; color: purple; font-weight:bold;">
        🎮 Go to fun activities here
     </a>
   `;
