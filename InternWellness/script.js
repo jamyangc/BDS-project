@@ -158,18 +158,18 @@ function checkMood(mood) {
   if (mood === "happy") {
     message = "That's amazing! Keep the positive energy going 😊";
   } else if (mood === "neutral") {
-    message = "You’re doing okay — maybe a small break will help 🌿";
+    message = "You are doing okay. Maybe a small break will help 💪 ";
   } else if (mood === "stressed") {
     message = "Take a deep breath. You deserve a break 🧘‍♀️";
   } else if (mood === "sad") {
-    message = "I’m really sorry you're feeling this way 💛";
+    message = "I am really sorry you're feeling this way 💛";
   }
 
   document.getElementById("moodResult").innerHTML = `
     <p>${message}</p>
     <a href="#page-resources" onclick="showPage('resources')" 
        style="display:inline-block; margin-top:10px; color:#2e6b45; font-weight:bold;">
-       🎮 Go to calming activities here
+       🎮 Go to fun activities here
     </a>
   `;
 }
