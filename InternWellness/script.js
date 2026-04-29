@@ -151,3 +151,25 @@ function changeSlide(direction) {
   slides[currentSlide].classList.add('active');
   document.getElementById('slide-counter').textContent = `${currentSlide + 1} / ${slides.length}`;
 }
+
+function checkMood(mood) {
+  let message = "";
+  
+  if (mood === "happy") {
+    message = "That's amazing! Keep the positive energy going 😊";
+  } else if (mood === "neutral") {
+    message = "You’re doing okay — maybe a small break will help 🌿";
+  } else if (mood === "stressed") {
+    message = "Take a deep breath. You deserve a break 🧘‍♀️";
+  } else if (mood === "sad") {
+    message = "I’m really sorry you're feeling this way 💛";
+  }
+
+  document.getElementById("moodResult").innerHTML = `
+    <p>${message}</p>
+    <a href="#page-resources" onclick="showPage('resources')" 
+       style="display:inline-block; margin-top:10px; color:#2e6b45; font-weight:bold;">
+       🎮 Go to calming activities here
+    </a>
+  `;
+}
