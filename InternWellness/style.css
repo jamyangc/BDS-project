@@ -606,3 +606,101 @@ footer {
   justify-content: center;
   gap: 1.5rem;
 }
+
+/* ─────────────────────────────
+   FINAL MOBILE RESPONSIVENESS FIX
+───────────────────────────── */
+
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    max-width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  .intro-wrapper,
+  .resource-block,
+  .activities-wrapper,
+  .tableau-wrapper {
+    width: 92%;
+    max-width: 100%;
+    padding: 18px;
+    margin: 20px auto;
+  }
+
+  .about-info-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .help-cards {
+    grid-template-columns: 1fr;
+  }
+
+  nav div {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav button {
+    margin: 5px;
+    font-size: 12px;
+  }
+
+  .slide {
+    padding: 10px;
+  }
+
+  .slide .activity-emoji {
+    font-size: 36px;
+  }
+
+  iframe {
+    width: 100% !important;
+    height: auto;
+  }
+
+  #chat-win {
+    width: 95vw;
+    right: 2.5vw;
+    bottom: 80px;
+    height: 60vh;
+  }
+}
+
+/* small phones */
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .page {
+    padding: 15px 10px 80px;
+  }
+
+  .resource-block,
+  .activities-wrapper {
+    padding: 14px;
+  }
+
+  nav {
+    padding: 10px;
+  }
+}
