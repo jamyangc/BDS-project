@@ -131,6 +131,9 @@ iframe {
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 
+
+
+
 .resource-block h3 {
   font-family: 'cursive';
   color: #000704;
@@ -561,4 +564,45 @@ footer {
   #musicFrame {
     height: 50px;
   }
+}
+
+/* ── MATCHED WRAPPER SIZE FIX ── */
+.resource-block,
+.activities-wrapper {
+  max-width: 700px;
+  width: 95%;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.activities-wrapper {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* ── SLIDESHOW ── */
+.slideshow {
+  position: relative;
+  min-height: 220px;
+  margin-top: 1.5rem;
+}
+
+.slide {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.slide.active {
+  display: flex;
+}
+
+.slideshow-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
 }
