@@ -153,6 +153,7 @@
 
   <!-- MOOD CHECK -->
   <section class="page" id="page-mood">
+    <div class = "mood-wrapper">
     <h2>How are you feeling today?</h2>
     <div style="margin-top:20px;">
       <button onclick="checkMood('happy')" class="pema-btn">😊 Happy</button>
@@ -160,11 +161,14 @@
       <button onclick="checkMood('stressed')" class="pema-btn">😣 Stressed</button>
       <button onclick="checkMood('sad')" class="pema-btn">😔 Sad</button>
     </div>
+
+  
     <div id="moodResult" style="margin-top:40px; font-family: cursive"></div>
     <div id="musicPlayer" style="margin-top:20px; display:none; font-family: cursive">
       <iframe id="musicFrame" style="width:100%; max-width:500px; height:170px;" src="" allow="autoplay"></iframe>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- RESOURCES -->
   <section class="page" id="page-resources">
@@ -207,7 +211,7 @@
           <a href="https://typatone.com/" target="_blank" class="pema-btn">Open Activity</a>
         </div>
         <div class="slide">
-          <span class="activity-emoji">🌧️⛈️</span>
+          <span class="activity-emoji">🌧️</span>
           <h3>sound of rain</h3>
           <p style="font-size: medium;">listen to rainy sound </p>
           <a href="https://www.rainymood.com/" target="_blank" class="pema-btn">Open Activity</a>
@@ -248,7 +252,7 @@
         <button onclick="changeSlide(-1)" class="pema-btn">← Prev</button>
         <span id="slide-counter" style="font-family: cursive; font-size: small;">1 / 9</span>
         <button onclick="changeSlide(1)" class="pema-btn">Next →</button>
-      </div>
+      </div>    
 
       <p style="text-align: center; font-size: small; color: gray; margin-top: 1rem;">Activities sourced from <a href="https://llamalife.co/blog/best-free-sites-for-focus-destress" target="_blank">Llama Life</a>and <a href="https://www.hongkiat.com/blog/websites-to-keep-you-calm/" target="_blank"> hongkiat </a>  </p>
     </div>
@@ -257,7 +261,7 @@
   <!-- FINDINGS -->
   <section class="page" id="page-findings">
     <h2>Findings</h2>
-    <p style="text-align:justify; font-family: cursive; font-size: medium;">The findings presented below are based on data collected from 156 third-year out of 349 GCBS interns who were placed in various organizations for a six-month internship period.</p>
+    <p style="text-align:justify; font-family: cursive; font-size: medium;">The findings presented below are based on data collected from 156 third-year out of 349 from <a href="https://gcbs.edu.bt" target="_blank">Gedu College of Business Studies</a> interns who were placed in various organizations for a six-month internship period.</p>
     <div class="tableau-wrapper">
       <iframe
         src="https://public.tableau.com/views/stressandwellbeingofinternsGCBSfinal/Story1?:showVizHome=no&:embed=true&:toolbar=no"
@@ -324,6 +328,7 @@
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2026 Jamyang Chozom. All rights reserved.</p>
+    <p>🏢 Bhutan Data Scientist Pvt. Ltd. </p>
     <a href="https://github.com/jamyangc/BDS-project" target="_blank">
       <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
            alt="GitHub" style="width:26px;height:26px;opacity:0.6;">
