@@ -19,7 +19,6 @@
       <button onclick="showPage('about')">ABOUT</button>
       <button onclick="showPage('mood')">MOOD CHECK</button>
       <button onclick="showPage('resources')">RESOURCES</button>
-      <button onclick="showPage('tools')"> COOL TOOLS</button>
       <button onclick="showPage('findings')">FINDINGS</button>
       <button onclick="showPage('contact')">GET HELP</button>
     </div>
@@ -59,7 +58,6 @@
 
   <!-- HOME -->
   <section class="page" id="page-home">
-
     <div style="display: flex; align-items: center; gap: 2rem;">
       <h1 style="font-family: cursive; font-size: 2.5rem; line-height: 1.6; flex: 1;">
         Feeling stressed <br>
@@ -171,6 +169,7 @@
   <!-- RESOURCES -->
   <section class="page" id="page-resources">
     <h2>Resources for Wellbeing</h2>
+
     <div class="resource-block">
       <h3>🌿 Choose what you need</h3>
       <div style="margin-top:15px;">
@@ -181,16 +180,74 @@
       <div id="message" style="margin-top:20px; font-size:18px; color:#444;"></div>
       <div id="videoPlayer" style="margin-top:10px;"></div>
     </div>
-    <div style = "margin-top: 3rm;">
-      <p style = "text-align :center;"> take a mindful break</p>
-       <div style="margin-bottom: 2rem;">
-      <h3 style="font-family: cursive;">🌊 Fluid Simulation: let your stress melt away</h3>
-      <p style="font-size: small; font-family: 'Playfair Display'; margin-bottom: 0.5rem;">Move your mouse around to create mesmerizing streams of color.</p>
-      <iframe src="https://paveldogreat.github.io/WebGL-Fluid-Simulation/" 
-      width="60%" height="250px" 
-      style="border: none; border-radius: 12px;">
-    </iframe>
-  </div>
+
+    <div class="activities-wrapper">
+      <p style="text-align: center; font-weight: 400;">🎮 Mindful Activities</p>
+      <p style="text-align: center; font-size: small; font-family: 'Playfair Display';">
+        Take a break — browse through and pick what calls to you!
+      </p>
+
+      <div class="slideshow">
+        <div class="slide active">
+          <span class="activity-emoji">🌊</span>
+          <h3>Fluid Simulation</h3>
+          <p style="font-size: small;">Move your mouse to create calming streams of color.</p>
+          <a href="https://paveldogreat.github.io/WebGL-Fluid-Simulation/" target="_blank" class="pema-btn">Open Activity</a>
+        </div>
+        <div class="slide">
+          <span class="activity-emoji">🚃</span>
+          <h3>Short Trip</h3>
+          <p style="font-size: small;">Guide a little cat on a peaceful tram ride. Use arrow keys to move.</p>
+          <a href="https://alexanderperrin.com.au/paper/shorttrip/" target="_blank" class="pema-btn">Open Activity</a>
+        </div>
+        <div class="slide">
+          <span class="activity-emoji">🎵</span>
+          <h3>Typatone</h3>
+          <p style="font-size: small;">Type anything — every letter becomes a musical note!</p>
+          <a href="https://typatone.com/" target="_blank" class="pema-btn">Open Activity</a>
+        </div>
+        <div class="slide">
+          <span class="activity-emoji">💭</span>
+          <h3>Pixel Thoughts</h3>
+          <p style="font-size: small;">Type what's stressing you, then watch a 60-second meditation.</p>
+          <a href="https://pixelthoughts.co/" target="_blank" class="pema-btn">Open Activity</a>
+        </div>
+        <div class="slide">
+          <span class="activity-emoji">🪨</span>
+          <h3>Stack Rocks</h3>
+          <p style="font-size: small;">Stack rocks while listening to waves. Super zen.</p>
+          <a href="https://neal.fun/rocks/" target="_blank" class="pema-btn">Open Activity</a>
+        </div>
+        <div class="slide">
+          <span class="activity-emoji">🏖️</span>
+          <h3>This is Sand</h3>
+          <p style="font-size: small;">Pour virtual sand and create calming colorful sandscapes.</p>
+          <a href="https://thisissand.com/" target="_blank" class="pema-btn">Open Activity</a>
+        </div>
+        <div class="slide">
+          <span class="activity-emoji">🧘</span>
+          <h3>The Zen Zone</h3>
+          <p style="font-size: small;">A minimalist meditation area to help calm you down.</p>
+          <a href="https://thezen.zone/" target="_blank" class="pema-btn">Open Activity</a>
+        </div>
+        <div class="slide">
+          <span class="activity-emoji">💥</span>
+          <h3>Stained Glass Smash</h3>
+          <p style="font-size: small;">Smash virtual stained glass to release stress — and make art!</p>
+          <a href="https://glass.funwebsite.fun/" target="_blank" class="pema-btn">Open Activity</a>
+        </div>
+      </div>
+
+      <div class="slideshow-controls">
+        <button onclick="changeSlide(-1)" class="pema-btn">← Prev</button>
+        <span id="slide-counter" style="font-family: cursive; font-size: small;">1 / 8</span>
+        <button onclick="changeSlide(1)" class="pema-btn">Next →</button>
+      </div>
+
+      <p style="text-align: center; font-size: small; color: gray; margin-top: 1rem;">
+        Activities sourced from <a href="https://llamalife.co/blog/best-free-sites-for-focus-destress" target="_blank">Llama Life</a> 🦙
+      </p>
+    </div>
 
   </section>
 
