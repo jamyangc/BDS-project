@@ -308,13 +308,29 @@ iframe {
 /* ── FOOTER ── */
 footer {
   color: #5a7a66;
-  padding: 20px;
+  padding: 10px;
   border-top: 1px solid #fffefd;
-  margin-top: 40px;
+  margin-top: 20px;
   background-color: #f0ede6;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+footer p {
+  margin: 0;        /* removes default paragraph margin */
+  font-size: 14px;
   text-align: center;
 }
 
+footer img {
+  width: 24px;
+  height: auto;
+  display: block;
+  margin: 5px auto;
+}
 /* ── CHAT TOGGLE BUTTON ── */
 #chat-toggle {
   position: fixed;
@@ -578,7 +594,7 @@ footer {
 }
 
 .activities-wrapper {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.952);
 }
 
 /* ── SLIDESHOW ── */
@@ -608,7 +624,7 @@ footer {
 }
 
 /* ─────────────────────────────
-   FINAL MOBILE RESPONSIVENESS FIX
+ MOBILE RESPONSIVENESS FIX
 ───────────────────────────── */
 
 @media (max-width: 768px) {
@@ -703,4 +719,26 @@ footer {
   nav {
     padding: 10px;
   }
+}
+.page-bg{
+  background: #ddc7da;
+  padding: 32px 24px;
+}
+.mood-wrapper{
+  background:#ffffff;
+  border-radius: 14px;
+  max-width:700px;
+  width:90%;
+  margin: 30px auto;
+  padding: 30px 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+.btn {
+  border: 1px solid #942f2f;
+  border-radius: 20px;      /* pill shape */
+  padding: 7px 16px;
+  background: #a83e3e;
+  font-size: 14px;
 }
