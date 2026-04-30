@@ -13,19 +13,20 @@
 <body>
 
   <nav>
-    <div class="logo">
-      <img src="pic.png!bw700" width="45" onerror="this.style.display='none'"/>
-      <strong>wellbeing hub</strong>
-    </div>
-    <div>
-      <button onclick="showPage('home')">HOME</button>
-      <button onclick="showPage('about')">ABOUT</button>
-      <button onclick="showPage('mood')">MOOD CHECK</button>
-      <button onclick="showPage('resources')">RESOURCES</button>
-      <button onclick="showPage('findings')">FINDINGS</button>
-      <button onclick="showPage('contact')">GET HELP</button>
-    </div>
-  </nav>
+  <div class="logo">
+    <img src="pic.png!bw700" width="45" onerror="this.style.display='none'"/>
+    <strong>wellbeing hub</strong>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">☰</button>
+  <div class="nav-links" id="nav-links">
+    <button onclick="showPage('home'); closeMenu()">HOME</button>
+    <button onclick="showPage('about'); closeMenu()">ABOUT</button>
+    <button onclick="showPage('mood'); closeMenu()">MOOD CHECK</button>
+    <button onclick="showPage('resources'); closeMenu()">RESOURCES</button>
+    <button onclick="showPage('findings'); closeMenu()">FINDINGS</button>
+    <button onclick="showPage('contact'); closeMenu()">GET HELP</button>
+  </div>
+</nav>
 
   <!-- INTRO -->
   <section class="page active" id="page-intro">
