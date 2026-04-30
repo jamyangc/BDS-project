@@ -173,3 +173,11 @@ function checkMood(mood) {
     </a>
   `;
 }
+
+function toggleMenu() {
+  document.getElementById('nav-links').classList.toggle('open');
+}
+
+function closeMenu() {
+  document.getElementById('nav-links').classList.remove('open');
+}
