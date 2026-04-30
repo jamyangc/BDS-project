@@ -22,12 +22,14 @@ nav {
   background-color: #ffffff;
   padding: 12px 20px;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #d6d0c4;
   position: sticky;
   top: 0;
   z-index: 100;
+  flex-wrap: wrap;
 }
 
 nav button {
@@ -47,6 +49,26 @@ nav button {
 nav button:hover {
   color: #656b2e;
   border-bottom-color: #2e6b45;
+}
+
+/* ── HAMBURGER (hidden on desktop) ── */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #3a1a3a;
+  padding: 6px 10px;
+  margin: 0;
+}
+
+/* ── NAV LINKS (visible on desktop) ── */
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 /* ── PAGE SYSTEM ── */
@@ -570,31 +592,52 @@ footer img {
 }
 
 /* ════════════════════════════════
-   RESPONSIVE: TABLET (max 768px)
+   RESPONSIVE: TABLET + PHONE (max 768px)
+   KEY FIX: hamburger shows, nav-links hidden by default
 ════════════════════════════════ */
 @media (max-width: 768px) {
   body {
     overflow-x: hidden;
   }
 
+  /* Show hamburger, keep nav as row */
+  .hamburger {
+    display: block;
+  }
+
   nav {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-    padding: 10px;
-  }
-
-  nav div {
-    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px;
   }
 
-  nav button {
-    font-size: 12px;
-    padding: 6px 10px;
-    margin: 5px;
+  /* Hide nav links by default — only show when .open */
+  .nav-links {
+    display: none !important;
+    flex-direction: column;
+    width: 100%;
+    background: #ffffff;
+    padding: 8px 0;
+    border-top: 1px solid #f0ede6;
+  }
+
+  .nav-links.open {
+    display: flex !important;
+  }
+
+  .nav-links button {
+    width: 100%;
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #f0ede6;
+    margin: 0;
+    font-size: 14px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-radius: 0;
   }
 
   h1 { font-size: 32px; }
@@ -673,7 +716,6 @@ footer img {
     height: 60vh;
   }
 
-  /* ── About row stacks on tablet ── */
   .about-row {
     flex-direction: column;
     padding: 0 12px;
@@ -689,7 +731,6 @@ footer img {
 ════════════════════════════════ */
 @media (max-width: 600px) {
 
-  /* ── Home GIF + quote layout ── */
   #page-home > div:first-child {
     flex-direction: column;
     text-align: center;
@@ -700,7 +741,6 @@ footer img {
     margin: 0 auto;
   }
 
-  /* ── p tag full width ── */
   p {
     max-width: 100%;
     padding: 0 12px;
@@ -781,39 +821,3 @@ footer img {
     padding: 10px;
   }
 }
-
-/* ── HAMBURGER ── */
-.hamburger {
-  display: none;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #3a1a3a;
-}
-
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background: #ffffff;
-    padding: 10px 0;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-links button {
-    width: 100%;
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #f0ede6;
-  }
-}
-
