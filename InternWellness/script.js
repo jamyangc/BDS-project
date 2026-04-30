@@ -109,7 +109,7 @@ function addMsg(role, text) {
 
 // ── DAILY VIDEO PLAYER ──
 const musicVideos = ["zFs8CnOeAA4","t14n8Uhq-5U","hgUGe1cf3So","JdqL89ZZwFw", "Njt1io9jakQ"];
-const meditationVideos = ["j734gLbQFbU", "inpok4MKVLM", "ru4hdcMmlwQ", "ssss7V1_eyA"];
+const meditationVideos = ["j734gLbQFbU", "inpok4MKVLM", "ru4hdcMmlwQ", "ssss7V1_eyA", "zSkFFW--Ma0","LDs7jglje_U"];
 const breathingVideos = ["YRPh_GaiL8s", "aXItOY0sLRY", "odADwWzHR24", "tEmt1Znux58"];
 
 const today = new Date().getDate();
