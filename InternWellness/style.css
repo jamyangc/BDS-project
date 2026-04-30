@@ -611,7 +611,7 @@ footer img {
   }
 
   .about-info-cards {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     min-height: unset;
   }
 
@@ -626,7 +626,7 @@ footer img {
 
   .help-cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 12px;
     padding: 0 12px;
   }
@@ -639,10 +639,6 @@ footer img {
   .help-card .card-value { font-size: 18px; }
   .help-card .card-label { font-size: 10px; }
 
-  .tableau-wrapper {
-    width: 95%;
-  }
-
   .intro-wrapper,
   .resource-block,
   .activities-wrapper,
@@ -653,12 +649,8 @@ footer img {
     margin: 20px auto;
   }
 
-  .about-info-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .help-cards {
-    grid-template-columns: 1fr;
+  .tableau-wrapper {
+    width: 95%;
   }
 
   .slide {
@@ -681,7 +673,7 @@ footer img {
     height: 60vh;
   }
 
-  /* ── FIX: About row stacks on tablet ── */
+  /* ── About row stacks on tablet ── */
   .about-row {
     flex-direction: column;
     padding: 0 12px;
@@ -697,7 +689,7 @@ footer img {
 ════════════════════════════════ */
 @media (max-width: 600px) {
 
-  /* ── FIX: Home GIF + quote layout ── */
+  /* ── Home GIF + quote layout ── */
   #page-home > div:first-child {
     flex-direction: column;
     text-align: center;
@@ -708,10 +700,16 @@ footer img {
     margin: 0 auto;
   }
 
-  /* ── FIX: p tag full width ── */
+  /* ── p tag full width ── */
   p {
     max-width: 100%;
     padding: 0 12px;
+  }
+
+  /* ── Reduce quote text size on phone ── */
+  #page-home > div:first-child h1 {
+    font-size: 1.4rem !important;
+    line-height: 1.4;
   }
 }
 
