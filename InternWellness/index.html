@@ -172,7 +172,7 @@
   <section class="page" id="page-mood">
     <div class="mood-wrapper">
       <h2>How are you feeling today?</h2>
-      <div style="margin-top:20px;">
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:20px;">
         <button onclick="setMood('happy')" class="mood-btn"><img src="Happy.gif" style="width:50px;height:50px;vertical-align:middle;"> Happy</button>
 
         <button onclick="setMood('neutral')" class="mood-btn"><img src="neutral.gif" style="width:50px;height:50px;vertical-align:middle;"> Neutral </button>
@@ -327,7 +327,7 @@
   <button id="chat-toggle"><img src="Pudgy_Penguins.gif" width="45" onerror="this.style.display='none'"/> </button>
   <div id="chat-win">
     <div class="chdr">
-      <div><span></span> your wellbeing friend</div>
+      <div> your wellbeing friend</div>
       <button id="chx"></button>
     </div>
     <div id="cmsgs"></div>
