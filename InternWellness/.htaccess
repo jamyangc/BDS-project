@@ -3,4 +3,8 @@ AddDefaultCharset UTF-8
 
 <IfModule mod_mime.c>
     AddCharset UTF-8 .html .htm .css .js
+<<<<<<< HEAD
 </IfModule>
+=======
+</IfModule>
+>>>>>>> 696850d76532507024e04583de58a476fda2726a
