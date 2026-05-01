@@ -1,13 +1,11 @@
-/* ── EMOJI FIX — must be first ── */
-* {
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", cursive !important;
-}
+
 
 body {
   text-align: center;
   margin: 0;
   padding: 0;
   background-color:#e8d5e8;
+  font-family: 'playfair display', serif;
 }
 
 .intro-wrapper {
@@ -347,11 +345,6 @@ iframe {
   color: #333;
 }
 
-.about-box-list li::before {
-  content: "✦ ";
-  color: #033b03;
-}
-
 /* ── ABOUT ROW (side by side) ── */
 .about-row {
   display: flex;
@@ -401,14 +394,17 @@ footer img {
   right: 22px;
   width: 55px;
   height: 55px;
-  border-radius: 50%;
+  border-radius: 50%;        /* makes it circular */
   border: none;
-  background: #3a1a30;
+  background-image: url('Pudgy_Penguins.gif');  /* ← put your GIF path here */
+  background-size: cover;     /* fills the circle */
+  background-position: center;
   color: white;
   font-size: 22px;
   cursor: pointer;
   z-index: 999;
   box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  overflow: hidden;
 }
 
 /* ── CHAT WINDOW ── */
