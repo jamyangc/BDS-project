@@ -4,30 +4,35 @@
   <meta charset="UTF-8">
   <meta name="description" content="A wellbeing platform for interns managing stress, by Jamyang Chozom, GCBS.">
   <meta name="keywords" content="intern wellbeing, stress, GCBS, Bhutan, internship, mental health">
-  
   <title>Intern Wellbeing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- EMOJI FIX: must be after all other styles -->
+  <style>
+    * {
+      font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", cursive !important;
+    }
+  </style>
 </head>
 
 <body>
 
   <nav>
-  <div class="logo">
-    <img src="pic.png!bw700" width="45" onerror="this.style.display='none'"/>
-    <strong>wellbeing hub</strong>
-  </div>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()">☰</button>
-  <div class="nav-links" id="nav-links">
-    <button onclick="showPage('home'); closeMenu()">HOME</button>
-    <button onclick="showPage('about'); closeMenu()">ABOUT</button>
-    <button onclick="showPage('mood'); closeMenu()">MOOD CHECK</button>
-    <button onclick="showPage('resources'); closeMenu()">RESOURCES</button>
-    <button onclick="showPage('findings'); closeMenu()">FINDINGS</button>
-    <button onclick="showPage('contact'); closeMenu()">GET HELP</button>
-  </div>
-</nav>
+    <div class="logo">
+      <img src="pic.png!bw700" width="45" onerror="this.style.display='none'"/>
+      <strong>wellbeing hub</strong>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">☰</button>
+    <div class="nav-links" id="nav-links">
+      <button onclick="showPage('home'); closeMenu()">HOME</button>
+      <button onclick="showPage('about'); closeMenu()">ABOUT</button>
+      <button onclick="showPage('mood'); closeMenu()">MOOD CHECK</button>
+      <button onclick="showPage('resources'); closeMenu()">RESOURCES</button>
+      <button onclick="showPage('findings'); closeMenu()">FINDINGS</button>
+      <button onclick="showPage('contact'); closeMenu()">GET HELP</button>
+    </div>
+  </nav>
 
   <!-- INTRO -->
   <section class="page active" id="page-intro">
@@ -36,35 +41,35 @@
       <h3>Before you enter into main page meet Jamyang: the intern behind this project</h3>
 
       <h4>1. Introduction</h4>
-      <p style="font-family: Playfair Display; font-size: small;">
-        My name is Jamyang Chozom, and I have done my six month professional internship at 
+      <p style="font-size: small;">
+        My name is Jamyang Chozom, and I have done my six month professional internship at
         <a href onclick="window.open('https://datascientists.bt/', '_blank')">Bhutan Data Scientist Pvt. Ltd</a>. At the beginning of my internship, my project focused on the integration of Artificial Intelligence in credit default analysis. I always wanted to become an analyst, so I was excited to work on a technical topic and learn new things and explore beyond the classroom means.</p>
 
       <h4>2. Initial Internship Experience</h4>
-      <p style="font-family: Playfair Display; font-size: small;">As my internship progressed, I began to notice something beyond technical work. Many interns, including myself, were experiencing stress, yet very few openly talked about it. I was also going through similar challenges. Managing responsibilities alongside personal commitments became increasingly difficult, leading to missed deadlines and additional pressure.</p>
+      <p style="font-size: small;">As my internship progressed, I began to notice something beyond technical work. Many interns, including myself, were experiencing stress, yet very few openly talked about it. I was also going through similar challenges. Managing responsibilities alongside personal commitments became increasingly difficult, leading to missed deadlines and additional pressure.</p>
 
       <h4>3. Realization</h4>
-      <p style="font-family: Playfair Display; font-size: small;">This became a turning point for me. I realized that I did not just want to overcome stress, but also use it as an opportunity for growth. I also wanted to support others going through similar experiences. Stress began to feel less like an individual problem and more like a shared issue.</p>
+      <p style="font-size: small;">This became a turning point for me. I realized that I did not just want to overcome stress, but also use it as an opportunity for growth. I also wanted to support others going through similar experiences. Stress began to feel less like an individual problem and more like a shared issue.</p>
 
       <h4>4. Change of Project Focus</h4>
-      <p style="font-family: Playfair Display; font-size: small;">I decided to shift my project from credit default analysis to intern stress and wellbeing. This felt more meaningful, relevant for myself and representing my friends. That moment of feeling distress, feelings of giving up and challenges led to the creation of a platform designed to support interns in managing stress and improving wellbeing.</p>
+      <p style="font-size: small;">I decided to shift my project from credit default analysis to intern stress and wellbeing. This felt more meaningful, relevant for myself and representing my friends. That moment of feeling distress, feelings of giving up and challenges led to the creation of a platform designed to support interns in managing stress and improving wellbeing.</p>
 
       <h4>5. Solution Development</h4>
-      <p style="font-family: Playfair Display; font-size: small;">The platform was designed to transform lived experience into practical support. This website will try to provide simple tools and resources such as relaxation techniques, breathing exercises, and guided content to help interns not only manage stress in their daily lives but also use stress for their personal growth.</p>
+      <p style="font-size: small;">The platform was designed to transform lived experience into practical support. This website will try to provide simple tools and resources such as relaxation techniques, breathing exercises, and guided content to help interns not only manage stress in their daily lives but also use stress for their personal growth.</p>
 
       <h4>6. Scope and Impact</h4>
-      <p style="font-family: Playfair Display; font-size: small;">Although data collected are from lived experiences of Gedu College of Business Studies' interns, the challenges addressed are universal. Stress, burnout, and wellbeing are common among professional settings, making this solution applicable beyond geographical boundaries.</p>
+      <p style="font-size: small;">Although data collected are from lived experiences of Gedu College of Business Studies' interns, the challenges addressed are universal. Stress, burnout, and wellbeing are common among professional settings, making this solution applicable beyond geographical boundaries.</p>
 
       <h4>7. Learning Outcome</h4>
-      <p style="font-family: Playfair Display; font-size: small;">This journey helps me understand people, their struggles, and how data and technology can be used to create meaningful impact. I gained practical skills and a deeper appreciation of human-centered problem solving.</p>
+      <p style="font-size: small;">This journey helps me understand people, their struggles, and how data and technology can be used to create meaningful impact. I gained practical skills and a deeper appreciation of human-centered problem solving.</p>
     </div>
-    <button id="enter-btn" onclick="showPage('home')" style="font-family: cursive;">Enter Main Page</button>
+    <button id="enter-btn" onclick="showPage('home')">Enter Main Page</button>
   </section>
 
   <!-- HOME -->
   <section class="page" id="page-home">
     <div style="display: flex; align-items: center; gap: 2rem;">
-      <h1 style="font-family: cursive; font-size: 2.5rem; line-height: 1.6; flex: 1;">
+      <h1 style="font-size: 2.5rem; line-height: 1.6; flex: 1;">
         Feeling stressed <br>
         during your internship is okay. <br>
         <span style="color: #4a8c4a; font-style: italic;">Showing up anyway</span> <br>
@@ -75,7 +80,7 @@
 
     <p class="tagline">made for interns by an intern</p>
 
-    <p style="font-family: 'Playfair Display'; font-size: small; text-align: center;">
+    <p style="font-size: small; text-align: center;">
       InternWellness is a safe, gentle space created especially for interns or all other
       friends who are experiencing stress and are interested in improving their wellbeing.
       Whether you're feeling overwhelmed, burnt out, or simply need a pause, you are
@@ -113,24 +118,24 @@
         <div class="about-info-card">
           <span class="about-icon">🗣️</span>
           <h4>Talk to your friends, elders and parents</h4>
-          <p style="font-family: Playfair Display; font-size: small;">Whenever stress starts to build up, don't keep it to yourself. Talk to your friends, your family, or anyone you trust. The people who care about you want to be there for you.</p>
+          <p style="font-size: small;">Whenever stress starts to build up, don't keep it to yourself. Talk to your friends, your family, or anyone you trust. The people who care about you want to be there for you.</p>
         </div>
         <div class="about-info-card">
           <span class="about-icon">📿</span>
           <h4>Pause & Pray</h4>
-          <p style="font-family: cursive; font-size: small;">Pause, breathe, and turn to prayer.
+          <p style="font-size: small;">Pause, breathe, and turn to prayer.
             In silence, you may find clarity and strength.
             Let peace slowly find its way to you.</p>
         </div>
         <div class="about-info-card">
           <span class="about-icon">🌱</span>
           <h4>You Are Still Learning</h4>
-          <p style="font-family: cursive; font-size: small;">You are in a learning process and that is completely okay. Growth takes time and every experience, good or bad, is teaching you something valuable.</p>
+          <p style="font-size: small;">You are in a learning process and that is completely okay. Growth takes time and every experience, good or bad, is teaching you something valuable.</p>
         </div>
         <div class="about-info-card">
           <span class="about-icon">⏳</span>
           <h4>Take a Break</h4>
-          <p style="font-family: cursive; font-size: small;">Pause for a moment and give yourself rest.
+          <p style="font-size: small;">Pause for a moment and give yourself rest.
             Step away, stretch, or close your eyes.
             Sip something warm and breathe slowly.
             Small breaks can make a big difference.</p>
@@ -141,58 +146,51 @@
   </section>
 
   <!-- ABOUT -->
-<section class="page" id="page-about">
-  <h1>project overview</h1>
+  <section class="page" id="page-about">
+    <h1>project overview</h1>
 
-  <!-- Part 2 & 3: Side by side -->
-  <div class="about-row">
+    <div class="about-row">
+      <div class="about-box">
+        <h3 class="about-box-title">internship project</h3>
+        <ul class="about-box-list">
+          <li>Focuses on stress, pressure, and emotional wellbeing among interns</li>
+          <li>Practical tools for stress management such as fun activities</li>
+          <li>Includes resources like breathing exercises, music, and meditation</li>
+          <li>Data collected from <strong>156 interns</strong> out of 349 students</li>
+          <li>Participants from <strong>Gedu College of Business Studies (GCBS)</strong></li>
+        </ul>
+      </div>
 
-    <div class="about-box">
-      <h3 class="about-box-title">internship project</h3>
-      <ul class="about-box-list">
-        <li>Focuses on stress, pressure, and emotional wellbeing among interns</li>
-        <li>Practical tools for stress management such as fun activities</li>
-        <li>Includes resources like breathing exercises, music, and meditation</li>
-        <li>Data collected from <strong>156 interns</strong> out of 349 students</li>
-        <li>Participants from <strong>Gedu College of Business Studies (GCBS)</strong></li>
-      </ul>
+      <div class="about-box">
+        <h3 class="about-box-title">The Team & Contact</h3>
+        <ul class="about-box-list">
+          <li><strong>Name:</strong> Jamyang Chozom</li>
+          <li><strong>Role:</strong> Data Scientist Intern at Bhutan Data Scientists Pvt. Ltd</li>
+          <li><strong>Education:</strong> Degree in Business Intelligence, majoring in Financial Engineering — GCBS</li>
+          <li><strong>Email:</strong> <a href="mailto:jamyangchozom7@gmail.com">jamyangchozom7@gmail.com</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jamyang-chozom-0261a32b6" target="_blank">linkedin.com/in/jamyang-chozom</a></li>
+          <li>Bhutan Data Scientists Pvt.Ltd</li>
+        </ul>
+      </div>
     </div>
-
-    <div class="about-box">
-      <h3 class="about-box-title">The Team & Contact</h3>
-      <ul class="about-box-list">
-        <li><strong>Name:</strong> Jamyang Chozom</li>
-        <li><strong>Role:</strong> Data Scientist Intern at Bhutan Data Scientists Pvt. Ltd</li>
-        <li><strong>Education:</strong> Degree in Business Intelligence, majoring in Financial Engineering — GCBS</li>
-        <li><strong>Email:</strong> <a href="mailto:jamyangchozom7@gmail.com">jamyangchozom7@gmail.com</a></li>
-        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jamyang-chozom-0261a32b6" target="_blank">linkedin.com/in/jamyang-chozom</a></li>
-        <li> Bhutan Data Scientists Pvt.Ltd</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-
+  </section>
 
   <!-- MOOD CHECK -->
   <section class="page" id="page-mood">
-    <div class = "mood-wrapper">
-    <h2>How are you feeling today?</h2>
-    <div style="margin-top:20px;">
-      <button onclick="checkMood('happy')" class="pema-btn">&#128522;Happy</button>
-      <button onclick="checkMood('neutral')" class="pema-btn">&#128528; Neutral</button>
-      <button onclick="checkMood('stressed')" class="pema-btn">&#128533; Stressed</button>
-      <button onclick="checkMood('sad')" class="pema-btn">&#128546; Sad</button>
+    <div class="mood-wrapper">
+      <h2>How are you feeling today?</h2>
+      <div style="margin-top:20px;">
+        <button onclick="checkMood('happy')" class="pema-btn">&#128522; Happy</button>
+        <button onclick="checkMood('neutral')" class="pema-btn">&#128528; Neutral</button>
+        <button onclick="checkMood('stressed')" class="pema-btn">&#128533; Stressed</button>
+        <button onclick="checkMood('sad')" class="pema-btn">&#128546; Sad</button>
+      </div>
+      <div id="moodResult" style="margin-top:40px;"></div>
+      <div id="musicPlayer" style="margin-top:20px; display:none;">
+        <iframe id="musicFrame" style="width:100%; max-width:500px; height:170px;" src="" allow="autoplay"></iframe>
+      </div>
     </div>
-
-  
-    <div id="moodResult" style="margin-top:40px; font-family: cursive"></div>
-    <div id="musicPlayer" style="margin-top:20px; display:none; font-family: cursive">
-      <iframe id="musicFrame" style="width:100%; max-width:500px; height:170px;" src="" allow="autoplay"></iframe>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- RESOURCES -->
   <section class="page" id="page-resources">
@@ -201,17 +199,17 @@
     <div class="resource-block">
       <h3>🌿 Choose what you need</h3>
       <div style="margin-top:15px;">
-        <button onclick="playCategory('music')" class="pema-btn">🎧 Soothing Music</button>
-        <button onclick="playCategory('meditation')" class="pema-btn">🧘 Meditation</button>
-        <button onclick="playCategory('breathing')" class="pema-btn">🌬️ Breathing Exercise</button>
+        <button onclick="checkMood('happy')" class="pema-btn">&#127882; Music</button>
+        <button onclick="checkMood('neutral')" class="pema-btn">&#129510; Meditation</button>
+        <button onclick="checkMood('stressed')" class="pema-btn">&#127783; Breathing Exercise</button>
       </div>
       <div id="message" style="margin-top:20px; font-size:18px; color:#444;"></div>
       <div id="videoPlayer" style="margin-top:10px;"></div>
     </div>
 
     <div class="activities-wrapper">
-      <h1 style="text-align: center; font-weight: 400;">🎮 Fun Activities</h1>
-      <h2 style="text-align: center; font-size: small; font-family: 'Playfair Display';">
+      <h1 style="text-align: center; font-weight: 400;">&#127918; Fun Activities</h1>
+      <h2 style="text-align: center; font-size: small;">
         Take a break: browse through and pick what calls to you!
       </h2>
 
@@ -236,8 +234,8 @@
         </div>
         <div class="slide">
           <span class="activity-emoji">🌧️</span>
-          <h3>sound of rain</h3>
-          <p style="font-size: medium;">listen to rainy sound </p>
+          <h3>Sound of Rain</h3>
+          <p style="font-size: medium;">Listen to rainy sound.</p>
           <a href="https://www.rainymood.com/" target="_blank" class="pema-btn">Open Activity</a>
         </div>
         <div class="slide">
@@ -264,28 +262,30 @@
           <p style="font-size: medium;">Smash virtual stained glass to release stress — and make art!</p>
           <a href="https://glass.funwebsite.fun/" target="_blank" class="pema-btn">Open Activity</a>
         </div>
-         <div class="slide">
-          <span class="activity-emoji"> 📝</span>
-          <h3>Your thoughts</h3>
-          <p style="font-size: medium;">release what has been bothering you and send it to moon and never back</p>
+        <div class="slide">
+          <span class="activity-emoji">📝</span>
+          <h3>Your Thoughts</h3>
+          <p style="font-size: medium;">Release what has been bothering you and send it to the moon and never back.</p>
           <a href="https://www.pixelthoughts.co/" target="_blank" class="pema-btn">Open Activity</a>
         </div>
       </div>
 
       <div class="slideshow-controls">
         <button onclick="changeSlide(-1)" class="pema-btn">← Prev</button>
-        <span id="slide-counter" style="font-family: cursive; font-size: small;">1 / 9</span>
+        <span id="slide-counter" style="font-size: small;">1 / 9</span>
         <button onclick="changeSlide(1)" class="pema-btn">Next →</button>
-      </div>    
+      </div>
 
-      <p style="text-align: center; font-size: small; color: gray; margin-top: 1rem;">Activities sourced from <a href="https://llamalife.co/blog/best-free-sites-for-focus-destress" target="_blank">Llama Life</a>and <a href="https://www.hongkiat.com/blog/websites-to-keep-you-calm/" target="_blank"> hongkiat </a>  </p>
+      <p style="text-align: center; font-size: small; color: gray; margin-top: 1rem;">
+        Activities sourced from <a href="https://llamalife.co/blog/best-free-sites-for-focus-destress" target="_blank">Llama Life</a> and <a href="https://www.hongkiat.com/blog/websites-to-keep-you-calm/" target="_blank">hongkiat</a>
+      </p>
     </div>
   </section>
 
   <!-- FINDINGS -->
   <section class="page" id="page-findings">
     <h2>Findings</h2>
-    <p style="text-align:justify; font-family: cursive; font-size: medium;">The findings presented below are based on data collected from 156 third-year out of 349 from <a href="https://gcbs.edu.bt" target="_blank">Gedu College of Business Studies</a> interns who were placed in various organizations for a six-month internship period.</p>
+    <p style="text-align:justify; font-size: medium;">The findings presented below are based on data collected from 156 third-year out of 349 from <a href="https://gcbs.edu.bt" target="_blank">Gedu College of Business Studies</a> interns who were placed in various organizations for a six-month internship period.</p>
     <div class="tableau-wrapper">
       <iframe
         src="https://public.tableau.com/views/stressandwellbeingofinternsGCBSfinal/Story1?:showVizHome=no&:embed=true&:toolbar=no"
@@ -300,8 +300,8 @@
 
   <!-- GET HELP -->
   <section class="page" id="page-contact">
-    <h2 style="font-family: cursive;">You do not have to face it alone</h2>
-    <p style="text-align: justify; font-family: cursive;">If you're struggling, you're not alone. Here are some resources to support you:</p>
+    <h2>You do not have to face it alone</h2>
+    <p style="text-align: justify;">If you're struggling, you're not alone. Here are some resources to support you:</p>
     <div class="help-cards">
       <div class="help-card">
         <div class="card-icon">🆘</div>
@@ -352,7 +352,7 @@
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2026 Jamyang Chozom. All rights reserved.</p>
-    <p>🏢 Bhutan Data Scientist Pvt. Ltd. </p>
+    <p>🏢 Bhutan Data Scientist Pvt. Ltd.</p>
     <a href="https://github.com/jamyangc/BDS-project" target="_blank">
       <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
            alt="GitHub" style="width:26px;height:26px;opacity:0.6;">
