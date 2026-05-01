@@ -1,0 +1,6 @@
+# Force the server to use UTF-8 for all HTML files
+AddDefaultCharset UTF-8
+
+<IfModule mod_mime.c>
+    AddCharset UTF-8 .html .htm .css .js
+</IfModule>
