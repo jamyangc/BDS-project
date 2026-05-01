@@ -55,7 +55,7 @@ function setMood(mood) {
     suggestion = "You are not alone. Consider calming music or reaching out.";
     action = `
       <br><br>
-      <button onclick="showPage('resources')" class="pema-btn">🎮 Play a Fun Game</button>
+      <button onclick="showPage('resources')" class="pema-btn">Play a Fun Game</button>
     `;
   }
 
@@ -179,7 +179,7 @@ function checkMood(mood) {
     <p>${message}</p>
     <a href="#page-resources" onclick="showPage('resources')" 
        style="display:inline-block; margin-top:10px; color: purple; font-weight:bold;">
-       🎮 Go to fun activities here
+       Go to fun activities here
     </a>
   `;
 }
