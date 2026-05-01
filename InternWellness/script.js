@@ -22,27 +22,27 @@ function checkMood(mood) {
   let action = "";
 
   if (mood === "happy") {
-    message = "You're doing great! 😊";
+    message = "You're doing great! ";
     suggestion = "Keep your positive energy going.";
-    action = `<button onclick="showPage('resources')" class="pema-btn">Listen to Music 🎵</button>`;
+    action = `<button onclick="showPage('resources')" class="pema-btn">Listen to Music </button>`;
   }
 
   else if (mood === "neutral") {
     message = "You're feeling okay, maybe a bit low.";
     suggestion = "A short meditation can help refresh your mind.";
-    action = `<button onclick="showPage('resources')" class="pema-btn">Try Meditation 🧘</button>`;
+    action = `<button onclick="showPage('resources')" class="pema-btn">Try Meditation </button>`;
   }
 
   else if (mood === "stressed") {
-    message = "Your stress level seems high 😣";
+    message = "Your stress level seems high ";
     suggestion = "Take a break and try breathing exercises.";
     action = `<button onclick="showPage('resources')" class="pema-btn">Start Breathing 🌬️</button>
     <br><br>
-    <button onclick="showPage('contact')" class="pema-btn">Get Help 🚨</button>`;
+    <button onclick="showPage('contact')" class="pema-btn">Get Help </button>`;
   }
 
   else if (mood === "sad") {
-    message = "You are feeling down 😔";
+    message = "You are feeling down ";
     suggestion = "You are not alone. Consider calming music or reaching out.";
     action = `
       <button onclick="showPage('resources')" class="pema-btn">Play Music 🎵</button>
@@ -120,13 +120,13 @@ function playCategory(type) {
 
   if (type === "music") {
     videos = musicVideos;
-    message = "Relax with soothing music 🎧";
+    message = "Relax with soothing music ";
   } else if (type === "meditation") {
     videos = meditationVideos;
-    message = "Take a moment to meditate 🧘";
+    message = "Take a moment to meditate ";
   } else if (type === "breathing") {
     videos = breathingVideos;
-    message = "Follow this breathing exercise 🌬️";
+    message = "Follow this breathing exercise ";
   }
 
   const videoId = videos[today % videos.length];
@@ -156,13 +156,13 @@ function checkMood(mood) {
   let message = "";
   
   if (mood === "happy") {
-    message = "That's amazing! Keep the positive energy going 😊";
+    message = "That's amazing! Keep the positive energy going ";
   } else if (mood === "neutral") {
-    message = "You are doing okay. Maybe a small break will help 💪 ";
+    message = "You are doing okay. Maybe a small break will help ";
   } else if (mood === "stressed") {
-    message = "Take a deep breath. You deserve a break 🧘‍♀️";
+    message = "Take a deep breath. You deserve a break ";
   } else if (mood === "sad") {
-    message = "I am really sorry you're feeling this way 💛";
+    message = "I am really sorry you're feeling this way ";
   }
 
   document.getElementById("moodResult").innerHTML = `
