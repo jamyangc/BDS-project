@@ -1,5 +1,6 @@
+/* ── EMOJI FIX — must be first ── */
 * {
-  font-family: 'cursive', "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", cursive !important;
 }
 
 body {
@@ -7,7 +8,6 @@ body {
   margin: 0;
   padding: 0;
   background-color:#e8d5e8;
-  font-family: 'cursive';
 }
 
 .intro-wrapper {
@@ -18,7 +18,6 @@ body {
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   text-align: justify;
-  font-family: 'cursive';
 }
 
 /* ── NAV ── */
@@ -43,7 +42,6 @@ nav button {
   margin: 0 10px;
   font-size: 13px;
   cursor: pointer;
-  font-family: 'Cursive';
   letter-spacing: 0.08em;
   padding: 6px 0;
   border-bottom: 2px solid transparent;
@@ -96,7 +94,6 @@ h1 {
   color: #1a3a2a;
   font-size: 52px;
   margin-top: 60px;
-  font-family: 'Cursive';
   font-weight: 600;
   line-height: 1.2;
   animation: floaty 3s infinite ease-in-out;
@@ -106,7 +103,6 @@ h2 {
   color: black;
   font-size: 38px;
   margin-top: 30px;
-  font-family: 'Cursive';
   animation: floaty 3s infinite ease-in-out;
 }
 
@@ -121,7 +117,6 @@ p {
   font-size: 20px;
   max-width: 500px;
   margin: 0 auto 30px;
-  font-family: 'Cursive';
   line-height: 1.7;
 }
 
@@ -157,7 +152,6 @@ iframe {
 }
 
 .resource-block h3 {
-  font-family: 'cursive';
   color: #000704;
   margin-bottom: 10px;
 }
@@ -208,7 +202,6 @@ iframe {
   font-size: 22px;
   font-weight: 600;
   color: #1a3a2a;
-  font-family: 'cursive';
 }
 
 /* ── ABOUT CARDS (story/prototype) ── */
@@ -338,7 +331,6 @@ iframe {
 }
 
 .about-box-title {
-  font-family: 'Cursive';
   color: #1a3a2a;
   font-size: 20px;
   margin-bottom: 14px;
@@ -350,7 +342,6 @@ iframe {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-family: 'Playfair Display';
   font-size: small;
   line-height: 2;
   color: #333;
@@ -475,7 +466,6 @@ footer img {
   border-radius: 10px;
   max-width: 75%;
   background: #e8f0e9;
-  font-family: 'Playfair Display', serif;
 }
 
 .cmsg.user .cmb {
@@ -512,7 +502,6 @@ footer img {
   border: none;
   padding: 8px;
   resize: none;
-  font-family: inherit;
   height: 40px;
   outline: none;
 }
@@ -597,14 +586,12 @@ footer img {
 
 /* ════════════════════════════════
    RESPONSIVE: TABLET + PHONE (max 768px)
-   KEY FIX: hamburger shows, nav-links hidden by default
 ════════════════════════════════ */
 @media (max-width: 768px) {
   body {
     overflow-x: hidden;
   }
 
-  /* Show hamburger, keep nav as row */
   .hamburger {
     display: block;
   }
@@ -617,7 +604,6 @@ footer img {
     flex-wrap: wrap;
   }
 
-  /* Hide nav links by default — only show when .open */
   .nav-links {
     display: none !important;
     flex-direction: column;
@@ -750,7 +736,6 @@ footer img {
     padding: 0 12px;
   }
 
-  /* ── Reduce quote text size on phone ── */
   #page-home > div:first-child h1 {
     font-size: 1.4rem !important;
     line-height: 1.4;
