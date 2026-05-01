@@ -14,7 +14,7 @@ function showPage(id) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function checkMood(mood) {
+function setMood(mood) {
   const result = document.getElementById("moodResult");
 
   let message = "";
@@ -22,30 +22,44 @@ function checkMood(mood) {
   let action = "";
 
   if (mood === "happy") {
-    message = "You're doing great! ";
+    message = "You're doing great!";
     suggestion = "Keep your positive energy going.";
-    action = `<button onclick="showPage('resources')" class="pema-btn">Listen to Music </button>`;
+    action = `
+      <button onclick="showPage('resources')" class="pema-btn">Listen to Music <img src="happy.gif" style="width:20px;height:20px;vertical-align:middle;"></button>
+      <br><br>
+      <button onclick="showPage('resources')" class="pema-btn">🎮 Play a Fun Game</button>
+    `;
   }
 
   else if (mood === "neutral") {
     message = "You're feeling okay, maybe a bit low.";
     suggestion = "A short meditation can help refresh your mind.";
-    action = `<button onclick="showPage('resources')" class="pema-btn">Try Meditation </button>`;
+    action = `
+      <button onclick="showPage('resources')" class="pema-btn">Try Meditation <img src="neutral.gif" style="width:20px;height:20px;vertical-align:middle;"></button>
+      <br><br>
+      <button onclick="showPage('resources')" class="pema-btn">🎮 Play a Fun Game</button>
+    `;
   }
 
   else if (mood === "stressed") {
-    message = "Your stress level seems high ";
+    message = "Your stress level seems high.";
     suggestion = "Take a break and try breathing exercises.";
-    action = `<button onclick="showPage('resources')" class="pema-btn">Start Breathing 🌬️</button>
-    <br><br>
-    <button onclick="showPage('contact')" class="pema-btn">Get Help </button>`;
+    action = `
+      <button onclick="showPage('resources')" class="pema-btn">Start Breathing <img src="stressed.gif" style="width:20px;height:20px;vertical-align:middle;"></button>
+      <br><br>
+      <button onclick="showPage('contact')" class="pema-btn">Get Help</button>
+      <br><br>
+      <button onclick="showPage('resources')" class="pema-btn">🎮 Play a Fun Game</button>
+    `;
   }
 
   else if (mood === "sad") {
-    message = "You are feeling down ";
+    message = "You are feeling down.";
     suggestion = "You are not alone. Consider calming music or reaching out.";
     action = `
-      <button onclick="showPage('resources')" class="pema-btn">Play Music 🎵</button>
+      <button onclick="showPage('resources')" class="pema-btn">Play Music <img src="sad.gif" style="width:20px;height:20px;vertical-align:middle;"></button>
+      <br><br>
+      <button onclick="showPage('resources')" class="pema-btn">🎮 Play a Fun Game</button>
     `;
   }
 
