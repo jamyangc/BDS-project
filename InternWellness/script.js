@@ -88,7 +88,7 @@ async function send(text){
   history.push({ role:"user",content: text});
 
   try{
-    const res = await fetch("/chat", {
+    const res = await fetch("https://bds-project.onrender.com/chat", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
