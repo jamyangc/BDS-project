@@ -651,12 +651,6 @@ footer img {
   font-size: 14px;
 }
 
-/* ── GIF BG COLOR FIX ── */
-#page-home img {
-  mix-blend-mode: multiply;
-  background-color: #e8d5e8;
-}
-
 /* ════════════════════════════════
    RESPONSIVE: TABLET + PHONE (max 768px)
 ════════════════════════════════ */
@@ -813,6 +807,9 @@ footer img {
   #page-home > div:first-child img {
     width: 50% !important;
     margin: 0 auto;
+    background-color: #e8d5e8;
+    border-radius: 50%;
+    padding: 4px;
   }
 
   p {
