@@ -82,21 +82,19 @@
       Whether you're feeling overwhelmed, burnt out, or simply need a pause, you are
       always welcome here.
     </p>
-    <!-- FUN ACTIVITIES -->
-<div class="activities-wrapper">
-  <h1 style="text-align: center; font-weight: 400;">🎮 Game Zone</h1>
-  <h2 style="text-align: center; font-size: small; font-family: 'Playfair Display';">Take a break and play!</h2>
-  <div style="text-align: center; padding: 2rem;">
-    <div class="activity-emoji">🎮</div>
-    <h3>Game Zone</h3>
-    <p style="font-size: medium;">A space of fun relaxing games to help you unwind.</p>
-    <a href="https://www.crazygames.com/t/relaxing" target="_blank" class="pema-btn">Open Game Zone</a>
-  </div>
-</div>
-      
 
-    <!-- STORY & PROTOTYPE CARDS -->
+    <!-- ALL 3 CARDS IN ONE GRID -->
     <div class="about-cards">
+
+      <!-- ACTIVITY ZONE CARD -->
+      <div class="about-card" style="justify-content: center; align-items: center; text-align: center;">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎮</div>
+        <div class="about-card-title">Game Zone</div>
+        <p class="about-card-desc">Take a break and play some relaxing games to refresh yourself.</p>
+        <button onclick="showPage('resources')" class="pema-btn">Go to Activity Zone</button>
+      </div>
+
+      <!-- FICTIONAL STORY CARD -->
       <div class="about-card">
         <div class="about-card-icon icon-story"></div>
         <div class="about-card-body">
@@ -108,6 +106,8 @@
           <a href="story_video.mp4" class="about-card-btn">Watch video</a>
         </div>
       </div>
+
+      <!-- PROTOTYPE CARD -->
       <div class="about-card">
         <div class="about-card-icon icon-proto"></div>
         <div class="about-card-body">
@@ -117,6 +117,7 @@
           <a href="video.mp4" class="about-card-btn">Watch prototype</a>
         </div>
       </div>
+
     </div>
 
     <!-- INFO CARDS -->
@@ -125,25 +126,19 @@
       <div class="about-info-cards">
         <div class="about-info-card">
           <h4>Talk to your friends, elders and parents</h4>
-          <p style="font-family: 'cursive'; font-size: small;">Whenever stress starts to build up, don't keep it to yourself. Talk to your friends, your family, or anyone you trust. The people who care about you want to be there for you.</p>
+          <p style="font-family: cursive; font-size: small;">Whenever stress starts to build up, don't keep it to yourself. Talk to your friends, your family, or anyone you trust. The people who care about you want to be there for you.</p>
         </div>
         <div class="about-info-card">
           <h4>Pause and Pray</h4>
-          <p style="font-family: cursive; font-size: small;">Pause, breathe, and turn to prayer.
-            In silence, you may find clarity and strength.
-            Let peace slowly find its way to you.</p>
+          <p style="font-family: cursive; font-size: small;">Pause, breathe, and turn to prayer. In silence, you may find clarity and strength. Let peace slowly find its way to you.</p>
         </div>
         <div class="about-info-card">
           <h4>You Are Still Learning</h4>
           <p style="font-family: cursive; font-size: small;">You are in a learning process and that is completely okay. Growth takes time and every experience, good or bad, is teaching you something valuable.</p>
         </div>
         <div class="about-info-card">
-          <div class="about-icon"></div>
           <h4>Take a Break</h4>
-          <p style="font-family: cursive; font-size: small;">Pause for a moment and give yourself rest.
-            Step away, stretch, or close your eyes.
-            Sip something warm and breathe slowly.
-            Small breaks can make a big difference.</p>
+          <p style="font-family: cursive; font-size: small;">Pause for a moment and give yourself rest. Step away, stretch, or close your eyes. Sip something warm and breathe slowly. Small breaks can make a big difference.</p>
         </div>
       </div>
     </div>
@@ -167,7 +162,7 @@
       </div>
 
       <div class="about-box">
-        <h3 class="about-box-title"> Contact</h3>
+        <h3 class="about-box-title">Contact</h3>
         <ul class="about-box-list">
           <li><strong>1. Name:</strong> Jamyang Chozom</li>
           <li><strong>2. Role:</strong> Data Scientist Intern at Bhutan Data Scientists Pvt. Ltd</li>
@@ -186,11 +181,9 @@
       <h2>How are you feeling today?</h2>
       <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:20px;">
         <button onclick="setMood('happy')" class="mood-btn"><img src="Happy.gif" style="width:50px;height:50px;vertical-align:middle;"> Happy</button>
-
-        <button onclick="setMood('neutral')" class="mood-btn"><img src="neutral.gif" style="width:50px;height:50px;vertical-align:middle;"> Neutral </button>
-
-        <button onclick="setMood('stressed')" class="mood-btn"> <img src="stressed.gif" style="width:50px;height:50px;vertical-align:middle;"> Stressed </button>
-        <button onclick="setMood('sad')" class="mood-btn"> <img src="sad.gif" style="width:50px;height:50px;vertical-align:middle;"> Sad </button>
+        <button onclick="setMood('neutral')" class="mood-btn"><img src="neutral.gif" style="width:50px;height:50px;vertical-align:middle;"> Neutral</button>
+        <button onclick="setMood('stressed')" class="mood-btn"><img src="stressed.gif" style="width:50px;height:50px;vertical-align:middle;"> Stressed</button>
+        <button onclick="setMood('sad')" class="mood-btn"><img src="sad.gif" style="width:50px;height:50px;vertical-align:middle;"> Sad</button>
       </div>
       <div id="moodResult" style="margin-top:40px; font-family: cursive;"></div>
       <div id="musicPlayer" style="margin-top:20px; display:none; font-family: cursive;">
@@ -204,7 +197,7 @@
     <h2>Resources for Wellbeing</h2>
 
     <div class="resource-block">
-      <h3><span></span> Choose what you need</h3>
+      <h3>Choose what you need</h3>
       <div style="margin-top:15px;">
         <button onclick="playCategory('music')" class="pema-btn">Soothing Music</button>
         <button onclick="playCategory('meditation')" class="pema-btn">Meditation</button>
@@ -216,9 +209,7 @@
 
     <div class="activities-wrapper">
       <h1 style="text-align: center; font-weight: 400;">🎮 Fun Activities</h1>
-      <h2 style="text-align: center; font-size: small; font-family: 'Playfair Display';">
-        Take a break
-      </h2>
+      <h2 style="text-align: center; font-size: small; font-family: 'Playfair Display';">Take a break</h2>
 
       <div class="slideshow">
         <div class="slide active">
@@ -228,7 +219,7 @@
           <a href="https://paveldogreat.github.io/WebGL-Fluid-Simulation/" target="_blank" class="pema-btn">Open Activity</a>
         </div>
         <div class="slide">
-          <div class="activity-emoji"> 🚃</div>
+          <div class="activity-emoji">🚃</div>
           <h3>Short Trip</h3>
           <p style="font-size: medium;">Guide a little cat on a peaceful tram ride. Use arrow keys to move left and right.</p>
           <a href="https://alexanderperrin.com.au/paper/shorttrip/" target="_blank" class="pema-btn">Open Activity</a>
@@ -263,7 +254,6 @@
           <p style="font-size: medium;">A short meditation area to help calm you down.</p>
           <a href="https://thezen.zone/" target="_blank" class="pema-btn">Open Activity</a>
         </div>
-        
         <div class="slide">
           <div class="activity-emoji">🎨</div>
           <h3>Stained Glass Smash</h3>
@@ -276,16 +266,18 @@
           <p style="font-size: medium;">Release what has been bothering you and send it to the moon and never back.</p>
           <a href="https://www.pixelthoughts.co/" target="_blank" class="pema-btn">Open Activity</a>
         </div>
+      </div>
 
       <div class="slideshow-controls">
         <button onclick="changeSlide(-1)" class="pema-btn">Prev</button>
         <span id="slide-counter" style="font-family: cursive; font-size: small;">1 / 9</span>
-        <button onclick="changeSlide(1)" class="pema-btn">Next </button>
+        <button onclick="changeSlide(1)" class="pema-btn">Next</button>
       </div>
 
       <p style="text-align: center; font-size: small; color: rgb(6, 23, 121); margin-top: 1rem;">
-        Activities sourced from <a href="https://llamalife.co/blog/best-free-sites-for-focus-destress" target="_blank">Llama Life</a> ,  <a href="https://www.hongkiat.com/blog/websites-to-keep-you-calm/" target="_blank">hongkiat</a> and <a href="https://www.crazygames.com/t/relaxing" target="_blank">Crazy Games</a>. 
-
+        Activities sourced from <a href="https://llamalife.co/blog/best-free-sites-for-focus-destress" target="_blank">Llama Life</a>,
+        <a href="https://www.hongkiat.com/blog/websites-to-keep-you-calm/" target="_blank">hongkiat</a> and
+        <a href="https://www.crazygames.com/t/relaxing" target="_blank">Crazy Games</a>.
       </p>
     </div>
   </section>
@@ -337,20 +329,20 @@
   </section>
 
   <!-- CHAT -->
-  <button id="chat-toggle"><img src="" width="45" onerror="this.style.display='none'"/> </button>
+  <button id="chat-toggle"><img src="" width="45" onerror="this.style.display='none'"/></button>
   <div id="chat-win">
     <div class="chdr">
       <div>virtual friend</div>
-      <p style= "color: #ffffff; font-size:small; font-weight: bold;">💡 Tip: Tell me if you prefer short or detailed responses!</p>
+      <p style="color: #ffffff; font-size:small; font-weight: bold;">💡 Tip: Tell me if you prefer short or detailed responses!</p>
       <button id="chx">✕</button>
     </div>
     <div id="cmsgs"></div>
     <div class="cqr">
-      <button onclick="csq(this)"> I am stressed</button>
+      <button onclick="csq(this)">I am stressed</button>
       <button onclick="csq(this)">I am exhausted</button>
       <button onclick="csq(this)">I am overwhelmed</button>
-      <button onclick="csq(this)"> I am happy</button>
-      <button onclick="csq(this)"> I need a friend to talk</button>
+      <button onclick="csq(this)">I am happy</button>
+      <button onclick="csq(this)">I need a friend to talk</button>
     </div>
     <div class="cinp">
       <textarea id="cci"></textarea>
@@ -361,7 +353,7 @@
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2026 Jamyang Chozom. All rights reserved.</p>
-    <p> Bhutan Data Scientist Pvt. Ltd</p>
+    <p>Bhutan Data Scientist Pvt. Ltd</p>
     <a href="https://github.com/jamyangc/BDS-project" target="_blank">
       <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
            alt="GitHub" style="width:26px;height:26px;opacity:0.6;">
