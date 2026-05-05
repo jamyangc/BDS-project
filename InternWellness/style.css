@@ -200,19 +200,61 @@ iframe {
   color: #1a3a2a;
 }
 
-/* ── ABOUT CARDS (story/prototype) ── */
+/* ── ABOUT CARDS (story/prototype/activity) ── */
 .about-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 2rem auto;
+  align-items: stretch;
 }
 
 .about-card {
   background: #f5f3ee;
   border-radius: 14px;
   padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.about-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.about-card-tag {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.about-card-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.about-card-desc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  flex: 1;
+  max-width: 100%;
+  margin: 0 0 12px;
+}
+
+.about-card-btn {
+  font-size: 13px;
+  color: #3a1a3a;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .about-card h4 {
@@ -740,7 +782,6 @@ footer img {
     max-width: 100%;
   }
 
-  /* ── MOOD BUTTONS MOBILE ── */
   .mood-btn {
     padding: 6px 12px;
     font-size: 13px;
@@ -778,7 +819,6 @@ footer img {
     line-height: 1.4;
   }
 
-  /* ── MOOD BUTTONS SMALL PHONE ── */
   .mood-btn-group {
     gap: 8px;
   }
