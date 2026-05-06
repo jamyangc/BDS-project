@@ -10,11 +10,11 @@ body {
 .intro-wrapper {
   max-width: 600px;
   margin: 40px auto;
-  padding: 28px 24px; /* adjusted */
+  padding: 28px 24px;
   background: #eba8a8;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  text-align: left; /* FIXED (was justify) */
+  text-align: left;
   box-sizing: border-box;
 }
 
@@ -285,8 +285,6 @@ iframe {
   text-decoration: underline;
   cursor: pointer;
 }
-
-/* (rest of your file continues EXACTLY the same...) */
 
 .about-card h4 {
   font-size: 15px;
@@ -772,16 +770,23 @@ footer img {
 
   .intro-wrapper,
   .resource-block,
-  .activities-wrapper,
-  .tableau-wrapper {
+  .activities-wrapper {
     width: 92%;
     max-width: 100%;
     padding: 18px;
     margin: 20px auto;
   }
 
+  /* ── TABLEAU: compact on phones & tablets ── */
   .tableau-wrapper {
-    width: 95%;
+    width: 85%;
+    padding: 12px;
+    margin: 15px auto;
+  }
+
+  .tableau-wrapper iframe {
+    height: 220px;
+    aspect-ratio: unset;
   }
 
   .slide {
@@ -889,11 +894,10 @@ footer img {
 
   .tableau-wrapper iframe {
     width: 100% !important;
-    height: 250px !important;   /* 🔥 force smaller */
-    max-height: 250px !important;
+    height: 180px !important;
+    max-height: 180px !important;
     aspect-ratio: unset !important;
   }
-}
 
   .intro-wrapper {
     margin: 16px 12px;
@@ -946,3 +950,4 @@ footer img {
   nav {
     padding: 10px;
   }
+}
