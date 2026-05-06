@@ -875,13 +875,23 @@ footer img {
   h1 { font-size: 26px; margin-top: 30px; }
   h2 { font-size: 20px; }
   p  { font-size: 15px; }
-  .tableau-wrapper iframe {
-  aspect-ratio: 1 / 1;
-}
 
   .page {
     padding: 15px 10px 80px;
   }
+
+  .tableau-wrapper {
+    width: 90%;
+    padding: 10px;
+    margin: 15px auto;
+  }
+
+  .tableau-wrapper iframe {
+    aspect-ratio: 1 / 1;
+    height: auto;
+    max-height: 300px;
+  }
+}
 
   .intro-wrapper {
     margin: 16px 12px;
@@ -934,4 +944,3 @@ footer img {
   nav {
     padding: 10px;
   }
-}
