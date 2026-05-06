@@ -191,3 +191,4 @@ function toggleMenu() {
 function closeMenu() {
   document.getElementById('nav-links').classList.remove('open');
 }
+
