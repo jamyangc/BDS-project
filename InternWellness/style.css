@@ -779,15 +779,15 @@ footer img {
 
   /* ── TABLEAU: compact on phones & tablets ── */
   .tableau-wrapper {
-    width: 70%;
-    max-width: 400px;
-    padding: 10px;
+    width: 92%;
+    max-width: 100%;
+    padding: 12px;
     margin: 12px auto;
   }
 
   .tableau-wrapper iframe {
-    height: 180px;
-    aspect-ratio: unset;
+    height: 260px !important;
+    aspect-ratio: unset !important;
   }
 
   .slide {
@@ -887,16 +887,16 @@ footer img {
   }
 
   .tableau-wrapper {
-    width: 90%;
+    width: 92%;
     padding: 10px;
-    margin: 15px auto;
+    margin: 12px auto;
     height: auto !important;
   }
 
   .tableau-wrapper iframe {
     width: 100% !important;
-    height: 180px !important;
-    max-height: 180px !important;
+    height: 200px !important;
+    max-height: 200px !important;
     aspect-ratio: unset !important;
   }
 
@@ -918,11 +918,6 @@ footer img {
 
   .resource-block {
     padding: 16px 14px;
-  }
-
-  .tableau-wrapper {
-    width: 100%;
-    padding: 12px 10px 40px;
   }
 
   #chat-win {
