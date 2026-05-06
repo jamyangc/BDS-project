@@ -779,13 +779,14 @@ footer img {
 
   /* ── TABLEAU: compact on phones & tablets ── */
   .tableau-wrapper {
-    width: 85%;
-    padding: 12px;
-    margin: 15px auto;
+    width: 70%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 12px auto;
   }
 
   .tableau-wrapper iframe {
-    height: 220px;
+    height: 180px;
     aspect-ratio: unset;
   }
 
