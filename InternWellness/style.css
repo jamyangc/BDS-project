@@ -6,14 +6,24 @@ body {
   font-family: 'playfair display', serif;
 }
 
+/* ✅ FIXED INTRO WRAPPER */
 .intro-wrapper {
   max-width: 600px;
   margin: 40px auto;
-  padding: 40px;
+  padding: 28px 24px; /* adjusted */
   background: #eba8a8;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  text-align: justify;
+  text-align: left; /* FIXED (was justify) */
+  box-sizing: border-box;
+}
+
+/* ✅ FIXED TEXT INSIDE INTRO */
+.intro-wrapper p {
+  text-align: left;
+  line-height: 1.6;
+  margin: 0 0 16px;
+  max-width: 100%;
 }
 
 /* ── NAV ── */
@@ -116,6 +126,18 @@ p {
   line-height: 1.7;
 }
 
+/* ✅ FIX: prevent global p from breaking layouts */
+.intro-wrapper p,
+.resource-block p,
+.about-box p,
+.about-card p {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+}
+
+/* ── TAGLINE ── */
 .tagline {
   font-size: 15px;
   color: #2e6b45;
@@ -200,7 +222,7 @@ iframe {
   color: #1a3a2a;
 }
 
-/* ── ABOUT CARDS (story/prototype/activity) ── */
+/* ── ABOUT CARDS ── */
 .about-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -256,6 +278,8 @@ iframe {
   text-decoration: underline;
   cursor: pointer;
 }
+
+/* (rest of your file continues EXACTLY the same...) */
 
 .about-card h4 {
   font-size: 15px;
