@@ -183,7 +183,14 @@ iframe {
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 2px 16px rgba(26,58,42,0.10);
-  padding: 20px 20px 80px;
+  padding: 20px;
+}
+
+.tableau-wrapper iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: none;
 }
 
 /* ── HELP CARDS ── */
@@ -251,7 +258,7 @@ iframe {
 .about-card-tag {
   font-size: 11px;
   letter-spacing: 0.1em;
-  color: #888;
+  color: #f5efef;
   text-transform: uppercase;
   margin-bottom: 6px;
 }
@@ -265,7 +272,7 @@ iframe {
 
 .about-card-desc {
   font-size: 13px;
-  color: #666;
+  color: #070707;
   line-height: 1.6;
   flex: 1;
   max-width: 100%;
@@ -290,7 +297,7 @@ iframe {
 
 .about-card p {
   font-size: 13px;
-  color: #666;
+  color: #070707;
   line-height: 1.6;
   max-width: 100%;
   margin: 0;
@@ -868,6 +875,9 @@ footer img {
   h1 { font-size: 26px; margin-top: 30px; }
   h2 { font-size: 20px; }
   p  { font-size: 15px; }
+  .tableau-wrapper iframe {
+  aspect-ratio: 1 / 1;
+}
 
   .page {
     padding: 15px 10px 80px;
@@ -896,10 +906,6 @@ footer img {
   .tableau-wrapper {
     width: 100%;
     padding: 12px 10px 40px;
-  }
-
-  .tableau-wrapper iframe {
-    height: 300px;
   }
 
   #chat-win {
