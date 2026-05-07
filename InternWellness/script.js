@@ -74,48 +74,73 @@ const win = document.getElementById("chat-win");
 const toggle = document.getElementById("chat-toggle");
 const msgs = document.getElementById("cmsgs");
 const input = document.getElementById("cci");
-const sendBtn= document.getElementById("csb");
+const sendBtn = document.getElementById("csb");
 toggle.onclick = () => win.classList.toggle("open");
 document.getElementById("chx").onclick = () => win.classList.remove("open");
-function csq(btn) {send(btn.innerText);}
+function csq(btn) { send(btn.innerText); }
 sendBtn.onclick = () => {
   send(input.value);
   input.value = "";
 };
-async function send(text){
-  if (!text)return;
-  addMsg("user", text);
-  history.push({ role:"user",content: text});
 
-  try{
+// ── TYPING INDICATOR ──
+function showTypingIndicator() {
+  const div = document.createElement("div");
+  div.className = "cmsg typing-indicator-wrapper";
+  div.id = "typing-indicator";
+  div.innerHTML = `
+    <div class="cmb typing-indicator">
+      <span></span><span></span><span></span>
+    </div>
+  `;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function removeTypingIndicator() {
+  const indicator = document.getElementById("typing-indicator");
+  if (indicator) indicator.remove();
+}
+
+async function send(text) {
+  if (!text) return;
+  addMsg("user", text);
+  history.push({ role: "user", content: text });
+
+  showTypingIndicator();
+
+  try {
     const res = await fetch("https://bds-project.onrender.com/chat", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    messages: [
-      { role: "system", content: "You are a supportive wellbeing assistant for interns or anyone who feels stressed or those who are not stressed too." },
-      ...history
-    ]
-  })
-});
-  
-  const data = await res.json();
-  const reply = data.choices[0].message.content;
-  history.push({ role: "assistant", content: reply });
-  addMsg("ai", reply);
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        messages: [
+          { role: "system", content: "You are a supportive wellbeing assistant for interns or anyone who feels stressed or those who are not stressed too." },
+          ...history
+        ]
+      })
+    });
+
+    const data = await res.json();
+    const reply = data.choices[0].message.content;
+    history.push({ role: "assistant", content: reply });
+    removeTypingIndicator();
+    addMsg("ai", reply);
   } catch (err) {
-    addMsg("ai", "Error: " + err.message);
+    removeTypingIndicator();
+    addMsg("ai", "Sorry, something went wrong. Please try again.");
   }
-  }
+}
+
 function addMsg(role, text) {
   const div = document.createElement("div");
   div.className = "cmsg " + (role === "user" ? "user" : "");
-  div.innerHTML = `<div class="cmb">${text} </div>`;
+  div.innerHTML = `<div class="cmb">${text}</div>`;
   msgs.appendChild(div);
   msgs.scrollTop = msgs.scrollHeight;
-} 
+}
 
 // ── DAILY VIDEO PLAYER ──
 const musicVideos = ["zFs8CnOeAA4","t14n8Uhq-5U","hgUGe1cf3So","JdqL89ZZwFw", "Njt1io9jakQ", "b4q1q0DawYg", "roAnTo-AJWQ"];
@@ -147,7 +172,7 @@ function playCategory(type) {
       src="https://www.youtube.com/embed/${videoId}"
       frameborder="0"
       allowfullscreen
-      style="border-radius:12px; margin-top:15px;">
+      style="border-radius:12px; margin-top:15px; max-width:100%;">
     </iframe>
   `;
 }
@@ -162,28 +187,6 @@ function changeSlide(direction) {
   document.getElementById('slide-counter').textContent = `${currentSlide + 1} / ${slides.length}`;
 }
 
-function checkMood(mood) {
-  let message = "";
-  
-  if (mood === "happy") {
-    message = "That's amazing! Keep the positive energy going ";
-  } else if (mood === "neutral") {
-    message = "You are doing okay. Maybe a small break will help ";
-  } else if (mood === "stressed") {
-    message = "Take a deep breath. You deserve a break ";
-  } else if (mood === "sad") {
-    message = "I am really sorry you're feeling this way ";
-  }
-
-  document.getElementById("moodResult").innerHTML = `
-    <p>${message}</p>
-    <a href="#page-resources" onclick="showPage('resources')" 
-       style="display:inline-block; margin-top:10px; color: purple; font-weight:bold;">
-       Go to fun activities here
-    </a>
-  `;
-}
-
 function toggleMenu() {
   document.getElementById('nav-links').classList.toggle('open');
 }
@@ -192,3 +195,77 @@ function closeMenu() {
   document.getElementById('nav-links').classList.remove('open');
 }
 
+// ── ACCORDION ──
+function toggleAcc(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.facc-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ── BREATHING EXERCISE ──
+let breathPaused = false;
+let breathInterval = null;
+const breathSteps = ["Breathe in…", "Hold…", "Breathe out…", "Rest…"];
+const breathDurations = [4000, 4000, 4000, 2000];
+let breathStep = 0;
+
+function startBreath() {
+  const text = document.getElementById("breathText");
+  if (!text) return;
+
+  function step() {
+    if (breathPaused) return;
+    text.textContent = breathSteps[breathStep];
+    breathStep = (breathStep + 1) % breathSteps.length;
+    breathInterval = setTimeout(step, breathDurations[breathStep]);
+  }
+  step();
+}
+
+function toggleBreath() {
+  breathPaused = !breathPaused;
+  if (!breathPaused) startBreath();
+}
+
+startBreath();
+
+// ── ANIMATED COUNTERS (Findings page) ──
+function animateCounters() {
+  document.querySelectorAll('.fstat-num').forEach(el => {
+    const target = parseInt(el.getAttribute('data-target'));
+    const suffix = el.getAttribute('data-suffix') || '';
+    if (isNaN(target)) return;
+    let current = 0;
+    const increment = Math.ceil(target / 60);
+    const timer = setInterval(() => {
+      current = Math.min(current + increment, target);
+      el.textContent = current + suffix;
+      if (current >= target) clearInterval(timer);
+    }, 30);
+  });
+}
+
+function animateCountersHelp() {
+  // placeholder for get help page transition
+}
+
+// Trigger counters when findings page is shown
+const originalShowPage = showPage;
+window.showPage = function(id) {
+  originalShowPage(id);
+  if (id === 'findings') {
+    setTimeout(animateCounters, 300);
+  }
+};
+
+// ── ROTATING SELF-CARE TIPS ──
+let activeTip = 0;
+const pills = document.querySelectorAll('.tip-pill');
+if (pills.length > 0) {
+  setInterval(() => {
+    pills[activeTip].classList.remove('active-tip');
+    activeTip = (activeTip + 1) % pills.length;
+    pills[activeTip].classList.add('active-tip');
+  }, 3000);
+}
