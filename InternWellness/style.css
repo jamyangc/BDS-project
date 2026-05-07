@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&family=Dancing+Script:wght@400;600&display=swap');
+
 body {
   text-align: center;
   margin: 0;
   padding: 0;
   background-color:#e7c5da;
-  font-family: 'playfair display', serif;
+  font-family: 'Playfair Display', serif;
 }
 
 .intro-wrapper {
@@ -283,6 +285,7 @@ iframe {
   line-height: 1.6; 
   max-width: 100%; 
   margin: 0; 
+  font-family: 'Dancing Script', cursive;
 }
 
 /* ── INFO CARDS ── */
@@ -323,7 +326,8 @@ iframe {
   line-height: 1.6; 
   margin: 0; 
   max-width: 100%; 
-  text-align: left; 
+  text-align: left;
+  font-family: 'Dancing Script', cursive;
 }
 
 /* ── ABOUT ── */
@@ -331,7 +335,6 @@ iframe {
   padding: 3rem 2rem; 
   max-width: 1100px; 
   margin: 0 auto; 
-
 }
 
 .about-tag { 
@@ -510,6 +513,12 @@ footer img {
 .slide.active { display: flex; }
 .slideshow-controls { display: flex; justify-content: center; gap: 1.5rem; }
 
+/* ── SLIDE COUNTER ── */
+#slide-counter {
+  font-family: 'Dancing Script', cursive;
+  font-size: small;
+}
+
 /* ── MOOD ── */
 .mood-wrapper {
   background: #ffffff; border-radius: 14px;
@@ -521,7 +530,7 @@ footer img {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 8px 16px; margin: 6px; border: 1px solid #e0d4ec;
   border-radius: 20px; background: #f9f5ff; cursor: pointer;
-  font-size: 14px; font-family: 'playfair display', serif;
+  font-size: 14px; font-family: 'Playfair Display', serif;
   transition: background 0.2s, box-shadow 0.2s;
 }
 
@@ -529,8 +538,27 @@ footer img {
 .mood-btn img { width: 30px; height: 30px; object-fit: cover; border-radius: 50%; }
 .mood-btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
 
+/* ── MOOD RESULT & MUSIC PLAYER ── */
+#moodResult {
+  font-family: 'Dancing Script', cursive;
+}
+
+#musicPlayer {
+  font-family: 'Dancing Script', cursive;
+}
+
 .page-bg { background: #e8d5e8; padding: 32px 24px; }
 .btn { border: 1px solid #942f2f; border-radius: 20px; padding: 7px 16px; background: #a83e3e; font-size: 14px; }
+
+/* ── PEMA BUTTON ── */
+.pema-btn {
+  font-family: 'Dancing Script', cursive;
+}
+
+/* ── ENTER BUTTON ── */
+#enter-btn {
+  font-family: 'Dancing Script', cursive;
+}
 
 /* ════════════════════════════════════════════
    FINDINGS PAGE — new styles
@@ -628,7 +656,7 @@ footer img {
   font-size: 14px;
   color: #555;
   line-height: 1.7;
-  font-family: cursive;
+  font-family: 'Dancing Script', cursive;
   text-align: left;
   max-width: 100%;
 }
@@ -679,7 +707,7 @@ footer img {
 .breath-text {
   font-size: 15px;
   color: #7a4a7a;
-  font-family: cursive;
+  font-family: 'Dancing Script', cursive;
   font-style: italic;
   min-height: 22px;
   text-align: center;
@@ -732,7 +760,7 @@ footer img {
   margin: 0 0 12px; 
   max-width: 100%; 
   text-align: left; 
-  font-family: cursive; 
+  font-family: 'Dancing Script', cursive;
 }
 
 .hcard-btn {
@@ -743,7 +771,7 @@ footer img {
   padding: 7px 16px;
   font-size: 12px;
   text-decoration: none;
-  font-family: cursive;
+  font-family: 'Dancing Script', cursive;
   text-align: center;
   transition: background 0.2s, transform 0.15s;
   border: none;
@@ -771,7 +799,7 @@ footer img {
   border-radius: 20px;
   padding: 8px 16px;
   font-size: 13px;
-  font-family: cursive;
+  font-family: 'Dancing Script', cursive;
   color: #3a1a3a;
   cursor: default;
   transition: background 0.3s, transform 0.2s, border-color 0.3s;
@@ -796,10 +824,15 @@ footer img {
 .help-closing-note p { 
   font-size: 17px; 
   color: #3a1a3a; 
-  font-family: cursive; 
+  font-family: 'Dancing Script', cursive;
   margin: 0; 
   max-width: 100%; 
   text-align: center; 
+}
+
+/* ── HOME PAGE CURSIVE HEADINGS ── */
+#page-home h1 {
+  font-family: 'Dancing Script', cursive;
 }
 
 /* ════════════════════════════════
