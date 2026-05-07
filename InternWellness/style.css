@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   background-color:#e7c5da;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif; /* universal font */
 }
 
 .intro-wrapper {
@@ -285,7 +285,6 @@ iframe {
   line-height: 1.6; 
   max-width: 100%; 
   margin: 0; 
-  font-family: 'Dancing Script', cursive;
 }
 
 /* ── INFO CARDS ── */
@@ -327,7 +326,6 @@ iframe {
   margin: 0; 
   max-width: 100%; 
   text-align: left;
-  font-family: 'Dancing Script', cursive;
 }
 
 /* ── ABOUT ── */
@@ -499,6 +497,34 @@ footer img {
 .cinp textarea:focus { outline: none; }
 .cinp button { background: #1a3a2a; color: white; border: none; padding: 0 14px; cursor: pointer; }
 
+/* ── TYPING INDICATOR ── */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 14px;
+  background: #e8f0e9;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.typing-indicator span {
+  width: 7px;
+  height: 7px;
+  background: #1a3a2a;
+  border-radius: 50%;
+  display: inline-block;
+  animation: typing-bounce 1.2s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing-bounce {
+  0%, 80%, 100% { transform: scale(0.7); opacity: 0.5; }
+  40%           { transform: scale(1); opacity: 1; }
+}
+
 /* ── WRAPPERS ── */
 .resource-block, .activities-wrapper {
   max-width: 700px; width: 95%; margin: 30px auto;
@@ -515,7 +541,6 @@ footer img {
 
 /* ── SLIDE COUNTER ── */
 #slide-counter {
-  font-family: 'Dancing Script', cursive;
   font-size: small;
 }
 
@@ -540,11 +565,11 @@ footer img {
 
 /* ── MOOD RESULT & MUSIC PLAYER ── */
 #moodResult {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Playfair Display', serif;
 }
 
 #musicPlayer {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Playfair Display', serif;
 }
 
 .page-bg { background: #e8d5e8; padding: 32px 24px; }
@@ -656,7 +681,7 @@ footer img {
   font-size: 14px;
   color: #555;
   line-height: 1.7;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Playfair Display', serif;
   text-align: left;
   max-width: 100%;
 }
@@ -707,7 +732,7 @@ footer img {
 .breath-text {
   font-size: 15px;
   color: #7a4a7a;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Playfair Display', serif;
   font-style: italic;
   min-height: 22px;
   text-align: center;
@@ -760,7 +785,7 @@ footer img {
   margin: 0 0 12px; 
   max-width: 100%; 
   text-align: left; 
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Playfair Display', serif;
 }
 
 .hcard-btn {
@@ -799,7 +824,7 @@ footer img {
   border-radius: 20px;
   padding: 8px 16px;
   font-size: 13px;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Playfair Display', serif;
   color: #3a1a3a;
   cursor: default;
   transition: background 0.3s, transform 0.2s, border-color 0.3s;
@@ -824,15 +849,15 @@ footer img {
 .help-closing-note p { 
   font-size: 17px; 
   color: #3a1a3a; 
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Playfair Display', serif;
   margin: 0; 
   max-width: 100%; 
   text-align: center; 
 }
 
-/* ── HOME PAGE CURSIVE HEADINGS ── */
+/* ── HOME PAGE HEADINGS ── */
 #page-home h1 {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Playfair Display', serif;
 }
 
 /* ════════════════════════════════
@@ -854,8 +879,7 @@ footer img {
     width: 100%; 
     background: #ffffff; 
     padding: 8px 0; 
-    border-top: 1px 
-    solid #f0ede6; 
+    border-top: 1px solid #f0ede6; 
   }
 
   .nav-links.open { 
@@ -874,55 +898,56 @@ footer img {
     border-top: none; 
     border-radius: 0; 
   }
-  h1 { 
-    font-size: 32px; 
-  }
-  h2 { 
-    font-size: 24px; 
-  }
+
+  h1 { font-size: 32px; }
+  h2 { font-size: 24px; }
   p { 
     max-width: 100%; 
     font-size: 16px; 
     padding: 0 10px; 
   }
 
-  .about-cards { 
-    grid-template-columns: 1fr; 
+  /* Home page hero text */
+  #page-home > div:first-child {
+    flex-direction: column;
+    text-align: center;
+  }
+  #page-home > div:first-child h1 {
+    font-size: 1.5rem !important;
+    line-height: 1.5;
+    flex: unset;
+    width: 100%;
   }
 
+  /* Cards */
+  .about-cards { grid-template-columns: 1fr; }
   .about-info-cards { 
     grid-template-columns: 1fr; 
     min-height: unset; 
   }
-  .videos { 
+  .about-row { 
     flex-direction: column; 
+    padding: 0 12px; 
   }
+  .about-box { max-width: 100%; }
 
-  .videos iframe { 
-    width: 100%; 
-    height: 200px; 
-  }
+  /* Videos */
+  .videos { flex-direction: column; }
+  .videos iframe { width: 100%; height: 200px; }
 
+  /* Help cards */
   .help-cards { 
     display: grid; 
     grid-template-columns: 1fr; 
     gap: 12px; 
     padding: 0 12px; 
   }
+  .help-card { max-width: 100%; padding: 20px 12px; }
+  .help-card .card-value { font-size: 18px; }
+  .help-card .card-label { font-size: 10px; }
+  .help-cards-upgraded { grid-template-columns: repeat(2, 1fr); }
 
-  .help-card { 
-    max-width: 100%; 
-    padding: 20px 12px; 
-  }
-
-  .help-card .card-value { 
-    font-size: 18px; 
-  }
-
-  .help-card .card-label { 
-    font-size: 10px; 
-  }
-
+  /* Wrappers */
   .intro-wrapper, .resource-block, .activities-wrapper { 
     width: 92%; 
     max-width: 100%; 
@@ -930,30 +955,26 @@ footer img {
     margin: 20px auto; 
   }
 
+  /* Tableau */
   .tableau-wrapper { 
     width: 92%; 
     max-width: 100%; 
     padding: 12px; 
     margin: 12px auto; 
   }
-
   .tableau-wrapper iframe { 
     height: 260px !important; 
     aspect-ratio: unset !important; 
   }
 
-  .slide { 
-    padding: 10px; 
-  }
-  .slide .activity-emoji { 
-    font-size: 36px; 
-  }
+  /* Slideshow */
+  .slide { padding: 10px; }
+  .slide .activity-emoji { font-size: 36px; }
 
-  iframe { 
-    width: 100% !important; 
-    height: auto; 
-  }
+  /* iframes */
+  iframe { width: 100% !important; height: auto; }
 
+  /* Chat */
   #chat-win { 
     width: 95vw; 
     right: 2.5vw; 
@@ -961,49 +982,40 @@ footer img {
     height: 60vh; 
   }
 
-  .about-row { 
-    flex-direction: column; 
-    padding: 0 12px; 
-  }
+  /* Mood */
+  .mood-btn { padding: 6px 12px; font-size: 13px; margin: 4px; }
+  .mood-btn img { width: 24px; height: 24px; }
 
-  .about-box { max-width: 100%; }
-
-  .mood-btn { padding: 6px 12px; 
-    font-size: 13px; 
-    margin: 4px; 
-  }
-  .mood-btn img { width: 24px; 
-    height: 24px; 
-  }
-
-  .findings-stats { 
-    grid-template-columns: repeat(2, 1fr); 
-  }
-
-  .help-cards-upgraded { 
-    grid-template-columns: repeat(2, 1fr); 
-  }
-
+  /* Findings */
+  .findings-stats { grid-template-columns: repeat(2, 1fr); }
   .findings-quote { padding: 1.5rem; }
-}
 
-@media (max-width: 600px) {
-  #page-home > div:first-child { flex-direction: column; text-align: center; }
+  /* Resource block video */
+  #videoPlayer iframe {
+    width: 100% !important;
+    height: 200px !important;
+  }
 
-  #page-home > div:first-child img { width: 50% !important; margin: 0 auto; background-color: #e8d5e8; border-radius: 50%; padding: 4px; }
+  /* Mood result card */
+  #moodResult > div {
+    max-width: 100% !important;
+    padding: 16px !important;
+  }
 
-  p { max-width: 100%; padding: 0 12px; }
-  #page-home > div:first-child h1 { font-size: 1.4rem !important; line-height: 1.4; }
-  .mood-btn-group { gap: 8px; }
-  .mood-btn { padding: 6px 10px; font-size: 12px; }
-  .mood-btn img { width: 22px; height: 22px; }
+  /* Tips strip */
+  .tips-strip { gap: 8px; padding: 0 8px; }
+  .tip-pill { font-size: 12px; padding: 6px 12px; }
 }
 
 @media (max-width: 480px) {
-  h1 { font-size: 26px; margin-top: 30px; }
-  h2 { font-size: 20px; }
-  p  { font-size: 15px; }
+  h1 { font-size: 24px; margin-top: 24px; }
+  h2 { font-size: 18px; }
+  p  { font-size: 14px; }
   .page { padding: 15px 10px 80px; }
+
+  #page-home > div:first-child h1 {
+    font-size: 1.25rem !important;
+  }
 
   .tableau-wrapper { 
     width: 92%; 
@@ -1011,7 +1023,6 @@ footer img {
     margin: 12px auto; 
     height: auto !important; 
   }
-
   .tableau-wrapper iframe { 
     width: 100% !important; 
     height: 200px !important; 
@@ -1029,30 +1040,43 @@ footer img {
     gap: 14px; 
     margin: 1rem auto; 
   }
-
   .about-info-card { 
     min-height: unset; 
     padding: 1rem 1.1rem; 
   }
 
   .resource-block { padding: 16px 14px; }
+
   #chat-win { 
     width: calc(100vw - 16px); 
-    right: 12px; bottom: 100px; 
+    right: 8px;
+    bottom: 80px; 
   }
 
   iframe { width: 100%; }
-
-  #videoPlayer iframe { 
-    height: 150px; 
-  }
+  #videoPlayer iframe { height: 180px !important; }
   #musicFrame { height: 50px; }
 
   .resource-block, .activities-wrapper { padding: 14px; }
 
   nav { padding: 10px; }
-  
-  .help-cards-upgraded { grid-template-columns: 1fr; }
 
+  .help-cards-upgraded { grid-template-columns: 1fr; }
   .findings-stats { grid-template-columns: repeat(2, 1fr); }
+
+  /* Accordion text smaller on mobile */
+  .facc-q { font-size: 13px; padding: 12px 14px; }
+  .facc-body { font-size: 13px; }
+
+  /* Breathing box */
+  .breath-ring { width: 70px; height: 70px; }
+  .breath-text { font-size: 13px; }
+
+  /* Stat cards */
+  .fstat-num { font-size: 22px; }
+  .fstat-label { font-size: 10px; }
+
+  /* Closing note */
+  .help-closing-note { padding: 1rem 1.25rem; }
+  .help-closing-note p { font-size: 15px; }
 }
