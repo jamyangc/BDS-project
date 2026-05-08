@@ -67,81 +67,6 @@ function setMood(mood) {
     </div>
   `;
 }
-
-let history = []
-
-const win = document.getElementById("chat-win");
-const toggle = document.getElementById("chat-toggle");
-const msgs = document.getElementById("cmsgs");
-const input = document.getElementById("cci");
-const sendBtn = document.getElementById("csb");
-toggle.onclick = () => win.classList.toggle("open");
-document.getElementById("chx").onclick = () => win.classList.remove("open");
-function csq(btn) { send(btn.innerText); }
-sendBtn.onclick = () => {
-  send(input.value);
-  input.value = "";
-};
-
-// ── TYPING INDICATOR ──
-function showTypingIndicator() {
-  const div = document.createElement("div");
-  div.className = "cmsg typing-indicator-wrapper";
-  div.id = "typing-indicator";
-  div.innerHTML = `
-    <div class="cmb typing-indicator">
-      <span></span><span></span><span></span>
-    </div>
-  `;
-  msgs.appendChild(div);
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-function removeTypingIndicator() {
-  const indicator = document.getElementById("typing-indicator");
-  if (indicator) indicator.remove();
-}
-
-async function send(text) {
-  if (!text) return;
-  addMsg("user", text);
-  history.push({ role: "user", content: text });
-
-  showTypingIndicator();
-
-  try {
-    const res = await fetch("https://bds-project.onrender.com/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        messages: [
-          { role: "system", content: "You are a supportive wellbeing assistant for interns or anyone who feels stressed or those who are not stressed too." },
-          ...history
-        ]
-      })
-    });
-
-    const data = await res.json();
-    const reply = data.choices[0].message.content;
-    history.push({ role: "assistant", content: reply });
-    removeTypingIndicator();
-    addMsg("ai", reply);
-  } catch (err) {
-    removeTypingIndicator();
-    addMsg("ai", "Sorry, something went wrong. Please try again.");
-  }
-}
-
-function addMsg(role, text) {
-  const div = document.createElement("div");
-  div.className = "cmsg " + (role === "user" ? "user" : "");
-  div.innerHTML = `<div class="cmb">${text}</div>`;
-  msgs.appendChild(div);
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
 // ── DAILY VIDEO PLAYER ──
 const musicVideos = ["zFs8CnOeAA4","t14n8Uhq-5U","hgUGe1cf3So","JdqL89ZZwFw", "Njt1io9jakQ", "b4q1q0DawYg", "roAnTo-AJWQ"];
 const meditationVideos = ["j734gLbQFbU", "inpok4MKVLM", "ru4hdcMmlwQ", "ssss7V1_eyA", "zSkFFW--Ma0","LDs7jglje_U"];
@@ -268,4 +193,154 @@ if (pills.length > 0) {
     activeTip = (activeTip + 1) % pills.length;
     pills[activeTip].classList.add('active-tip');
   }, 3000);
+}
+
+let history = [];
+
+const win = document.getElementById("chat-win");
+const toggle = document.getElementById("chat-toggle");
+const msgs = document.getElementById("cmsgs");
+const input = document.getElementById("cci");
+const sendBtn = document.getElementById("csb");
+
+/* ───────── OPEN/CLOSE CHAT ───────── */
+toggle.onclick = () => {
+  win.classList.toggle("open");
+};
+
+document.getElementById("chx").onclick = () => {
+  win.classList.remove("open");
+};
+
+/* QUICK QUESTION BUTTONS */
+function csq(btn) {
+  send(btn.innerText);
+}
+
+/* SEND BUTTON */
+sendBtn.onclick = () => {
+  send(input.value);
+  input.value = "";
+};
+
+/* ENTER KEY SEND */
+input.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    send(input.value);
+    input.value = "";
+  }
+});
+
+/* ───────── TYPING INDICATOR ───────── */
+function showTypingIndicator() {
+  const div = document.createElement("div");
+
+  div.className = "cmsg";
+  div.id = "typing-indicator";
+
+  div.innerHTML = `
+    <div class="cmb typing-indicator">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  `;
+
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function removeTypingIndicator() {
+  const indicator = document.getElementById("typing-indicator");
+
+  if (indicator) {
+    indicator.remove();
+  }
+}
+
+/* ───────── SEND MESSAGE ───────── */
+async function send(text) {
+  if (!text || text.trim() === "") return;
+
+  addMsg("user", text);
+
+  history.push({
+    role: "user",
+    content: text
+  });
+
+  showTypingIndicator();
+
+  try {
+    const res = await fetch("https://bds-project.onrender.com/chat", {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify({
+        messages: [
+          {
+            role: "system",
+            content:
+              "You are a supportive wellbeing assistant for interns or anyone who feels stressed or overwhelmed."
+          },
+
+          ...history
+        ]
+      })
+    });
+
+    const data = await res.json();
+
+    removeTypingIndicator();
+
+    const reply =
+      data?.choices?.[0]?.message?.content ||
+      "Sorry, I couldn't generate a response.";
+
+    history.push({
+      role: "assistant",
+      content: reply
+    });
+
+    addMsg("ai", reply);
+
+  } catch (err) {
+    console.error(err);
+
+    removeTypingIndicator();
+
+    addMsg(
+      "ai",
+      "Sorry, something went wrong. Please try again."
+    );
+  }
+}
+
+/* ───────── ADD MESSAGE ───────── */
+function addMsg(role, text) {
+
+  /* MAIN WRAPPER */
+  const div = document.createElement("div");
+
+  div.className =
+    "cmsg " + (role === "user" ? "user" : "");
+
+  /* MESSAGE BUBBLE */
+  const bubble = document.createElement("div");
+
+  bubble.className = "cmb";
+
+  /* SAFER THAN innerHTML */
+  bubble.textContent = text;
+
+  /* APPEND */
+  div.appendChild(bubble);
+
+  msgs.appendChild(div);
+
+  /* AUTO SCROLL */
+  msgs.scrollTop = msgs.scrollHeight;
 }
