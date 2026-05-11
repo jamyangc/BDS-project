@@ -414,6 +414,19 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
 .chdr { background: #1a3a2a; color: white; padding: 10px; display: flex; justify-content: space-between; align-items: center; }
 .chdr button { background: none; border: none; color: white; cursor: pointer; font-size: 16px; }
 
+/* ── CHAT PRIVACY NOTE ── */
+.chat-privacy-note {
+  background: #1a3a2a;
+  color: #cce8cc;
+  font-size: 11px;
+  text-align: center;
+  padding: 5px 12px 7px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
 #cmsgs {
   flex: 1;
   padding: 10px;
@@ -562,6 +575,17 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
   font-weight: 600;
   text-align: center;
   margin: 2rem 0 1rem;
+}
+
+/* ── BHUTAN RESOURCES NOTE ── */
+.bhutan-note {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  font-family: 'Playfair Display', serif;
+  margin: -0.75rem 0 1.5rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
 }
 
 .findings-accordion {
