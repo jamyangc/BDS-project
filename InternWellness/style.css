@@ -110,9 +110,10 @@ h2 {
   animation: floaty 3s infinite ease-in-out;
 }
 
+/* FIX 4: reduced translateY to -6px to prevent scroll flicker on mobile */
 @keyframes floaty {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-6px); }
 }
 
 /* ── TEXT ── */
@@ -174,7 +175,8 @@ iframe {
   margin: 20px auto;
   background: #fff;
   border-radius: 14px;
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   box-shadow: 0 2px 16px rgba(26,58,42,0.10);
   padding: 20px;
 }
@@ -210,7 +212,7 @@ iframe {
 .help-card .card-label { font-size: 11px; letter-spacing: 0.1em; color: black; text-transform: uppercase; margin-bottom: 8px; }
 .help-card .card-value { font-size: 22px; font-weight: 600; color: #1a3a2a; }
 
-/* ── ABOUT CARDS (FIXED) ── */
+/* ── ABOUT CARDS ── */
 .about-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -273,7 +275,6 @@ iframe {
   cursor: pointer;
 }
 
-/* pema-btn inside about-card */
 .about-card .pema-btn {
   margin-top: auto;
   display: inline-block;
@@ -431,10 +432,7 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
   flex: 1;
   padding: 10px;
   overflow-y: auto;
-
-  /* FIX */
   overflow-x: hidden;
-
   font-size: 14px;
   text-align: left;
 }
@@ -444,13 +442,10 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
   border-radius: 10px;
   max-width: 75%;
   background: #e8f0e9;
-
-  /* FIXES CUT OFF TEXT */
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-wrap: break-word;
   word-break: break-word;
-
   line-height: 1.5;
 }
 
@@ -459,8 +454,18 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
   color: white;
 }
 
-.cqr { display: flex; flex-wrap: wrap; gap: 5px; padding: 8px; border-top: 1px solid #ddd; }
-.cqr button { font-size: 11px; padding: 5px 8px; border: none; border-radius: 8px; cursor: pointer; background: #f0ede6; }
+/* FIX 3b: quick-reply buttons scroll horizontally on small screens */
+.cqr {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 5px;
+  padding: 8px;
+  border-top: 1px solid #ddd;
+}
+
+.cqr button { font-size: 11px; padding: 5px 8px; border: none; border-radius: 8px; cursor: pointer; background: #f0ede6; flex-shrink: 0; }
 
 .cinp { display: flex; border-top: 1px solid #ddd; }
 .cinp textarea { flex: 1; border: none; padding: 8px; resize: none; height: 40px; outline: none; }
@@ -571,7 +576,7 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #022702;
+  color: #6a8f6a;
   font-weight: 600;
   text-align: center;
   margin: 2rem 0 1rem;
@@ -643,7 +648,8 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
   max-width: 100%;
 }
 
-.facc-item.open .facc-body { max-height: 200px; padding: 0 18px 16px; }
+/* FIX 2: increased max-height from 200px to 400px so answers don't cut off on mobile */
+.facc-item.open .facc-body { max-height: 400px; padding: 0 18px 16px; }
 
 .findings-quote {
   max-width: 500px;
@@ -777,9 +783,7 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
    RESPONSIVE: TABLET + PHONE (max 768px)
 ════════════════════════════════ */
 @media (max-width: 768px) {
-  .cmb {
-  max-width: 90%;
-  font-size: 14px;}
+  .cmb { max-width: 90%; font-size: 14px; }
   body { overflow-x: hidden; }
   .hamburger { display: block; }
   nav { flex-direction: row; justify-content: space-between; align-items: center; padding: 10px 16px; flex-wrap: wrap; }
@@ -810,15 +814,33 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
 
   .intro-wrapper, .resource-block, .activities-wrapper { width: 92%; max-width: 100%; padding: 18px; margin: 20px auto; }
 
-  .tableau-wrapper { width: 92%; max-width: 100%; padding: 12px; margin: 12px auto; }
-  .tableau-wrapper iframe { height: 260px !important; aspect-ratio: unset !important; }
+  /* FIX 1: Tableau fully responsive on mobile */
+  .tableau-wrapper {
+    width: 96%;
+    max-width: 100%;
+    padding: 12px;
+    margin: 12px auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tableau-wrapper iframe {
+    width: 100% !important;
+    height: 240px !important;
+    aspect-ratio: unset !important;
+  }
 
   .slide { padding: 10px; }
   .slide .activity-emoji { font-size: 36px; }
 
   iframe { width: 100% !important; height: auto; }
 
-  #chat-win { width: 95vw; right: 2.5vw; bottom: 80px; height: 60vh; }
+  /* FIX 3: chat window respects mobile keyboard safe area */
+  #chat-win {
+    width: 95vw;
+    right: 2.5vw;
+    bottom: calc(80px + env(safe-area-inset-bottom));
+    height: 55vh;
+  }
 
   .mood-btn { padding: 6px 12px; font-size: 13px; margin: 4px; }
   .mood-btn img { width: 24px; height: 24px; }
@@ -834,9 +856,7 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
 }
 
 @media (max-width: 480px) {
-  .cmb {
-  max-width: 92%;
-  font-size: 13px;}
+  .cmb { max-width: 92%; font-size: 13px; }
   h1 { font-size: 24px; margin-top: 24px; }
   h2 { font-size: 18px; }
   p  { font-size: 14px; }
@@ -844,8 +864,21 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
 
   #page-home > div:first-child h1 { font-size: 1.25rem !important; }
 
-  .tableau-wrapper { width: 92%; padding: 10px; margin: 12px auto; height: auto !important; }
-  .tableau-wrapper iframe { width: 100% !important; height: 200px !important; max-height: 200px !important; aspect-ratio: unset !important; }
+  /* FIX 1 continued: Tableau on very small screens */
+  .tableau-wrapper {
+    width: 96%;
+    padding: 10px;
+    margin: 12px auto;
+    height: auto !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tableau-wrapper iframe {
+    width: 100% !important;
+    height: 200px !important;
+    max-height: 200px !important;
+    aspect-ratio: unset !important;
+  }
 
   .intro-wrapper { margin: 16px 12px; padding: 20px 16px; }
 
@@ -854,7 +887,11 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
 
   .resource-block { padding: 16px 14px; }
 
-  #chat-win { width: calc(100vw - 16px); right: 8px; bottom: 80px; }
+  #chat-win {
+    width: calc(100vw - 16px);
+    right: 8px;
+    bottom: calc(80px + env(safe-area-inset-bottom));
+  }
 
   iframe { width: 100%; }
   #videoPlayer iframe { height: 180px !important; }
