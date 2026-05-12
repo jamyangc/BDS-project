@@ -1,3 +1,5 @@
+
+
 const express = require("express");
 const dotenv = require("dotenv");
 const fs = require("fs");
@@ -34,41 +36,3 @@ app.post("/chat", async (req, res) => {
   }
 });
 
-// ── Message Wall ──────────────────────────────────────
-app.get("/api/messages", (req, res) => {
-  const data = fs.existsSync("messages.json")
-    ? JSON.parse(fs.readFileSync("messages.json"))
-    : [];
-  res.json(data.slice(-10).reverse());
-});
-
-app.post("/api/messages", (req, res) => {
-  const { message } = req.body;
-  if (!message || message.trim() === "") 
-    return res.status(400).json({ error: "Empty message" });
-
-  const data = fs.existsSync("messages.json")
-    ? JSON.parse(fs.readFileSync("messages.json"))
-    : [];
-
-  const newMsg = {
-    id: Date.now(),
-    message: message.slice(0, 100),
-    name: `Intern #${Math.floor(Math.random() * 99) + 1}`,
-    time: new Date().toISOString()
-  };
-
-  data.push(newMsg);
-  fs.writeFileSync("messages.json", JSON.stringify(data));
-  res.json(newMsg);
-});
-
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
-});
-
-// ── Clear all messages ──
-app.delete('/api/messages', (req, res) => {
-  fs.writeFileSync('messages.json', '[]');
-  res.json({ success: true });
-});
