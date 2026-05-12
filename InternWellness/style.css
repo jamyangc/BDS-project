@@ -922,6 +922,6 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
     display: block;
   }
   .tableau-wrapper {
-    display: none;
+    display: none !important;
   }
 }
