@@ -345,3 +345,12 @@ function addMsg(role, text) {
   msgs.scrollTop = msgs.scrollHeight;
 }
 
+function openTableau() {
+  document.getElementById('tableau-fullscreen').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeTableau() {
+  document.getElementById('tableau-fullscreen').style.display = 'none';
+  document.body.style.overflow = '';
+}
