@@ -33,6 +33,9 @@
   <!-- INTRO -->
   <section class="page active" id="page-intro">
     <h1>HELLO, Welcome!</h1>
+    <div style="text-align: center; margin: 1rem 0;">
+      <img src="GIF.gif" style="width: 200px; height: 200px; border-radius: 60%; color: #880355 ">
+    </div>
     <div class="intro-wrapper">
       <h3>Before you enter into the main page meet Jamyang: the intern behind this project</h3>
       <h4>1. Introduction</h4>
@@ -254,8 +257,8 @@
           <span>🔍 What were the main stressors?</span>
           <span class="facc-arrow">▾</span>
         </button>
-        <div class="facc-body" style="color: black;">
-          The top stressors among GCBS interns were <strong>workload and deadlines</strong>, followed by lack of guidance from supervisors, difficulty adjusting to professional environments, and balancing personal responsibilities alongside work commitments.
+        <div class="facc-body" style="color: black; font-size: medium;">
+          The top stressors among GCBS interns were <strong>time management with 41.98% </strong>, followed by <strong> misalignment between tasks and course of study with 37.04%</strong>, being unable to meet supervisor's expectations, difficulty adjusting to professional environments, and balancing personal responsibilities alongside work commitments.
         </div>
       </div>
 
@@ -264,8 +267,8 @@
           <span>💬 Were those stresses good or bad?</span>
           <span class="facc-arrow">▾</span>
         </button>
-        <div class="facc-body" style="color: black;">
-          Most interns <strong>experienced moderate stress</strong>, some interns sometimes felt emotionally exhausted, frustrated, or tensed about their workload, suggesting moderate stress levels. Overall, while stress is often viewed negatively, the findings indicate that it can also contribute to motivation, learning, and personal development when managed effectively.
+        <div class="facc-body" style="color: rgb(0, 0, 0); font-size: medium;">
+          Most interns <strong>experienced moderate stress</strong>, some interns sometimes felt emotionally exhausted, frustrated, or tensed about their workload, suggesting moderate stress levels. But they also reported personal growth such as being excited to learn more, feeling proud after completing difficult tasks and improved focus. Overall, while stress is often viewed negatively, the findings indicate that it can also contribute to motivation, learning, and personal development when managed effectively.
         </div>
       </div>
 
@@ -274,7 +277,7 @@
           <span>🌱 How did interns cope with stress?</span>
           <span class="facc-arrow">▾</span>
         </button>
-        <div class="facc-body" style="color: black;">
+        <div class="facc-body" style="color: black; font-size: medium;">
           Common coping methods included calling family and friends, ignoring the problem, doing physical exercise and seeking advice from supervisors. 
         </div>
       </div>
@@ -284,7 +287,7 @@
           <span>📊 What was the outcome of stress?</span>
           <span class="facc-arrow">▾</span>
         </button>
-        <div class="facc-body" style="color: black;">
+        <div class="facc-body" style="color: black; font-size: medium;">
           Despite high stress levels, <strong>most interns reported personal growth</strong>. Stress, when managed, can help in improving focus and productivity. However, unmanaged stress can lead to burnout and decreased performance. The findings suggest that while stress is common, it can have both positive and negative outcomes depending on how it is managed.
         </div>
       </div>
@@ -294,8 +297,8 @@
           <span>🏫 What can institutions do?</span>
           <span class="facc-arrow">▾</span>
         </button>
-        <div class="facc-body" style="color: black;">
-          Institutions could implement structured wellbeing check-ins and peer support groups. Addressing interns' wellbeing and health leads to better performance and stronger professional development.
+        <div class="facc-body" style="color: black; font-size: medium;">
+          Institutions could implement structured wellbeing check-ins and peer support groups, friendly working environments, and asigning manageable workloads. Addressing interns' wellbeing and health leads to better performance and stronger professional development.
         </div>
       </div>
 
@@ -307,19 +310,22 @@
       ✨ Explore the full visualization
     </h1>
     <div class="tableau-wrapper">
-      <iframe
-        src="https://public.tableau.com/views/stressandwellbeingofinternsGCBSfinal/Story1?:showVizHome=no&:embed=true&:toolbar=no"
-        width="100%" height="500" style="height:500px;" frameborder="0">
-      </iframe>
-      <p style="font-size: small; margin-top: 8px; color: #888; text-align: center;">
-        💡 Tip: Use your mouse to navigate. Best viewed on a laptop.
-      </p>
-    </div>
-
-    <div style="margin-top: 2.5rem; text-align: center;">
-      <button onclick="showPage('contact'); animateCountersHelp();" class="pema-btn">Next: get help ➡️</button>
-    </div>
+      <button onclick="openTableau()" class="pema-btn" style="margin: 1rem auto; display: block;">
+    📊 Open Full Visualization </button>
+    <div id="tableau-fullscreen" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:white; z-index:9999;">
+    <button onclick="closeTableau()" style="position:absolute; top:10px; right:15px; z-index:10000; background:#550251; color:white; border:none; padding:8px 16px; border-radius:20px; cursor:pointer; font-size:16px;">✕ Close</button>
+    <iframe
+      src="https://public.tableau.com/views/stressandwellbeingofinternsGCBSfinal/Story1?:showVizHome=no&:embed=true&:toolbar=no"
+      width="100%" height="100%" frameborder="0">
+    </iframe>
+  </div>
+  <p style="font-size: small; margin-top: 8px; color: #888; text-align: center;">
+    💡 Tap the button to explore. Best viewed on a laptop.
+  </p>
+</div>
   </section>
+
+  
 
   <!-- GET HELP PAGE -->
   <section class="page" id="page-contact">
