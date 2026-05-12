@@ -306,24 +306,40 @@
 
     <!-- TABLEAU -->
 
-    <h1 style="font-size: medium; text-align: center; margin-bottom: 1rem; color: #555;">
-      ✨ Explore the full visualization
-    </h1>
-    <div class="tableau-wrapper">
-      <button onclick="openTableau()" class="pema-btn" style="margin: 1rem auto; display: block;">
-    📊 Open Full Visualization </button>
-    <div id="tableau-fullscreen" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:white; z-index:9999;">
+    <!-- TABLEAU -->
+<h1 style="font-size: medium; text-align: center; margin-bottom: 1rem; color: #555;">
+  ✨ Explore the full visualization
+</h1>
+
+<!-- DESKTOP ONLY -->
+<div class="tableau-wrapper">
+  <button onclick="openTableau()" class="pema-btn" style="margin: 1rem auto; display: block;">
+    📊 Open Full Visualization
+  </button>
+  <div id="tableau-fullscreen" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:white; z-index:9999;">
     <button onclick="closeTableau()" style="position:absolute; top:10px; right:15px; z-index:10000; background:#550251; color:white; border:none; padding:8px 16px; border-radius:20px; cursor:pointer; font-size:16px;">✕ Close</button>
-    <iframe
-      src="https://public.tableau.com/views/stressandwellbeingofinternsGCBSfinal/Story1?:showVizHome=no&:embed=true&:toolbar=no&:refresh=yes"
-      width="100%" height="100%" style="min-height: 800px;" frameborder="0">
-    </iframe>
+    <div style="width:100%; height:100%; overflow:auto; -webkit-overflow-scrolling:touch;">
+      <iframe
+        src="https://public.tableau.com/views/stressandwellbeingofinternsGCBSfinal/Story1?:showVizHome=no&:embed=true&:toolbar=no&:refresh=yes"
+        width="1200px" height="800px" frameborder="0">
+      </iframe>
+    </div>
   </div>
   <p style="font-size: small; margin-top: 8px; color: #888; text-align: center;">
-    💡 Tap the button to explore. Best viewed on a laptop.
+    💡 Best viewed on a laptop.
   </p>
 </div>
-  </section>
+
+<!-- MOBILE ONLY -->
+<div class="tableau-mobile">
+  <p>📊 View the full data visualization on Tableau Public</p>
+  <a href="https://public.tableau.com/views/stressandwellbeingofinternsGCBSfinal/Story1" 
+     target="_blank" class="pema-btn">
+    Open Visualization ↗️
+  </a>
+  <p style="font-size: small; color: #888; margin-top: 8px;">Opens in Tableau Public app or browser</p>
+</div>
+</section>
 
   
 
