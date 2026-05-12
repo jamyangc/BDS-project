@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const fs = require("fs");
 
 dotenv.config();
 
@@ -7,6 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static("."));
 
+// ── Chatbot ──────────────────────────────────────────
 app.post("/chat", async (req, res) => {
   const { messages } = req.body;
 
@@ -30,6 +32,35 @@ app.post("/chat", async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
+});
+
+// ── Message Wall ──────────────────────────────────────
+app.get("/api/messages", (req, res) => {
+  const data = fs.existsSync("messages.json")
+    ? JSON.parse(fs.readFileSync("messages.json"))
+    : [];
+  res.json(data.slice(-10).reverse());
+});
+
+app.post("/api/messages", (req, res) => {
+  const { message } = req.body;
+  if (!message || message.trim() === "") 
+    return res.status(400).json({ error: "Empty message" });
+
+  const data = fs.existsSync("messages.json")
+    ? JSON.parse(fs.readFileSync("messages.json"))
+    : [];
+
+  const newMsg = {
+    id: Date.now(),
+    message: message.slice(0, 100),
+    name: `Intern #${Math.floor(Math.random() * 99) + 1}`,
+    time: new Date().toISOString()
+  };
+
+  data.push(newMsg);
+  fs.writeFileSync("messages.json", JSON.stringify(data));
+  res.json(newMsg);
 });
 
 app.listen(3000, () => {
