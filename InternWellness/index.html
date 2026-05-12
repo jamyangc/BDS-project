@@ -209,6 +209,7 @@
     <div style="margin-top: 3rem; text-align: center;">
       <button onclick="showPage('findings')" class="pema-btn">Next: findings ➡️</button>
     </div>
+    
   </section>
 
   <!-- FINDINGS PAGE -->
@@ -402,11 +403,21 @@
       <div class="tip-pill">🤗 Tell someone how you actually feel</div>
     </div>
 
-    <!-- CLOSING NOTE -->
-    <div class="help-closing-note">
-      <p>🌸 You came this far. That already means something.</p>
-      <p style="font-size: 13px; color: #6b035a; margin-top: 6px;">This platform was made with love by an intern who understands. You are never truly alone.</p>
-    </div>
+    <!-- ── Message Wall ── -->
+<section id="message-wall">
+  <h2>💬 You Are Not Alone</h2>
+  <p>Share how you're feeling anonymously. Someone out there feels the same.</p>
+
+  <div id="wall-input">
+    <textarea id="wall-message" maxlength="100" placeholder="Type how you're feeling... (max 100 characters)"></textarea>
+    <div id="char-count">0 / 100</div>
+    <button id="wall-submit">Share Anonymously 🌸</button>
+  </div>
+
+  <div id="wall-messages">
+    <!-- messages load here -->
+  </div>
+</section>
 
     <div style="margin-top: 2rem; text-align: center;">
       <p style="color: #550251; font-size: 14px;">— End of page —</p>
