@@ -66,3 +66,9 @@ app.post("/api/messages", (req, res) => {
 app.listen(3000, () => {
   console.log("Server running on http://localhost:3000");
 });
+
+// ── Clear all messages ──
+app.delete('/api/messages', (req, res) => {
+  fs.writeFileSync('messages.json', '[]');
+  res.json({ success: true });
+});
