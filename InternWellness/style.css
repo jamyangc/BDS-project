@@ -913,3 +913,15 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
   .help-closing-note p { font-size: 15px; }
 }
 
+.tableau-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .tableau-mobile {
+    display: block;
+  }
+  .tableau-wrapper {
+    display: none;
+  }
+}
