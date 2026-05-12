@@ -346,54 +346,19 @@ function addMsg(role, text) {
 }
 
 // ── MESSAGE WALL ──────────────────────────────────────
-const textarea = document.getElementById('wall-message');
-const charCount = document.getElementById('char-count');
-const submitBtn = document.getElementById('wall-submit');
-const wallMessages = document.getElementById('wall-messages');
+// ── MESSAGE WALL ──────────────────────────────────────
+window.addEventListener('load', () => {
+  const textarea = document.getElementById('wall-message');
+  const charCount = document.getElementById('char-count');
+  const submitBtn = document.getElementById('wall-submit');
+  const wallMessages = document.getElementById('wall-messages');
 
-if (textarea) {
-  // Character counter
+  if (!textarea) return;
+
   textarea.addEventListener('input', () => {
     charCount.textContent = `${textarea.value.length} / 100`;
   });
 
-  // Load messages on page load
-  async function loadMessages() {
-    const res = await fetch('/api/messages');
-    const messages = await res.json();
-
-    wallMessages.innerHTML = messages.length === 0
-      ? '<p style="opacity:0.6">No messages yet. Be the first to share 🌸</p>'
-      : messages.map(m => `
-          <div class="wall-card">
-            <p>${m.message}</p>
-            <small>${m.name} · ${timeAgo(m.time)}</small>
-          </div>
-        `).join('');
-  }
-
-  // Submit message
-  submitBtn.addEventListener('click', async () => {
-    const message = textarea.value.trim();
-    if (!message) return alert('Please write something first!');
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sharing...';
-
-    await fetch('/api/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message })
-    });
-
-    textarea.value = '';
-    charCount.textContent = '0 / 100';
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Share Anonymously 🌸';
-    loadMessages();
-  });
-
-  // Time ago helper
   function timeAgo(isoString) {
     const diff = Math.floor((Date.now() - new Date(isoString)) / 60000);
     if (diff < 1) return 'just now';
@@ -402,5 +367,47 @@ if (textarea) {
     return `${Math.floor(diff / 1440)} days ago`;
   }
 
+  async function loadMessages() {
+    try {
+      const res = await fetch('https://bds-project.onrender.com/api/messages');
+      const messages = await res.json();
+      wallMessages.innerHTML = messages.length === 0
+        ? '<p style="opacity:0.6">No messages yet. Be the first to share 🌸</p>'
+        : messages.map(m => `
+            <div class="wall-card">
+              <p>${m.message}</p>
+              <small>${m.name} · ${timeAgo(m.time)}</small>
+            </div>
+          `).join('');
+    } catch (err) {
+      console.error('Load error:', err);
+    }
+  }
+
+  submitBtn.addEventListener('click', async () => {
+    const message = textarea.value.trim();
+    if (!message) return alert('Please write something first!');
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sharing...';
+
+    try {
+      await fetch('https://bds-project.onrender.com/api/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message })
+      });
+      textarea.value = '';
+      charCount.textContent = '0 / 100';
+      loadMessages();
+    } catch (err) {
+      console.error('Submit error:', err);
+      alert('Something went wrong. Try again!');
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Share Anonymously 🌸';
+  });
+
   loadMessages();
-}
+});
