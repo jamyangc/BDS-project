@@ -1126,3 +1126,23 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
     width: 180px;
   }
 }
+
+/* DESKTOP ONLY */
+.tableau-mobile {
+  display: none;
+}
+
+/* PHONE / TABLET */
+@media (max-width: 768px) {
+
+  .tableau-wrapper {
+    display: none;
+  }
+
+  .tableau-mobile {
+    display: block;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+}
