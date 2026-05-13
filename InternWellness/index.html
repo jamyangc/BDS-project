@@ -172,48 +172,269 @@
   </section>
 
   <!-- RESOURCES -->
-  <section class="page" id="page-resources">
-    <h2>Resources for Wellbeing</h2>
-    <div class="resource-block">
-      <h3>Choose what you need</h3>
-      <div style="margin-top:15px;">
-        <button onclick="playCategory('music')" class="pema-btn">Soothing Music</button>
-        <button onclick="playCategory('meditation')" class="pema-btn">Meditation</button>
-        <button onclick="playCategory('breathing')" class="pema-btn">Breathing Exercise</button>
-      </div>
-      <div id="message" style="margin-top:20px; font-size:18px; color:#2e0888;"></div>
-      <div id="videoPlayer" style="margin-top:10px;"></div>
+  <!-- RESOURCES -->
+<section class="page" id="page-resources">
+
+  <div class="resources-page">
+
+    <div class="resources-header">
+      <h1>What do you need<br><em>right now?</em></h1>
+      <p>Browse tools for your mind and mood.</p>
     </div>
-    <div class="activities-wrapper">
-      <h1 style="text-align: center; font-weight: 400;">🎮 Fun Activities</h1>
-      <h2 style="text-align: center; font-size: small;">Take a break</h2>
-      <div class="slideshow">
-        <div class="slide active"><div class="activity-emoji">🌊</div><h3>Fluid Simulation</h3><p style="font-size: medium;">Move your mouse to create calming streams of color.</p><a href="https://paveldogreat.github.io/WebGL-Fluid-Simulation/" target="_blank" class="pema-btn">Open Activity</a></div>
-        <div class="slide"><div class="activity-emoji">🚃</div><h3>Short Trip</h3><p style="font-size: medium;">Guide a little cat on a peaceful tram ride. Use arrow keys to move left and right.</p><a href="https://alexanderperrin.com.au/paper/shorttrip/" target="_blank" class="pema-btn">Open Activity</a></div>
-        <div class="slide"><div class="activity-emoji">🎹</div><h3>Typatone</h3><p style="font-size: medium;">Type anything: every letter becomes a musical note!</p><a href="https://typatone.com/" target="_blank" class="pema-btn">Open Activity</a></div>
-        <div class="slide"><div class="activity-emoji">🌧️</div><h3>Sound of Rain</h3><p style="font-size: medium;">Listen to sound of rain.</p><a href="https://www.rainymood.com/" target="_blank" class="pema-btn">Open Activity</a></div>
-        <div class="slide"><div class="activity-emoji">🏔️</div><h3>Stack Rocks</h3><p style="font-size: medium;">Stack rocks while listening to waves.</p><a href="https://neal.fun/rocks/" target="_blank" class="pema-btn">Open Activity</a></div>
-        <div class="slide"><div class="activity-emoji">🏖️</div><h3>This is Sand</h3><p style="font-size: medium;">Pour virtual sand and create calming colorful sandscapes.</p><a href="https://thisissand.com/" target="_blank" class="pema-btn">Open Activity</a></div>
-        <div class="slide"><div class="activity-emoji">🧘</div><h3>The Zen Zone</h3><p style="font-size: medium;">A short meditation area to help calm you down.</p><a href="https://thezen.zone/" target="_blank" class="pema-btn">Open Activity</a></div>
-        <div class="slide"><div class="activity-emoji">🎨</div><h3>Stained Glass Smash</h3><p style="font-size: medium;">Smash virtual stained glass to release stress — and make art!</p><a href="https://glass.funwebsite.fun/" target="_blank" class="pema-btn">Open Activity</a></div>
-        <div class="slide"><div class="activity-emoji">💭</div><h3>Your Thoughts</h3><p style="font-size: medium;">Release what has been bothering you and send it to the moon and never get it back.</p><a href="https://www.pixelthoughts.co/" target="_blank" class="pema-btn">Open Activity</a></div>
-      </div>
-      <div class="slideshow-controls">
-        <button onclick="changeSlide(-1)" class="pema-btn">Prev</button>
-        <span id="slide-counter" style="font-size: small;">1 / 9</span>
-        <button onclick="changeSlide(1)" class="pema-btn">Next</button>
-      </div>
-      <p style="text-align: center; font-size: small; color: rgb(6, 23, 121); margin-top: 1rem;">
-        Activities sourced from <a href="https://llamalife.co/blog/best-free-sites-for-focus-destress" target="_blank">Llama Life</a>,
-        <a href="https://www.hongkiat.com/blog/websites-to-keep-you-calm/" target="_blank">hongkiat</a> and
-        <a href="https://www.crazygames.com/t/relaxing" target="_blank">Crazy Games</a>.
-      </p>
+
+    <div class="filter-row">
+      <button class="filter-pill active" onclick="filterRes(this, 'all')">All</button>
+      <button class="filter-pill" onclick="filterRes(this, 'quick')">Quick</button>
+      <button class="filter-pill" onclick="filterRes(this, 'guided')">Guided</button>
+      <button class="filter-pill" onclick="filterRes(this, 'calm')">Calming</button>
+      <button class="filter-pill" onclick="filterRes(this, 'fun')">Fun</button>
     </div>
-    <div style="margin-top: 3rem; text-align: center;">
-      <button onclick="showPage('findings')" class="pema-btn">Next: findings ➡️</button>
+
+    <p class="section-label">Tools & Exercises</p>
+
+    <!-- HORIZONTAL TOOL CARDS -->
+    <div id="tool-cards">
+
+      <!-- MUSIC -->
+      <div class="resource-card" data-tag="calm">
+
+        <div class="resource-icon-wrap icon-music">🎵</div>
+
+        <span class="resource-tag tag-calm">Calming</span>
+
+        <div class="resource-title">Soothing Music</div>
+
+        <div class="resource-desc">
+          Relax with peaceful music and calm sounds.
+        </div>
+
+        <div class="resource-meta">
+          <span>⏱ Anytime</span>
+
+          <button class="resource-cta"
+            onclick="playCategory('music')">
+            Play
+          </button>
+        </div>
+
+      </div>
+
+      <!-- MEDITATION -->
+      <div class="resource-card" data-tag="guided">
+
+        <div class="resource-icon-wrap icon-meditate">🧘</div>
+
+        <span class="resource-tag tag-guided">Guided</span>
+
+        <div class="resource-title">Meditation</div>
+
+        <div class="resource-desc">
+          Guided meditation sessions to help calm your thoughts.
+        </div>
+
+        <div class="resource-meta">
+          <span>⏱ 5 min</span>
+
+          <button class="resource-cta"
+            onclick="playCategory('meditation')">
+            Start
+          </button>
+        </div>
+
+      </div>
+
+      <!-- BREATHING -->
+      <div class="resource-card" data-tag="quick">
+
+        <div class="resource-icon-wrap icon-breath">💨</div>
+
+        <span class="resource-tag tag-quick">Quick</span>
+
+        <div class="resource-title">Breathing Exercise</div>
+
+        <div class="resource-desc">
+          Calm your nervous system with breathing techniques.
+        </div>
+
+        <div class="resource-meta">
+          <span>⏱ 2 min</span>
+
+          <button class="resource-cta"
+            onclick="playCategory('breathing')">
+            Begin
+          </button>
+        </div>
+
+      </div>
+
     </div>
-    
-  </section>
+
+    <!-- FUN SLIDER -->
+    <p class="section-label">Fun & Relaxing Activities</p>
+
+    <div id="fun-section">
+
+      <button class="slider-btn prev-fun">❮</button>
+
+      <div class="fun-slider">
+
+        <!-- Fluid Simulation -->
+        <div class="resource-card" data-tag="fun">
+          <div class="resource-icon-wrap icon-game">🌊</div>
+
+          <span class="resource-tag tag-fun">Fun</span>
+
+          <div class="resource-title">Fluid Simulation</div>
+
+          <div class="resource-desc">
+            Move your mouse to create calming streams of color.
+          </div>
+
+          <div class="resource-meta">
+            <span>⏱ Anytime</span>
+
+            <a href="https://paveldogreat.github.io/WebGL-Fluid-Simulation/" target="_blank">
+              <button class="resource-cta">Open</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Short Trip -->
+        <div class="resource-card" data-tag="fun">
+          <div class="resource-icon-wrap icon-game">🚃</div>
+
+          <span class="resource-tag tag-fun">Fun</span>
+
+          <div class="resource-title">Short Trip</div>
+
+          <div class="resource-desc">
+            Guide a little cat on a peaceful tram ride.
+          </div>
+
+          <div class="resource-meta">
+            <span>⏱ Relaxing</span>
+
+            <a href="https://alexanderperrin.com.au/paper/shorttrip/" target="_blank">
+              <button class="resource-cta">Open</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Typatone -->
+        <div class="resource-card" data-tag="fun">
+          <div class="resource-icon-wrap icon-game">🎹</div>
+
+          <span class="resource-tag tag-fun">Fun</span>
+
+          <div class="resource-title">Typatone</div>
+
+          <div class="resource-desc">
+            Turn your typing into calming music.
+          </div>
+
+          <div class="resource-meta">
+            <span>⏱ Creative</span>
+
+            <a href="https://typatone.com/" target="_blank">
+              <button class="resource-cta">Open</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Rainy Mood -->
+        <div class="resource-card" data-tag="fun">
+          <div class="resource-icon-wrap icon-game">🌧️</div>
+
+          <span class="resource-tag tag-fun">Fun</span>
+
+          <div class="resource-title">Rainy Mood</div>
+
+          <div class="resource-desc">
+            Listen to calming rain sounds.
+          </div>
+
+          <div class="resource-meta">
+            <span>⏱ Calm</span>
+
+            <a href="https://www.rainymood.com/" target="_blank">
+              <button class="resource-cta">Open</button>
+            </a>
+          </div>
+        </div>
+        <!-- pixel thought -->
+        <div class="resource-card" data-tag="fun">
+          <div class="resource-icon-wrap icon-game">🌔</div>
+
+          <span class="resource-tag tag-fun">Fun</span>
+
+          <div class="resource-title">Pixel Thoughts</div>
+
+          <div class="resource-desc">
+            write what has been bothering your mind to moon and never get it back.
+          </div>
+
+          <div class="resource-meta">
+            <span>⏱ Calm</span>
+
+            <a href="https://www.pixelthoughts.co/" target="_blank">
+              <button class="resource-cta">Open</button>
+            </a>
+          </div>
+        </div>
+        <!-- glass smash -->
+        <div class="resource-card" data-tag="fun">
+          <div class="resource-icon-wrap icon-game"> 🔨</div>
+
+          <span class="resource-tag tag-fun">Fun</span>
+
+          <div class="resource-title">Glass Smash</div>
+
+          <div class="resource-desc">
+            think of what has bothered you and smash the glass to pieces.
+          </div>
+
+          <div class="resource-meta">
+            <span>⏱ Calm</span>
+
+            <a href="https://glass.funwebsite.fun/" target="_blank">
+              <button class="resource-cta">Open</button>
+            </a>
+          </div>
+        </div>
+         <!-- sand art -->
+        <div class="resource-card" data-tag="fun">
+          <div class="resource-icon-wrap icon-game"> 🖼️</div>
+
+          <span class="resource-tag tag-fun">Fun</span>
+
+          <div class="resource-title">Sand Art</div>
+
+          <div class="resource-desc">
+            create beautiful sand art with just a few clicks.
+          </div>
+
+          <div class="resource-meta">
+            <span>⏱ Calm</span>
+
+            <a href="https://thisissand.com/" target="_blank">
+              <button class="resource-cta">Open</button>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="slider-btn next-fun">❯</button>
+
+    </div>
+
+    <!-- VIDEO PLAYER -->
+    <div id="message"></div>
+    <div id="videoPlayer"></div>
+
+  </div>
+
+</section>
 
   <!-- FINDINGS PAGE -->
   <section class="page" id="page-findings">
