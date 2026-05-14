@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   background-color:#e7c5da;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .intro-wrapper {
@@ -1145,4 +1145,11 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
     margin-top: 1.5rem;
   }
 
+}
+.game-source {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

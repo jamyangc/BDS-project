@@ -114,13 +114,18 @@ function setMood(mood) {
 ========================================= */
 
 const musicVideos = [
+  "ys_fN3uy7bQ",
+  "bjZ5kIBnlZU",
+  "9Zq79uu_o5E",
+  "Fp5ghKduTK8",
   "zFs8CnOeAA4",
   "t14n8Uhq-5U",
   "hgUGe1cf3So",
   "JdqL89ZZwFw",
   "Njt1io9jakQ",
   "b4q1q0DawYg",
-  "roAnTo-AJWQ"
+  "roAnTo-AJWQ",
+  "I3OJUwILelU"
 ];
 
 const meditationVideos = [
