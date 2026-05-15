@@ -1059,7 +1059,12 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
     width: 200px;
   }
 
-  .slider-btn { display: none; }
+  .slider-btn { 
+    display: flex;
+    width:32px;
+    height:32px;
+    font-size:14px;
+}
 }
 
 @media (max-width: 480px) {
