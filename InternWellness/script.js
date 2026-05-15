@@ -189,7 +189,6 @@ function playCategory(type) {
 /* =========================================
    RESOURCES FILTER — FIXED
 ========================================= */
-
 function filterRes(btn, tag) {
 
   /* 1. update active pill */
@@ -197,26 +196,24 @@ function filterRes(btn, tag) {
     .forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
 
-  /* 2. show/hide individual horizontal tool cards */
+  /* 2. show/hide horizontal tool cards */
   const toolCards = document.querySelectorAll('#tool-cards [data-tag]');
   toolCards.forEach(card => {
     card.style.display =
       (tag === 'all' || card.dataset.tag === tag) ? '' : 'none';
   });
 
-  /* 3. hide entire tool section when "fun" filter is active */
+  /* 3. hide/show entire tool section when "fun" only */
   const toolSection = document.getElementById('tool-cards');
-  const toolLabel   = document.getElementById('tools-label');
-  const showTools   = tag !== 'fun';
-  if (toolSection) toolSection.style.display = showTools ? 'flex' : 'none';
-  if (toolLabel)   toolLabel.style.display   = showTools ? ''     : 'none';
+  if (toolSection) toolSection.style.display = tag === 'fun' ? 'none' : 'flex';
 
-  /* 4. hide fun slider when filtering by calm/quick/guided */
-  const funSection = document.getElementById('fun-section');
-  const funLabel   = document.getElementById('fun-label');
-  const showFun    = tag === 'all' || tag === 'fun';
+  /* 4. hide/show fun slider and game source text */
+  const funSection = document.querySelector('#fun-section');
+  const gameSource = document.querySelector('.game-source');
+  const showFun = tag === 'all' || tag === 'fun';
+
   if (funSection) funSection.style.display = showFun ? 'flex' : 'none';
-  if (funLabel)   funLabel.style.display   = showFun ? ''     : 'none';
+  if (gameSource) gameSource.style.display = showFun ? 'block' : 'none';
 
   /* 5. clear video player when switching to fun tab */
   if (tag === 'fun') {
