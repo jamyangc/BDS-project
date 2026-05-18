@@ -37,9 +37,14 @@
       <img src="GIF.gif" style="width: 200px; height: 200px; border-radius: 60%; color: #880355 ">
     </div>
     <div class="intro-wrapper">
-      <h3>Before you enter into the main page meet Jamyang: the intern behind this project</h3>
+      <h3>Before you enter into the main page, meet Jamyang: the intern behind this project</h3>
+
+      
       <h4>1. Introduction</h4>
-      <p style="font-size: small;">My name is Jamyang Chozom, and I have done my six month professional internship at <a href onclick="window.open('https://datascientists.bt/', '_blank')">Bhutan Data Scientist Pvt. Ltd</a>. At the beginning of my internship, my project focused on the integration of Artificial Intelligence in credit default analysis. I always wanted to become an analyst, so I was excited to work on a technical topic and learn new things and explore beyond what the classroom offers.</p>
+      <p class = "intro-teaser"> 
+        My name is Jamyang Chozom, and I have done my six month professional internship at <a href onclick="window.open('https://datascientists.bt/', '_blank')">Bhutan Data Scientist Pvt. Ltd</a>. At the beginning of my internship, my project focused on the integration of Artificial Intelligence in credit default analysis. I always wanted to become an analyst, so I was excited to work on a technical topic and learn new things and explore beyond what the classroom offered.</p>
+      <div id = "introFull" style = "margin-top: 1.7rem; text-align: left; font-size: small;">
+      
       <h4>2. Initial Internship Experience</h4>
       <p style="font-size: small;">As my internship progressed, I began to notice something beyond technical work. Many interns, including myself, were experiencing stress, yet very few openly talked about it. I was also going through similar challenges. Managing responsibilities alongside personal commitments became increasingly difficult, leading to missed deadlines and additional pressure.</p>
       <h4>3. Realization</h4>
@@ -53,8 +58,9 @@
       <h4>7. Learning Outcome</h4>
       <p style="font-size: small;">This journey helped me understand people, their struggles, and how data and technology can be used to create meaningful impact. I gained practical skills and a deeper appreciation of human-centered problem solving.</p>
     </div>
-    <div style="margin-top: 3rem; text-align: center;">
-      <button onclick="showPage('home')" class="pema-btn">Next: home ➡️</button> 
+    <button class = "read-more-btn" id = 'readMoreBtn' onclick = "toggleIntro()">Read More</button> </div>
+
+    <button onclick="showPage('home')" class="pema-btn">Next: home ➡️</button> 
     </div>
   </section>
 

@@ -858,3 +858,11 @@ window.addEventListener("DOMContentLoaded", () => {
   `;
   document.head.appendChild(style);
 })();
+function toggleIntro() {
+  const full = document.getElementById("introFull");
+  const btn  = document.getElementById("readMoreBtn");
+  const isOpen = full.style.display === "block";
+
+  full.style.display = isOpen ? "none" : "block";
+  btn.textContent    = isOpen ? "Read More ↓" : "Read Less ↑";
+}
