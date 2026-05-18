@@ -421,107 +421,238 @@ if (pills.length > 0) {
 }
 
 /* =========================================
-   CHATBOT
+   CHATBOT — UPGRADED
+   • Proactive time-aware greeting on open
+   • Expanded & rotating quick-reply prompts
+   • Mobile layout: viewport-aware sizing +
+     body scroll-lock while chat is open
 ========================================= */
 
 let history = [];
+let greetingSent = false;   // send welcome only once per session
 
-const win = document.getElementById("chat-win");
+const win    = document.getElementById("chat-win");
 const toggle = document.getElementById("chat-toggle");
-const msgs = document.getElementById("cmsgs");
-const input = document.getElementById("cci");
+const msgs   = document.getElementById("cmsgs");
+const input  = document.getElementById("cci");
 const sendBtn = document.getElementById("csb");
 
-/* OPEN / CLOSE CHAT */
+/* ------------------------------------------
+   PROACTIVE GREETING HELPERS
+------------------------------------------ */
+
+/** Returns a warm, time-aware opener from Pema. */
+function buildGreeting() {
+  const hour = new Date().getHours();
+
+  let timePhrase;
+  if (hour >= 5 && hour < 12)       timePhrase = "Good morning";
+  else if (hour >= 12 && hour < 17) timePhrase = "Good afternoon";
+  else if (hour >= 17 && hour < 21) timePhrase = "Good evening";
+  else                               timePhrase = "Hey, night owl";
+
+  const openers = [
+    `${timePhrase}! 👋 How are you feeling right now?`,
+    `${timePhrase}! 😊 What's on your mind today?`,
+    `${timePhrase}! 🌿 Whether you're stressed, curious, or just need a moment — I'm here. How can I help?`,
+    `${timePhrase}! ✨ Glad you're here. How's your day going so far?`,
+  ];
+
+  return openers[Math.floor(Math.random() * openers.length)];
+}
+
+/* ------------------------------------------
+   MOBILE LAYOUT — body scroll-lock
+   Prevents the page from scrolling behind
+   the chat window on small screens.
+------------------------------------------ */
+
+function lockBodyScroll()   { document.body.style.overflow = 'hidden'; }
+function unlockBodyScroll() { document.body.style.overflow = '';       }
+
+function isMobile() {
+  return window.innerWidth <= 600;
+}
+
+/* ------------------------------------------
+   OPEN / CLOSE CHAT
+------------------------------------------ */
 
 toggle.onclick = () => {
-  win.classList.toggle("open");
+  const isOpen = win.classList.toggle("open");
+
+  if (isOpen) {
+    if (isMobile()) lockBodyScroll();
+
+    /* Send proactive greeting the first time */
+    if (!greetingSent) {
+      greetingSent = true;
+      setTimeout(() => {
+        showTypingIndicator();
+        setTimeout(() => {
+          removeTypingIndicator();
+          addMsg("ai", buildGreeting());
+          renderQuickReplies(); // show initial suggestion chips
+
+          // Auto follow-up message after a short pause
+          setTimeout(() => {
+            showTypingIndicator();
+            setTimeout(() => {
+              removeTypingIndicator();
+              addMsg(
+                "ai",
+                "🇧🇹 Did you know? The PEMA is Bhutan's national mental health agency — dedicated to \"Touching People, Building Lives\". If you or someone you know needs support, you can call 1098 for mental health help, or 1010 in an emergency. For resources, services, and more, visit thepema.gov.bt 💙 You're never alone in this."
+              );
+            }, 1100);
+          }, 2000);
+
+        }, 900);
+      }, 400);
+    }
+  } else {
+    unlockBodyScroll();
+  }
 };
 
 document.getElementById("chx").onclick = () => {
   win.classList.remove("open");
+  unlockBodyScroll();
 };
 
-/* QUICK BUTTONS */
+/* Also unlock if the user resizes past the mobile breakpoint */
+window.addEventListener("resize", () => {
+  if (!isMobile()) unlockBodyScroll();
+});
+
+/* ------------------------------------------
+   QUICK-REPLY PROMPT POOLS
+   Shown as tappable chips below the messages.
+   Rotated after each AI response so they stay
+   fresh and relevant throughout the chat.
+------------------------------------------ */
+
+const quickReplyPools = {
+  /** Shown on first open */
+  initial: [
+    "I'm feeling stressed 😓",
+    "Help me relax 🌿",
+    "I need motivation 💪",
+    "I'm feeling anxious 😰",
+  ],
+
+  /** Rotated in after the bot replies */
+  followUp: [
+    ["Tell me a calming tip 🧘", "I can't focus today", "I feel overwhelmed"],
+    ["What's a quick breathing exercise?", "Help me journal my thoughts 📓", "I need a distraction"],
+    ["I'm having trouble sleeping 😴", "I feel lonely", "Give me a positivity boost ☀️"],
+    ["I'm burnt out from work", "How do I talk to someone I trust?", "Remind me to take breaks ⏰"],
+    ["I feel like I'm not enough", "I need to vent", "What should I do when I'm sad?"],
+    ["How do I manage my anger?", "Help me set boundaries", "I want to practice gratitude 🙏"],
+    ["I'm nervous about something", "I need a mindfulness moment", "Cheer me up! 🎉"],
+  ],
+};
+
+let followUpIndex = 0;
+
+/**
+ * Renders quick-reply chips into #chat-quick-replies.
+ * Falls back gracefully if the container doesn't exist.
+ * @param {'initial'|'followUp'} pool
+ */
+function renderQuickReplies(pool = 'initial') {
+  const container = document.getElementById("chat-quick-replies");
+  if (!container) return;
+
+  let prompts;
+  if (pool === 'initial') {
+    prompts = quickReplyPools.initial;
+  } else {
+    prompts = quickReplyPools.followUp[
+      followUpIndex % quickReplyPools.followUp.length
+    ];
+    followUpIndex++;
+  }
+
+  container.innerHTML = prompts
+    .map(p => `<button class="cqr-btn" onclick="csq(this)">${p}</button>`)
+    .join('');
+
+  /* Animate chips in */
+  container.querySelectorAll('.cqr-btn').forEach((btn, i) => {
+    btn.style.animationDelay = `${i * 60}ms`;
+    btn.classList.add('cqr-slide-in');
+  });
+}
+
+/* ------------------------------------------
+   QUICK BUTTON HANDLER
+------------------------------------------ */
 
 function csq(btn) {
+  /* Clear chips after tap so they don't distract */
+  const container = document.getElementById("chat-quick-replies");
+  if (container) container.innerHTML = '';
+
   send(btn.innerText);
 }
 
-/* SEND BUTTON */
+/* ------------------------------------------
+   SEND BUTTON & ENTER KEY
+------------------------------------------ */
 
 sendBtn.onclick = () => {
   const value = input.value.trim();
-
   if (!value) return;
-
   send(value);
-
   input.value = "";
 };
 
-/* ENTER KEY SEND */
-
 input.addEventListener("keypress", function (e) {
-
   if (e.key === "Enter" && !e.shiftKey) {
-
     e.preventDefault();
-
     const value = input.value.trim();
-
     if (!value) return;
-
     send(value);
-
     input.value = "";
   }
 });
 
-/* TYPING INDICATOR */
+/* ------------------------------------------
+   TYPING INDICATOR
+------------------------------------------ */
 
 function showTypingIndicator() {
-
   const div = document.createElement("div");
-
   div.className = "cmsg";
   div.id = "typing-indicator";
-
   div.innerHTML = `
     <div class="cmb typing-indicator">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
   `;
-
   msgs.appendChild(div);
-
   msgs.scrollTop = msgs.scrollHeight;
 }
 
 function removeTypingIndicator() {
-
-  const indicator =
-    document.getElementById("typing-indicator");
-
-  if (indicator) {
-    indicator.remove();
-  }
+  const indicator = document.getElementById("typing-indicator");
+  if (indicator) indicator.remove();
 }
 
-/* SEND MESSAGE */
+/* ------------------------------------------
+   SEND MESSAGE
+------------------------------------------ */
 
 async function send(text) {
-
   if (!text || text.trim() === "") return;
+
+  /* Clear quick-reply chips when user sends anything manually */
+  const qrContainer = document.getElementById("chat-quick-replies");
+  if (qrContainer) qrContainer.innerHTML = '';
 
   addMsg("user", text);
 
-  history.push({
-    role: "user",
-    content: text
-  });
+  history.push({ role: "user", content: text });
 
   if (history.length > 12) {
     history = history.slice(-12);
@@ -533,24 +664,26 @@ async function send(text) {
   sendBtn.innerText = "Sending...";
 
   try {
-
     const res = await fetch(
       "https://bds-project.onrender.com/chat",
       {
         method: "POST",
-
-        headers: {
-          "Content-Type": "application/json"
-        },
-
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: [
             {
               role: "system",
-              content:
-                "You are a supportive wellbeing assistant for interns or anyone who feels stressed or overwhelmed."
-            },
+              content: `You are a warm and supportive wellbeing companion for interns and anyone feeling stressed or overwhelmed. Keep responses concise, empathetic, and encouraging.
 
+When relevant, naturally recommend these pages on the Pema website:
+- Feeling stressed or overwhelmed → suggest the Resources page (breathing, meditation, music)
+- Needs professional support → suggest the Contact page
+- Wants to learn about wellbeing data → suggest the Findings page
+- Needs a distraction or fun activity → suggest the Resources page (games section)
+- Checking in on mood → suggest the Mood Check page
+
+Mention these as gentle suggestions, not commands. For example: "You might find the Resources page helpful — there are some great breathing exercises there." Never suggest all pages at once; only recommend what fits the moment.`
+            },
             ...history
           ]
         })
@@ -565,55 +698,38 @@ async function send(text) {
       data?.choices?.[0]?.message?.content ||
       "Sorry, I couldn't generate a response.";
 
-    history.push({
-      role: "assistant",
-      content: reply
-    });
+    history.push({ role: "assistant", content: reply });
 
     addMsg("ai", reply);
 
-  }
+    /* Rotate in fresh quick-reply suggestions after each bot response */
+    setTimeout(() => renderQuickReplies('followUp'), 400);
 
-  catch (err) {
-
+  } catch (err) {
     console.error(err);
-
     removeTypingIndicator();
+    addMsg("ai", "Sorry, something went wrong. Please try again.");
 
-    addMsg(
-      "ai",
-      "Sorry, something went wrong. Please try again."
-    );
-  }
-
-  finally {
-
+  } finally {
     sendBtn.disabled = false;
     sendBtn.innerText = "Send";
   }
 }
 
-/* =========================================
+/* ------------------------------------------
    ADD MESSAGE
-========================================= */
+------------------------------------------ */
 
 function addMsg(role, text) {
-
   const div = document.createElement("div");
-
-  div.className =
-    "cmsg " + (role === "user" ? "user" : "");
+  div.className = "cmsg " + (role === "user" ? "user" : "");
 
   const bubble = document.createElement("div");
-
   bubble.className = "cmb";
-
   bubble.textContent = text;
 
   div.appendChild(bubble);
-
   msgs.appendChild(div);
-
   msgs.scrollTop = msgs.scrollHeight;
 }
 
@@ -622,18 +738,12 @@ function addMsg(role, text) {
 ========================================= */
 
 function openTableau() {
-  document.getElementById(
-    'tableau-fullscreen'
-  ).style.display = 'block';
-
+  document.getElementById('tableau-fullscreen').style.display = 'block';
   document.body.style.overflow = 'hidden';
 }
 
 function closeTableau() {
-  document.getElementById(
-    'tableau-fullscreen'
-  ).style.display = 'none';
-
+  document.getElementById('tableau-fullscreen').style.display = 'none';
   document.body.style.overflow = '';
 }
 
@@ -644,26 +754,107 @@ function closeTableau() {
 window.addEventListener("DOMContentLoaded", () => {
 
   const funSlider = document.querySelector(".fun-slider");
-  const nextFun = document.querySelector(".next-fun");
-  const prevFun = document.querySelector(".prev-fun");
+  const nextFun   = document.querySelector(".next-fun");
+  const prevFun   = document.querySelector(".prev-fun");
 
   if (nextFun && funSlider) {
     nextFun.addEventListener("click", () => {
-      funSlider.scrollBy({
-        left: 260,
-        behavior: "smooth"
-      });
+      funSlider.scrollBy({ left: 260, behavior: "smooth" });
     });
   }
 
   if (prevFun && funSlider) {
     prevFun.addEventListener("click", () => {
-      funSlider.scrollBy({
-        left: -260,
-        behavior: "smooth"
-      });
+      funSlider.scrollBy({ left: -260, behavior: "smooth" });
     });
   }
 
 });
 
+/* =========================================
+   CHATBOT — CSS INJECTION
+   Adds styles for quick-reply chips and the
+   slide-in animation without touching your
+   existing stylesheet.
+========================================= */
+
+(function injectChatStyles() {
+  const style = document.createElement("style");
+  style.textContent = `
+    /* ---- Quick-reply chip container ---- */
+    #chat-quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 6px 10px 4px;
+      min-height: 0;
+      transition: min-height 0.2s ease;
+    }
+
+    /* ---- Individual chips ---- */
+    .cqr-btn {
+      background: #f0f7ff;
+      color: #2a6db5;
+      border: 1.5px solid #b8d8f8;
+      border-radius: 20px;
+      padding: 5px 13px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: background 0.18s, border-color 0.18s, transform 0.15s;
+    }
+
+    .cqr-btn:hover {
+      background: #d6ecff;
+      border-color: #80bef5;
+    }
+
+    /* ---- Slide-in animation ---- */
+    @keyframes cqrSlideIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .cqr-slide-in {
+      animation: cqrSlideIn 0.28s ease forwards;
+    }
+
+    /* ---- Mobile: full-height chat window ---- */
+    @media (max-width: 600px) {
+      #chat-win {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-height: 100dvh !important;
+        border-radius: 0 !important;
+        z-index: 9999 !important;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Make the message area fill available space */
+      #cmsgs {
+        flex: 1 1 auto;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* Keep the input bar anchored at the bottom */
+      #chat-input-bar {
+        flex-shrink: 0;
+        padding-bottom: env(safe-area-inset-bottom, 8px);
+      }
+
+      /* Close button visible on mobile */
+      #chx {
+        display: block !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+})();
