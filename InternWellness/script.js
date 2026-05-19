@@ -822,7 +822,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     /* ---- Mobile: full-height chat window ---- */
     @media (max-width: 600px) {
-      #chat-win {
+      #chat-win.open { 
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
@@ -833,8 +833,8 @@ window.addEventListener("DOMContentLoaded", () => {
         max-height: 100dvh !important;
         border-radius: 0 !important;
         z-index: 9999 !important;
-        display: flex;
         flex-direction: column;
+        display: flex;
       }
 
       /* Make the message area fill available space */
