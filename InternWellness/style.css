@@ -571,6 +571,7 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
   flex-direction: column;
   gap: 10px;
   padding: 0 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .facc-item {
@@ -745,7 +746,7 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
   border: 1px solid #e8d5e8;
 }
 
-.help-closing-note p { font-size: 17px; color: #3a1a3a; font-family: 'Playfair Display', serif; margin: 0; max-width: 100%; text-align: center; }
+.help-closing-note p { font-size: 17px; color: #3a1a3a; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; max-width: 100%; text-align: center; }
 
 #page-home h1 { font-family: 'Playfair Display', serif; }
 
@@ -795,7 +796,7 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
   cursor: pointer;
   transition: 0.3s;
   font-size: 13px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
