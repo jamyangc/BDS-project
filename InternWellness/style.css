@@ -511,9 +511,7 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
 
 .page-bg { background: #e8d5e8; padding: 32px 24px; }
 
-/* ── BUTTONS ── */
-.pema-btn { font-family: 'Dancing Script', cursive; }
-#enter-btn { font-family: 'Dancing Script', cursive; }
+
 
 /* ════════════════════════════════════════════
    FINDINGS PAGE
@@ -1231,4 +1229,35 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
 .read-more-btn:hover {
   background: #880355;
   color: #fff;
+}
+
+.hcard-btn-call {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hcard-btn-call {
+    display: inline-block;
+    background: #c069ba;
+    color: #fff;
+    border-radius: 20px;
+    padding: 7px 16px;
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+  }
+}
+
+.desktop-call-note {
+  font-size: 12px;
+  color: #888;
+  display: block;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .desktop-call-note {
+    display: none;
+  }
 }
