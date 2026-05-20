@@ -491,23 +491,11 @@ toggle.onclick = () => {
         showTypingIndicator();
         setTimeout(() => {
           removeTypingIndicator();
-          addMsg("ai", buildGreeting());
-          renderQuickReplies(); // show initial suggestion chips
-
-          // Auto follow-up message after a short pause
-          setTimeout(() => {
-            showTypingIndicator();
-            setTimeout(() => {
-              removeTypingIndicator();
-              addMsg(
-                "ai",
-                "🇧🇹 Did you know? The PEMA is Bhutan's national mental health agency — dedicated to \"Touching People, Building Lives\". If you or someone you know needs support, you can call 1098 for mental health help, or 1010 in an emergency. For resources, services, and more, visit thepema.gov.bt 💙 You're never alone in this."
-              );
-            }, 1100);
-          }, 2000);
-
+          addMsg("ai", buildGreeting() + "\n\n🇧🇹 Did you know? The PEMA is Bhutan's national mental health agency — dedicated to \"Touching People, Building Lives\". If you or someone you know needs support, you can call 1098 for mental health help, or 1010 in an emergency. For resources, services, and more, visit thepema.gov.bt 💙 You're never alone in this.");
+          renderQuickReplies();
         }, 900);
       }, 400);
+      
     }
   } else {
     unlockBodyScroll();
