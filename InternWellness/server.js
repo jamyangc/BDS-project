@@ -1,13 +1,12 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const fs = require("fs");
-const cors = require("cors");  // ADD THIS
+const cors = require("cors");
 
 dotenv.config();
 
 const app = express();
 
-// ADD THIS BLOCK
 app.use(cors({
   origin: [
     'https://datascientists.bt',
@@ -17,11 +16,12 @@ app.use(cors({
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
-app.options('*', cors());
+
+// REMOVED app.options('*', cors()); ← this was causing the crash
 
 app.use(express.json());
 app.use(express.static("."));
-// ── Chatbot ──────────────────────────────────────────
+
 app.post("/chat", async (req, res) => {
   const { messages } = req.body;
 
@@ -46,7 +46,6 @@ app.post("/chat", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
 
 app.listen(3000, () => {
   console.log("Server running on http://localhost:3000");
