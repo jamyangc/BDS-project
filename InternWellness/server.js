@@ -1,15 +1,26 @@
-
-
 const express = require("express");
 const dotenv = require("dotenv");
 const fs = require("fs");
+const cors = require("cors");  // ADD THIS
 
 dotenv.config();
 
 const app = express();
+
+// ADD THIS BLOCK
+app.use(cors({
+  origin: [
+    'https://datascientists.bt',
+    'https://bds-project.onrender.com',
+    'http://localhost:3000'
+  ],
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+app.options('*', cors());
+
 app.use(express.json());
 app.use(express.static("."));
-
 // ── Chatbot ──────────────────────────────────────────
 app.post("/chat", async (req, res) => {
   const { messages } = req.body;
