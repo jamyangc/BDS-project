@@ -421,15 +421,11 @@ if (pills.length > 0) {
 }
 
 /* =========================================
-   CHATBOT — UPGRADED
-   • Proactive time-aware greeting on open
-   • Expanded & rotating quick-reply prompts
-   • Mobile layout: viewport-aware sizing +
-     body scroll-lock while chat is open
+   CHATBOT
 ========================================= */
 
 let history = [];
-let greetingSent = false;   // send welcome only once per session
+let greetingSent = false;
 
 const win    = document.getElementById("chat-win");
 const toggle = document.getElementById("chat-toggle");
@@ -437,11 +433,6 @@ const msgs   = document.getElementById("cmsgs");
 const input  = document.getElementById("cci");
 const sendBtn = document.getElementById("csb");
 
-/* ------------------------------------------
-   PROACTIVE GREETING HELPERS
------------------------------------------- */
-
-/** Returns a warm, time-aware opener from Pema. */
 function buildGreeting() {
   const hour = new Date().getHours();
 
@@ -461,12 +452,6 @@ function buildGreeting() {
   return openers[Math.floor(Math.random() * openers.length)];
 }
 
-/* ------------------------------------------
-   MOBILE LAYOUT — body scroll-lock
-   Prevents the page from scrolling behind
-   the chat window on small screens.
------------------------------------------- */
-
 function lockBodyScroll()   { document.body.style.overflow = 'hidden'; }
 function unlockBodyScroll() { document.body.style.overflow = '';       }
 
@@ -474,61 +459,70 @@ function isMobile() {
   return window.innerWidth <= 600;
 }
 
-/* ------------------------------------------
-   OPEN / CLOSE CHAT
------------------------------------------- */
+/* =========================================
+   OPEN CHAT — shared helper used by both
+   the penguin toggle AND the Resources button
+========================================= */
+function openChat() {
+  const chatWin = document.getElementById('chat-win');
+  if (!chatWin) return;
 
+  chatWin.classList.add('open');
+
+  if (isMobile()) lockBodyScroll();
+
+  /* Send proactive greeting the first time */
+  if (!greetingSent) {
+    greetingSent = true;
+    setTimeout(() => {
+      showTypingIndicator();
+      setTimeout(() => {
+        removeTypingIndicator();
+        addMsg("ai", buildGreeting() + "\n\n🇧🇹 Did you know? The PEMA is Bhutan's national mental health agency — dedicated to \"Touching People, Building Lives\". If you or someone you know needs support, you can call 1098 for mental health help, or 1010 in an emergency. For resources, services, and more, visit thepema.gov.bt 💙 You're never alone in this.");
+        renderQuickReplies();
+      }, 900);
+    }, 400);
+  }
+
+  /* Scroll chat into view on desktop */
+  if (!isMobile()) {
+    chatWin.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }
+}
+
+/* Penguin toggle button */
 toggle.onclick = () => {
-  const isOpen = win.classList.toggle("open");
+  const isOpen = win.classList.contains('open');
 
   if (isOpen) {
-    if (isMobile()) lockBodyScroll();
-
-    /* Send proactive greeting the first time */
-    if (!greetingSent) {
-      greetingSent = true;
-      setTimeout(() => {
-        showTypingIndicator();
-        setTimeout(() => {
-          removeTypingIndicator();
-          addMsg("ai", buildGreeting() + "\n\n🇧🇹 Did you know? The PEMA is Bhutan's national mental health agency — dedicated to \"Touching People, Building Lives\". If you or someone you know needs support, you can call 1098 for mental health help, or 1010 in an emergency. For resources, services, and more, visit thepema.gov.bt 💙 You're never alone in this.");
-          renderQuickReplies();
-        }, 900);
-      }, 400);
-      
-    }
-  } else {
+    win.classList.remove('open');
     unlockBodyScroll();
+  } else {
+    openChat();
   }
 };
 
+/* Close (✕) button */
 document.getElementById("chx").onclick = () => {
   win.classList.remove("open");
   unlockBodyScroll();
 };
 
-/* Also unlock if the user resizes past the mobile breakpoint */
 window.addEventListener("resize", () => {
   if (!isMobile()) unlockBodyScroll();
 });
 
-/* ------------------------------------------
-   QUICK-REPLY PROMPT POOLS
-   Shown as tappable chips below the messages.
-   Rotated after each AI response so they stay
-   fresh and relevant throughout the chat.
------------------------------------------- */
+/* =========================================
+   QUICK REPLIES
+========================================= */
 
 const quickReplyPools = {
-  /** Shown on first open */
   initial: [
     "I'm feeling stressed 😓",
     "Help me relax 🌿",
     "I need motivation 💪",
     "I'm feeling anxious 😰",
   ],
-
-  /** Rotated in after the bot replies */
   followUp: [
     ["Tell me a calming tip 🧘", "I can't focus today", "I feel overwhelmed"],
     ["What's a quick breathing exercise?", "Help me journal my thoughts 📓", "I need a distraction"],
@@ -542,11 +536,6 @@ const quickReplyPools = {
 
 let followUpIndex = 0;
 
-/**
- * Renders quick-reply chips into #chat-quick-replies.
- * Falls back gracefully if the container doesn't exist.
- * @param {'initial'|'followUp'} pool
- */
 function renderQuickReplies(pool = 'initial') {
   const container = document.getElementById("chat-quick-replies");
   if (!container) return;
@@ -565,28 +554,21 @@ function renderQuickReplies(pool = 'initial') {
     .map(p => `<button class="cqr-btn" onclick="csq(this)">${p}</button>`)
     .join('');
 
-  /* Animate chips in */
   container.querySelectorAll('.cqr-btn').forEach((btn, i) => {
     btn.style.animationDelay = `${i * 60}ms`;
     btn.classList.add('cqr-slide-in');
   });
 }
 
-/* ------------------------------------------
-   QUICK BUTTON HANDLER
------------------------------------------- */
-
 function csq(btn) {
-  /* Clear chips after tap so they don't distract */
   const container = document.getElementById("chat-quick-replies");
   if (container) container.innerHTML = '';
-
   send(btn.innerText);
 }
 
-/* ------------------------------------------
-   SEND BUTTON & ENTER KEY
------------------------------------------- */
+/* =========================================
+   SEND
+========================================= */
 
 sendBtn.onclick = () => {
   const value = input.value.trim();
@@ -604,10 +586,6 @@ input.addEventListener("keypress", function (e) {
     input.value = "";
   }
 });
-
-/* ------------------------------------------
-   TYPING INDICATOR
------------------------------------------- */
 
 function showTypingIndicator() {
   const div = document.createElement("div");
@@ -627,19 +605,13 @@ function removeTypingIndicator() {
   if (indicator) indicator.remove();
 }
 
-/* ------------------------------------------
-   SEND MESSAGE
------------------------------------------- */
-
 async function send(text) {
   if (!text || text.trim() === "") return;
 
-  /* Clear quick-reply chips when user sends anything manually */
   const qrContainer = document.getElementById("chat-quick-replies");
   if (qrContainer) qrContainer.innerHTML = '';
 
   addMsg("user", text);
-
   history.push({ role: "user", content: text });
 
   if (history.length > 12) {
@@ -647,7 +619,6 @@ async function send(text) {
   }
 
   showTypingIndicator();
-
   sendBtn.disabled = true;
   sendBtn.innerText = "Sending...";
 
@@ -679,7 +650,6 @@ Mention these as gentle suggestions, not commands. For example: "You might find 
     );
 
     const data = await res.json();
-
     removeTypingIndicator();
 
     const reply =
@@ -687,10 +657,8 @@ Mention these as gentle suggestions, not commands. For example: "You might find 
       "Sorry, I couldn't generate a response.";
 
     history.push({ role: "assistant", content: reply });
-
     addMsg("ai", reply);
 
-    /* Rotate in fresh quick-reply suggestions after each bot response */
     setTimeout(() => renderQuickReplies('followUp'), 400);
 
   } catch (err) {
@@ -703,10 +671,6 @@ Mention these as gentle suggestions, not commands. For example: "You might find 
     sendBtn.innerText = "Send";
   }
 }
-
-/* ------------------------------------------
-   ADD MESSAGE
------------------------------------------- */
 
 function addMsg(role, text) {
   const div = document.createElement("div");
@@ -760,16 +724,12 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================================
-   CHATBOT — CSS INJECTION
-   Adds styles for quick-reply chips and the
-   slide-in animation without touching your
-   existing stylesheet.
+   CHATBOT CSS INJECTION
 ========================================= */
 
 (function injectChatStyles() {
   const style = document.createElement("style");
   style.textContent = `
-    /* ---- Quick-reply chip container ---- */
     #chat-quick-replies {
       display: flex;
       flex-wrap: wrap;
@@ -779,7 +739,6 @@ window.addEventListener("DOMContentLoaded", () => {
       transition: min-height 0.2s ease;
     }
 
-    /* ---- Individual chips ---- */
     .cqr-btn {
       background: #f0f7ff;
       color: #2a6db5;
@@ -799,7 +758,6 @@ window.addEventListener("DOMContentLoaded", () => {
       border-color: #80bef5;
     }
 
-    /* ---- Slide-in animation ---- */
     @keyframes cqrSlideIn {
       to { opacity: 1; transform: translateY(0); }
     }
@@ -808,7 +766,6 @@ window.addEventListener("DOMContentLoaded", () => {
       animation: cqrSlideIn 0.28s ease forwards;
     }
 
-    /* ---- Mobile: full-height chat window ---- */
     @media (max-width: 600px) {
       #chat-win.open { 
         position: fixed !important;
@@ -825,20 +782,17 @@ window.addEventListener("DOMContentLoaded", () => {
         display: flex;
       }
 
-      /* Make the message area fill available space */
       #cmsgs {
         flex: 1 1 auto;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
       }
 
-      /* Keep the input bar anchored at the bottom */
       #chat-input-bar {
         flex-shrink: 0;
         padding-bottom: env(safe-area-inset-bottom, 8px);
       }
 
-      /* Close button visible on mobile */
       #chx {
         display: block !important;
       }
@@ -846,6 +800,7 @@ window.addEventListener("DOMContentLoaded", () => {
   `;
   document.head.appendChild(style);
 })();
+
 function toggleIntro() {
   const full = document.getElementById("introFull");
   const btn  = document.getElementById("readMoreBtn");
