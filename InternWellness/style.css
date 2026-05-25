@@ -219,14 +219,6 @@ iframe {
   margin-bottom: 6px;
 }
 
-.about-card-title {
-  font-size: 17px;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 8px;
-  text-align: center;
-}
-
 .about-card-desc {
   font-size: 13px;
   color: #444;
@@ -309,11 +301,7 @@ iframe {
 .about-info-card p { font-size: 13px; color: #666; line-height: 1.6; margin: 0; max-width: 100%; text-align: left; }
 
 /* ── ABOUT ── */
-.about-section { padding: 3rem 2rem; max-width: 1100px; margin: 0 auto; }
-.about-tag { font-size: 11px; letter-spacing: 0.12em; color: #6a8f6a; font-weight: 500; margin-bottom: 0.75rem; text-transform: uppercase; }
-.about-heading { font-size: 36px; font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.2; }
-.about-heading em { color: #6a8f6a; font-style: italic; }
-.about-desc { font-size: 15px; color: #555; line-height: 1.7; max-width: 520px; margin-bottom: 2.5rem; }
+
 
 .about-box {
   background: #ffffff;
@@ -387,18 +375,6 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
 .chdr { background: #1a3a2a; color: white; padding: 10px; display: flex; justify-content: space-between; align-items: center; }
 .chdr button { background: none; border: none; color: white; cursor: pointer; font-size: 16px; }
 
-/* ── CHAT PRIVACY NOTE ── */
-.chat-privacy-note {
-  background: #1a3a2a;
-  color: #cce8cc;
-  font-size: 11px;
-  text-align: center;
-  padding: 5px 12px 7px;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 0.02em;
-  margin: 0;
-}
 
 #cmsgs {
   flex: 1;
@@ -483,12 +459,6 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
 
 .activities-wrapper { background: rgba(255, 255, 255, 0.952); }
 
-/* ── SLIDESHOW ── */
-.slideshow { position: relative; min-height: 220px; margin-top: 1.5rem; }
-.slide { width: 100%; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-.slide.active { display: flex; }
-.slideshow-controls { display: flex; justify-content: center; gap: 1.5rem; align-items: center; }
-#slide-counter { font-size: small; }
 
 /* ── MOOD ── */
 .mood-wrapper {
@@ -507,11 +477,6 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
 
 .mood-btn:hover { background: #e8d5e8; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
 .mood-btn img { width: 30px; height: 30px; object-fit: cover; border-radius: 50%; }
-.mood-btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
-
-.page-bg { background: #e8d5e8; padding: 32px 24px; }
-
-
 
 /* ════════════════════════════════════════════
    FINDINGS PAGE
@@ -549,17 +514,6 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
   font-weight: 600;
   text-align: center;
   margin: 2rem 0 1rem;
-}
-
-/* ── BHUTAN RESOURCES NOTE ── */
-.bhutan-note {
-  text-align: center;
-  font-size: 12px;
-  color: #999;
-  font-family: 'Playfair Display', serif;
-  margin: -0.75rem 0 1.5rem;
-  font-style: italic;
-  letter-spacing: 0.02em;
 }
 
 .findings-accordion {
@@ -620,19 +574,6 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
 
 .facc-item.open .facc-body { max-height: 400px; padding: 0 18px 16px; }
 
-.findings-quote {
-  max-width: 500px;
-  margin: 2.5rem auto 1rem;
-  text-align: center;
-  background: #fdf6fb;
-  border-radius: 16px;
-  padding: 2rem 2.5rem;
-  border-left: 4px solid #d4a0d4;
-}
-
-.fquote-mark { font-size: 64px; color: #d4a0d4; line-height: 0.6; margin-bottom: 12px; font-family: serif; display: block; }
-.findings-quote p { font-size: 18px; font-style: italic; color: #3a1a3a; font-family: 'Playfair Display', serif; margin: 0 0 8px; max-width: 100%; text-align: center; }
-.findings-quote span { font-size: 12px; color: #aaa; letter-spacing: 0.05em; }
 
 /* ════════════════════════════════════════════
    GET HELP PAGE
@@ -734,17 +675,6 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
 
 .tip-pill.active-tip { background: #e8d5e8; transform: scale(1.05); border-color: #c4a0c4; }
 
-.help-closing-note {
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: center;
-  background: linear-gradient(135deg, #fdf6fb, #f0f9f0);
-  border-radius: 16px;
-  padding: 1.5rem 2rem;
-  border: 1px solid #e8d5e8;
-}
-
-.help-closing-note p { font-size: 17px; color: #3a1a3a; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; max-width: 100%; text-align: center; }
 
 #page-home h1 { font-family: 'Playfair Display', serif; }
 
@@ -878,7 +808,7 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
 .resource-cta {
   border: none;
   background: #b24d82;
-  color: white;
+  color: rgb(233, 152, 152);
   padding: 9px 18px;
   border-radius: 999px;
   cursor: pointer;
@@ -1038,7 +968,7 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
   .slide { padding: 10px; }
   .slide .activity-emoji { font-size: 36px; }
 
-  iframe { width: 100% !important; height: auto; }
+  iframe { width: 100% !important; height: 220px; }
 
   #chat-win {
     width: 95vw;
@@ -1143,9 +1073,6 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
 
   .fstat-num { font-size: 22px; }
   .fstat-label { font-size: 10px; }
-
-  .help-closing-note { padding: 1rem 1.25rem; }
-  .help-closing-note p { font-size: 15px; }
 
   #fun-section { padding: 0 40px; }
 

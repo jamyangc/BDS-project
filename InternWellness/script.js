@@ -177,26 +177,11 @@ function filterRes(btn, tag) {
   }
 }
 
-function scrollToPlayer() {
-  setTimeout(() => {
-    const el = document.getElementById('message');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, 300);
-}
 
 /* =========================================
    SLIDESHOW
 ========================================= */
-let currentSlideUpgraded = 0;
 
-function changeSlideUpgraded(dir) {
-  const slides = document.querySelectorAll('#slideshowUpgraded .slide-upgraded');
-  slides[currentSlideUpgraded].classList.remove('active');
-  currentSlideUpgraded = (currentSlideUpgraded + dir + slides.length) % slides.length;
-  slides[currentSlideUpgraded].classList.add('active');
-  document.getElementById('slideCounterUpgraded').textContent =
-    `${currentSlideUpgraded + 1} / ${slides.length}`;
-}
 
 /* =========================================
    MOBILE MENU
