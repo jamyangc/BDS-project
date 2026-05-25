@@ -60,8 +60,7 @@ function setMood(mood) {
     action = `
       <button onclick="showPage('resources')" class="pema-btn">
         Start Breathing
-        <img src="stressed.gif"
-             style="width:20px;height:20px;vertical-align:middle;">
+        
       </button>
 
       <br><br>
@@ -658,6 +657,7 @@ Mention these as gentle suggestions, not commands. For example: "You might find 
 
     history.push({ role: "assistant", content: reply });
     addMsg("ai", reply);
+    addMsg("ai", "📅 Want to track how you're feeling today? Open your mood calendar →", "calendar.html");
 
     setTimeout(() => renderQuickReplies('followUp'), 400);
 
@@ -672,13 +672,18 @@ Mention these as gentle suggestions, not commands. For example: "You might find 
   }
 }
 
-function addMsg(role, text) {
+function addMsg(role, text, link = null) {
   const div = document.createElement("div");
   div.className = "cmsg " + (role === "user" ? "user" : "");
 
   const bubble = document.createElement("div");
   bubble.className = "cmb";
-  bubble.textContent = text;
+
+  if (link) {
+    bubble.innerHTML = `${text} <a href="${link}" target="_blank" style="color:#2e6b45; font-weight:600; display:block; margin-top:6px;">Open Calendar 📅</a>`;
+  } else {
+    bubble.textContent = text;
+  }
 
   div.appendChild(bubble);
   msgs.appendChild(div);
