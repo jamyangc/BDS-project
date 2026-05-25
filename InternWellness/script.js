@@ -1,23 +1,48 @@
 /* =========================================
    PAGE NAVIGATION
 ========================================= */
+let pageHistory = [];
+
 function showPage(id) {
+  const current = document.querySelector('.page.active');
+  if (current) {
+    const currentId = current.id.replace('page-', '');
+    pageHistory.push(currentId);
+  }
+
   document.querySelectorAll('.page').forEach(p => {
     p.classList.remove('active');
   });
 
   const page = document.querySelector(`#page-${id}`);
-
   if (page) {
     page.classList.add('active');
   } else {
     console.error(`Page not found: page-${id}`);
   }
 
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const backBtn = document.getElementById('back-btn');
+  if (backBtn) {
+    backBtn.style.display = pageHistory.length > 0 ? 'block' : 'none';
+  }
+}
+
+function goBack() {
+  if (pageHistory.length === 0) return;
+  const prev = pageHistory.pop();
+
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.querySelector(`#page-${prev}`);
+  if (page) page.classList.add('active');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const backBtn = document.getElementById('back-btn');
+  if (backBtn) {
+    backBtn.style.display = pageHistory.length > 0 ? 'block' : 'none';
+  }
 }
 
 /* =========================================
