@@ -4,6 +4,12 @@
 let pageHistory = [];
 
 function showPage(id) {
+  const current = document.querySelector('.page.active');
+  if (current) {
+    const currentId = current.id.replace('page-', '');
+    pageHistory.push(currentId);
+  }
+
   document.querySelectorAll('.page').forEach(p => {
     p.classList.remove('active');
   });
@@ -16,6 +22,11 @@ function showPage(id) {
   }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const backBtn = document.getElementById('back-btn');
+  if (backBtn) {
+    backBtn.style.display = pageHistory.length > 0 ? 'block' : 'none';
+  }
 }
 
 function goBack() {
@@ -47,46 +58,77 @@ function setMood(mood) {
   if (mood === "happy") {
     message = "You're doing great!";
     suggestion = "Keep your positive energy going.";
+
     action = `
       <br><br>
-      <button onclick="showPage('resources')" class="pema-btn">Play a Fun Game</button>
+      <button onclick="showPage('resources')" class="pema-btn">
+        Play a Fun Game
+      </button>
     `;
   }
 
   else if (mood === "neutral") {
     message = "You're feeling okay, maybe a bit low.";
     suggestion = "A short meditation can help refresh your mind.";
+
     action = `
-      <button onclick="showPage('resources')" class="pema-btn">Play a Fun Game</button>
+      <button onclick="showPage('resources')" class="pema-btn">
+        Play a Fun Game
+      </button>
     `;
   }
 
   else if (mood === "stressed") {
     message = "Your stress level seems high.";
     suggestion = "Take a break and try breathing exercises.";
+
     action = `
-      <button onclick="showPage('resources')" class="pema-btn">Start Breathing</button>
+      <button onclick="showPage('resources')" class="pema-btn">
+        Start Breathing
+        
+      </button>
+
       <br><br>
-      <button onclick="showPage('contact')" class="pema-btn">Get Help</button>
+
+      <button onclick="showPage('contact')" class="pema-btn">
+        Get Help
+      </button>
+
       <br><br>
-      <button onclick="showPage('resources')" class="pema-btn">Play a Fun Game</button>
+
+      <button onclick="showPage('resources')" class="pema-btn">
+        Play a Fun Game
+      </button>
     `;
   }
 
   else if (mood === "sad") {
     message = "You are feeling down.";
     suggestion = "You are not alone. Consider calming music or reaching out.";
+
     action = `
       <br><br>
-      <button onclick="showPage('resources')" class="pema-btn">Play a Fun Game</button>
+
+      <button onclick="showPage('resources')" class="pema-btn">
+        Play a Fun Game
+      </button>
     `;
   }
 
   result.innerHTML = `
-    <div style="background:#fff; padding:20px; border-radius:12px; max-width:500px; margin:auto;">
+    <div style="
+      background:#fff;
+      padding:20px;
+      border-radius:12px;
+      max-width:500px;
+      margin:auto;
+    ">
       <h3>${message}</h3>
       <p>${suggestion}</p>
-      <div style="margin-top:15px;">${action}</div>
+
+      <div style="margin-top:15px;">
+        ${action}
+      </div>
     </div>
   `;
 }
@@ -94,56 +136,102 @@ function setMood(mood) {
 /* =========================================
    DAILY VIDEO PLAYER
 ========================================= */
+
 const musicVideos = [
-  "ys_fN3uy7bQ", "bjZ5kIBnlZU", "9Zq79uu_o5E", "Fp5ghKduTK8",
-  "zFs8CnOeAA4", "t14n8Uhq-5U", "hgUGe1cf3So", "JdqL89ZZwFw",
-  "Njt1io9jakQ", "b4q1q0DawYg", "roAnTo-AJWQ", "I3OJUwILelU"
+  "ys_fN3uy7bQ",
+  "bjZ5kIBnlZU",
+  "9Zq79uu_o5E",
+  "Fp5ghKduTK8",
+  "zFs8CnOeAA4",
+  "t14n8Uhq-5U",
+  "hgUGe1cf3So",
+  "JdqL89ZZwFw",
+  "Njt1io9jakQ",
+  "b4q1q0DawYg",
+  "roAnTo-AJWQ",
+  "I3OJUwILelU"
 ];
 
 const meditationVideos = [
-  "j734gLbQFbU", "inpok4MKVLM", "ru4hdcMmlwQ",
-  "ssss7V1_eyA", "zSkFFW--Ma0", "LDs7jglje_U"
+  "j734gLbQFbU",
+  "inpok4MKVLM",
+  "ru4hdcMmlwQ",
+  "ssss7V1_eyA",
+  "zSkFFW--Ma0",
+  "LDs7jglje_U"
 ];
 
 const breathingVideos = [
-  "YRPh_GaiL8s", "aXItOY0sLRY", "odADwWzHR24", "tEmt1Znux58"
+  "YRPh_GaiL8s",
+  "aXItOY0sLRY",
+  "odADwWzHR24",
+  "tEmt1Znux58"
 ];
 
 function playCategory(type) {
   let videos = [];
   let message = "";
 
-  if (type === "music") { videos = musicVideos; message = "Relax with soothing music 🎵"; }
-  else if (type === "meditation") { videos = meditationVideos; message = "Take a moment to meditate 🧘"; }
-  else if (type === "breathing") { videos = breathingVideos; message = "Follow this breathing exercise 💨"; }
+  if (type === "music") {
+    videos = musicVideos;
+    message = "Relax with soothing music 🎵";
+  }
 
-  const videoId = videos[Math.floor(Math.random() * videos.length)];
+  else if (type === "meditation") {
+    videos = meditationVideos;
+    message = "Take a moment to meditate 🧘";
+  }
+
+  else if (type === "breathing") {
+    videos = breathingVideos;
+    message = "Follow this breathing exercise 💨";
+  }
+
+  const randomIndex = Math.floor(Math.random() * videos.length);
+  const videoId = videos[randomIndex];
 
   document.getElementById("message").innerText = message;
+
   document.getElementById("videoPlayer").innerHTML = `
-    <iframe width="400" height="220" loading="lazy"
+    <iframe
+      width="400"
+      height="220"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
       src="https://www.youtube.com/embed/${videoId}"
-      frameborder="0" allowfullscreen
-      style="border-radius:12px; margin-top:15px; max-width:100%;">
+      frameborder="0"
+      allowfullscreen
+      style="
+        border-radius:12px;
+        margin-top:15px;
+        max-width:100%;
+      ">
     </iframe>
   `;
 }
 
 /* =========================================
-   RESOURCES FILTER
+   RESOURCES FILTER — FIXED
 ========================================= */
 function filterRes(btn, tag) {
-  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+
+  /* 1. update active pill */
+  document.querySelectorAll('.filter-pill')
+    .forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
 
+  /* 2. show/hide horizontal tool cards */
   const toolCards = document.querySelectorAll('#tool-cards [data-tag]');
   toolCards.forEach(card => {
-    card.style.display = (tag === 'all' || card.dataset.tag === tag) ? '' : 'none';
+    card.style.display =
+      (tag === 'all' || card.dataset.tag === tag) ? '' : 'none';
   });
 
+  /* 3. hide/show entire tool section when "fun" only */
   const toolSection = document.getElementById('tool-cards');
   if (toolSection) toolSection.style.display = tag === 'fun' ? 'none' : 'flex';
 
+  /* 4. hide/show fun slider and game source text */
   const funSection = document.querySelector('#fun-section');
   const gameSource = document.querySelector('.game-source');
   const showFun = tag === 'all' || tag === 'fun';
@@ -151,6 +239,7 @@ function filterRes(btn, tag) {
   if (funSection) funSection.style.display = showFun ? 'flex' : 'none';
   if (gameSource) gameSource.style.display = showFun ? 'block' : 'none';
 
+  /* 5. clear video player when switching to fun tab */
   if (tag === 'fun') {
     document.getElementById('message').innerText = '';
     document.getElementById('videoPlayer').innerHTML = '';
@@ -160,71 +249,124 @@ function filterRes(btn, tag) {
 function scrollToPlayer() {
   setTimeout(() => {
     const el = document.getElementById('message');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    if (el) {
+      el.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
   }, 300);
 }
 
 /* =========================================
    SLIDESHOW
 ========================================= */
+
 let currentSlideUpgraded = 0;
 
 function changeSlideUpgraded(dir) {
-  const slides = document.querySelectorAll('#slideshowUpgraded .slide-upgraded');
+  const slides = document.querySelectorAll(
+    '#slideshowUpgraded .slide-upgraded'
+  );
+
   slides[currentSlideUpgraded].classList.remove('active');
-  currentSlideUpgraded = (currentSlideUpgraded + dir + slides.length) % slides.length;
+
+  currentSlideUpgraded =
+    (currentSlideUpgraded + dir + slides.length)
+    % slides.length;
+
   slides[currentSlideUpgraded].classList.add('active');
-  document.getElementById('slideCounterUpgraded').textContent =
+
+  document.getElementById(
+    'slideCounterUpgraded'
+  ).textContent =
     `${currentSlideUpgraded + 1} / ${slides.length}`;
 }
 
 /* =========================================
    MOBILE MENU
 ========================================= */
+
 function toggleMenu() {
-  document.getElementById('nav-links').classList.toggle('open');
+  document
+    .getElementById('nav-links')
+    .classList.toggle('open');
 }
 
 function closeMenu() {
-  document.getElementById('nav-links').classList.remove('open');
+  document
+    .getElementById('nav-links')
+    .classList.remove('open');
 }
 
 /* =========================================
    ACCORDION
 ========================================= */
+
 function toggleAcc(btn) {
   const item = btn.parentElement;
+
   const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.facc-item').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
+
+  document.querySelectorAll('.facc-item')
+    .forEach(i => i.classList.remove('open'));
+
+  if (!isOpen) {
+    item.classList.add('open');
+  }
 }
 
 /* =========================================
    BREATHING EXERCISE
 ========================================= */
+
 let breathPaused = false;
 let breathInterval = null;
-const breathSteps = ["Breathe in…", "Hold…", "Breathe out…", "Rest…"];
-const breathDurations = [4000, 4000, 4000, 2000];
+
+const breathSteps = [
+  "Breathe in…",
+  "Hold…",
+  "Breathe out…",
+  "Rest…"
+];
+
+const breathDurations = [
+  4000,
+  4000,
+  4000,
+  2000
+];
+
 let breathStep = 0;
 
 function startBreath() {
   const text = document.getElementById("breathText");
+
   if (!text) return;
 
   function step() {
     if (breathPaused) return;
+
     text.textContent = breathSteps[breathStep];
+
     const duration = breathDurations[breathStep];
-    breathStep = (breathStep + 1) % breathSteps.length;
+
+    breathStep =
+      (breathStep + 1) % breathSteps.length;
+
     breathInterval = setTimeout(step, duration);
   }
+
   step();
 }
 
 function toggleBreath() {
   breathPaused = !breathPaused;
-  if (!breathPaused) startBreath();
+
+  if (!breathPaused) {
+    startBreath();
+  }
 }
 
 startBreath();
@@ -232,26 +374,42 @@ startBreath();
 /* =========================================
    FINDINGS COUNTERS
 ========================================= */
-function animateCounters() {
-  document.querySelectorAll('.fstat-num').forEach(el => {
-    const target = parseInt(el.getAttribute('data-target'));
-    const suffix = el.getAttribute('data-suffix') || '';
-    if (isNaN(target)) return;
 
-    let current = 0;
-    const increment = Math.ceil(target / 60);
-    const timer = setInterval(() => {
-      current = Math.min(current + increment, target);
-      el.textContent = current + suffix;
-      if (current >= target) clearInterval(timer);
-    }, 30);
-  });
+function animateCounters() {
+  document.querySelectorAll('.fstat-num')
+    .forEach(el => {
+
+      const target = parseInt(
+        el.getAttribute('data-target')
+      );
+
+      const suffix =
+        el.getAttribute('data-suffix') || '';
+
+      if (isNaN(target)) return;
+
+      let current = 0;
+
+      const increment =
+        Math.ceil(target / 60);
+
+      const timer = setInterval(() => {
+
+        current = Math.min(
+          current + increment,
+          target
+        );
+
+        el.textContent = current + suffix;
+
+        if (current >= target) {
+          clearInterval(timer);
+        }
+
+      }, 30);
+    });
 }
 
-/* =========================================
-   WINDOW.SHOWPAGE — handles both history
-   tracking and findings counter
-========================================= */
 const originalShowPage = showPage;
 
 window.showPage = function(id) {
@@ -272,35 +430,46 @@ window.showPage = function(id) {
     backBtn.style.display = pageHistory.length > 0 ? 'block' : 'none';
   }
 };
-
 /* =========================================
    SELF CARE TIPS
 ========================================= */
+
 let activeTip = 0;
+
 const pills = document.querySelectorAll('.tip-pill');
 
 if (pills.length > 0) {
+
   setInterval(() => {
-    pills[activeTip].classList.remove('active-tip');
-    activeTip = (activeTip + 1) % pills.length;
-    pills[activeTip].classList.add('active-tip');
+
+    pills[activeTip]
+      .classList.remove('active-tip');
+
+    activeTip =
+      (activeTip + 1) % pills.length;
+
+    pills[activeTip]
+      .classList.add('active-tip');
+
   }, 3000);
 }
 
 /* =========================================
    CHATBOT
 ========================================= */
+
 let history = [];
 let greetingSent = false;
 
-const win     = document.getElementById("chat-win");
-const toggle  = document.getElementById("chat-toggle");
-const msgs    = document.getElementById("cmsgs");
-const input   = document.getElementById("cci");
+const win    = document.getElementById("chat-win");
+const toggle = document.getElementById("chat-toggle");
+const msgs   = document.getElementById("cmsgs");
+const input  = document.getElementById("cci");
 const sendBtn = document.getElementById("csb");
 
 function buildGreeting() {
   const hour = new Date().getHours();
+
   let timePhrase;
   if (hour >= 5 && hour < 12)       timePhrase = "Good morning";
   else if (hour >= 12 && hour < 17) timePhrase = "Good afternoon";
@@ -313,20 +482,30 @@ function buildGreeting() {
     `${timePhrase}! 🌿 Whether you're stressed, curious, or just need a moment — I'm here. How can I help?`,
     `${timePhrase}! ✨ Glad you're here. How's your day going so far?`,
   ];
+
   return openers[Math.floor(Math.random() * openers.length)];
 }
 
 function lockBodyScroll()   { document.body.style.overflow = 'hidden'; }
-function unlockBodyScroll() { document.body.style.overflow = ''; }
-function isMobile() { return window.innerWidth <= 600; }
+function unlockBodyScroll() { document.body.style.overflow = '';       }
 
+function isMobile() {
+  return window.innerWidth <= 600;
+}
+
+/* =========================================
+   OPEN CHAT — shared helper used by both
+   the penguin toggle AND the Resources button
+========================================= */
 function openChat() {
   const chatWin = document.getElementById('chat-win');
   if (!chatWin) return;
 
   chatWin.classList.add('open');
+
   if (isMobile()) lockBodyScroll();
 
+  /* Send proactive greeting the first time */
   if (!greetingSent) {
     greetingSent = true;
     setTimeout(() => {
@@ -339,17 +518,25 @@ function openChat() {
     }, 400);
   }
 
+  /* Scroll chat into view on desktop */
   if (!isMobile()) {
     chatWin.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }
 }
 
+/* Penguin toggle button */
 toggle.onclick = () => {
   const isOpen = win.classList.contains('open');
-  if (isOpen) { win.classList.remove('open'); unlockBodyScroll(); }
-  else { openChat(); }
+
+  if (isOpen) {
+    win.classList.remove('open');
+    unlockBodyScroll();
+  } else {
+    openChat();
+  }
 };
 
+/* Close (✕) button */
 document.getElementById("chx").onclick = () => {
   win.classList.remove("open");
   unlockBodyScroll();
@@ -362,6 +549,7 @@ window.addEventListener("resize", () => {
 /* =========================================
    QUICK REPLIES
 ========================================= */
+
 const quickReplyPools = {
   initial: [
     "I'm feeling stressed 😓",
@@ -390,7 +578,9 @@ function renderQuickReplies(pool = 'initial') {
   if (pool === 'initial') {
     prompts = quickReplyPools.initial;
   } else {
-    prompts = quickReplyPools.followUp[followUpIndex % quickReplyPools.followUp.length];
+    prompts = quickReplyPools.followUp[
+      followUpIndex % quickReplyPools.followUp.length
+    ];
     followUpIndex++;
   }
 
@@ -413,6 +603,7 @@ function csq(btn) {
 /* =========================================
    SEND
 ========================================= */
+
 sendBtn.onclick = () => {
   const value = input.value.trim();
   if (!value) return;
@@ -420,7 +611,7 @@ sendBtn.onclick = () => {
   input.value = "";
 };
 
-input.addEventListener("keypress", function(e) {
+input.addEventListener("keypress", function (e) {
   if (e.key === "Enter" && !e.shiftKey) {
     e.preventDefault();
     const value = input.value.trim();
@@ -434,7 +625,11 @@ function showTypingIndicator() {
   const div = document.createElement("div");
   div.className = "cmsg";
   div.id = "typing-indicator";
-  div.innerHTML = `<div class="cmb typing-indicator"><span></span><span></span><span></span></div>`;
+  div.innerHTML = `
+    <div class="cmb typing-indicator">
+      <span></span><span></span><span></span>
+    </div>
+  `;
   msgs.appendChild(div);
   msgs.scrollTop = msgs.scrollHeight;
 }
@@ -452,21 +647,26 @@ async function send(text) {
 
   addMsg("user", text);
   history.push({ role: "user", content: text });
-  if (history.length > 12) history = history.slice(-12);
+
+  if (history.length > 12) {
+    history = history.slice(-12);
+  }
 
   showTypingIndicator();
   sendBtn.disabled = true;
   sendBtn.innerText = "Sending...";
 
   try {
-    const res = await fetch("https://bds-project.onrender.com/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        messages: [
-          {
-            role: "system",
-            content: `You are a warm and supportive wellbeing companion for interns and anyone feeling stressed or overwhelmed. Keep responses concise, empathetic, and encouraging.
+    const res = await fetch(
+      "https://bds-project.onrender.com/chat",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: [
+            {
+              role: "system",
+              content: `You are a warm and supportive wellbeing companion for interns and anyone feeling stressed or overwhelmed. Keep responses concise, empathetic, and encouraging.
 
 When relevant, naturally recommend these pages on the Pema website:
 - Feeling stressed or overwhelmed → suggest the Resources page (breathing, meditation, music)
@@ -475,17 +675,20 @@ When relevant, naturally recommend these pages on the Pema website:
 - Needs a distraction or fun activity → suggest the Resources page (games section)
 - Checking in on mood → suggest the Mood Check page
 
-Mention these as gentle suggestions, not commands. Never suggest all pages at once; only recommend what fits the moment.`
-          },
-          ...history
-        ]
-      })
-    });
+Mention these as gentle suggestions, not commands. For example: "You might find the Resources page helpful — there are some great breathing exercises there." Never suggest all pages at once; only recommend what fits the moment.`
+            },
+            ...history
+          ]
+        })
+      }
+    );
 
     const data = await res.json();
     removeTypingIndicator();
 
-    const reply = data?.choices?.[0]?.message?.content || "Sorry, I couldn't generate a response.";
+    const reply =
+      data?.choices?.[0]?.message?.content ||
+      "Sorry, I couldn't generate a response.";
 
     history.push({ role: "assistant", content: reply });
     addMsg("ai", reply);
@@ -497,6 +700,7 @@ Mention these as gentle suggestions, not commands. Never suggest all pages at on
     console.error(err);
     removeTypingIndicator();
     addMsg("ai", "Sorry, something went wrong. Please try again.");
+
   } finally {
     sendBtn.disabled = false;
     sendBtn.innerText = "Send";
@@ -524,6 +728,7 @@ function addMsg(role, text, link = null) {
 /* =========================================
    TABLEAU
 ========================================= */
+
 function openTableau() {
   document.getElementById('tableau-fullscreen').style.display = 'block';
   document.body.style.overflow = 'hidden';
@@ -537,7 +742,9 @@ function closeTableau() {
 /* =========================================
    FUN SLIDER BUTTONS
 ========================================= */
+
 window.addEventListener("DOMContentLoaded", () => {
+
   const funSlider = document.querySelector(".fun-slider");
   const nextFun   = document.querySelector(".next-fun");
   const prevFun   = document.querySelector(".prev-fun");
@@ -553,11 +760,13 @@ window.addEventListener("DOMContentLoaded", () => {
       funSlider.scrollBy({ left: -260, behavior: "smooth" });
     });
   }
+
 });
 
 /* =========================================
    CHATBOT CSS INJECTION
 ========================================= */
+
 (function injectChatStyles() {
   const style = document.createElement("style");
   style.textContent = `
@@ -598,11 +807,14 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     @media (max-width: 600px) {
-      #chat-win.open {
+      #chat-win.open { 
         position: fixed !important;
-        top: 0 !important; left: 0 !important;
-        right: 0 !important; bottom: 0 !important;
-        width: 100% !important; height: 100% !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
         max-height: 100dvh !important;
         border-radius: 0 !important;
         z-index: 9999 !important;
@@ -621,19 +833,19 @@ window.addEventListener("DOMContentLoaded", () => {
         padding-bottom: env(safe-area-inset-bottom, 8px);
       }
 
-      #chx { display: block !important; }
+      #chx {
+        display: block !important;
+      }
     }
   `;
   document.head.appendChild(style);
 })();
 
-/* =========================================
-   INTRO TOGGLE
-========================================= */
 function toggleIntro() {
   const full = document.getElementById("introFull");
   const btn  = document.getElementById("readMoreBtn");
   const isOpen = full.style.display === "block";
+
   full.style.display = isOpen ? "none" : "block";
   btn.textContent    = isOpen ? "Read More ↓" : "Read Less ↑";
 }
