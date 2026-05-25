@@ -412,14 +412,26 @@ function animateCounters() {
 
 const originalShowPage = showPage;
 
+const originalShowPage = showPage;
+
 window.showPage = function(id) {
+  const current = document.querySelector('.page.active');
+  if (current) {
+    const currentId = current.id.replace('page-', '');
+    pageHistory.push(currentId);
+  }
+
   originalShowPage(id);
 
   if (id === 'findings') {
     setTimeout(animateCounters, 300);
   }
-};
 
+  const backBtn = document.getElementById('back-btn');
+  if (backBtn) {
+    backBtn.style.display = pageHistory.length > 0 ? 'block' : 'none';
+  }
+};
 /* =========================================
    SELF CARE TIPS
 ========================================= */
