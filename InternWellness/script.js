@@ -412,8 +412,6 @@ function animateCounters() {
 
 const originalShowPage = showPage;
 
-const originalShowPage = showPage;
-
 window.showPage = function(id) {
   const current = document.querySelector('.page.active');
   if (current) {
