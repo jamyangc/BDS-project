@@ -23,49 +23,65 @@
     <div class="nav-links" id="nav-links">
       <button onclick="showPage('home'); closeMenu()">HOME</button>
       <button onclick="showPage('about'); closeMenu()">ABOUT</button>
-      <button onclick="showPage('mood'); closeMenu()">MOOD CHECK</button>
-      <button onclick="showPage('resources'); closeMenu()">RESOURCES</button>
+      <button onclick="showPage('mood'); closeMenu()" class="nav-pulse-btn">MOOD CHECK</button>
+      <button onclick="showPage('resources'); closeMenu()" class="nav-pulse-btn">RESOURCES</button>
       <button onclick="showPage('findings'); closeMenu()">FINDINGS</button>
       <button onclick="showPage('contact'); closeMenu()">GET SUPPORT</button>
-      
     </div>
   </nav>
-  
-  
 
-  <!-- INTRO -->
+
+  <!-- ============================================================
+       INTRO — CHANGE 1:
+       Shortened the 7 sections into a tighter narrative.
+       Added a brief paragraph on stress & wellbeing as the topic.
+       ============================================================ -->
   <section class="page active" id="page-intro">
     <h1>HELLO, Welcome!</h1>
     <div style="text-align: center; margin: 1rem 0;">
-      <img src="GIF.gif" style="width: 200px; height: 200px; border-radius: 60%; color: #880355 ">
+      <img src="GIF.gif" alt="Welcome animation" style="width: 200px; height: 200px; border-radius: 60%; color: #880355 ">
     </div>
     <div class="intro-wrapper">
-      <h3>Before you enter into the main page, meet Jamyang: the intern behind this project</h3>
+      <h3>Before you enter the main page, meet Jamyang — the intern behind this project</h3>
 
-      
-      <h4>1. Introduction</h4>
-      <p class = "intro-teaser"> 
-        My name is Jamyang Chozom, and I have completed my six month professional internship at <a href onclick="window.open('https://datascientists.bt/', '_blank')">Bhutan Data Scientist Pvt. Ltd</a>. At the beginning of my internship, my project focused on the integration of Artificial Intelligence in credit default analysis. I was excited to work on a technical topic and learn new things and explore beyond what the classroom offered.</p>
-      <div id = "introFull" style = "margin-top: 1.7rem; text-align: left; font-size: small;"> 
-      
-      <h4>2. Initial Internship Experience</h4>
-      <p style="font-size: small;">As my internship progressed, I began to notice something beyond technical work. Many interns, including myself, were experiencing stress. I was also going through similar challenges. Managing responsibilities alongside personal commitments became increasingly difficult, leading to missed deadlines and additional pressure.</p>
-      <h4>3. Realization</h4>
-      <p style="font-size: small;">This became a turning point for me. I realized that I did not just want to overcome stress, but also use it as an opportunity for growth. I also wanted to support others going through similar experiences. Stress began to feel less like an individual problem and more like a shared issue.</p>
-      <h4>4. Change of Project Focus</h4>
-      <p style="font-size: small;">I decided to shift my project from credit default analysis to intern stress and wellbeing. This felt more meaningful, and relevant to myself and to my fellow interns. That experience of distress, facing challenges, feelings of giving up led to the creation of a platform designed to support interns in managing stress and improving wellbeing.</p>
-      <h4>5. Solution Development</h4>
-      <p style="font-size: small;">Towards the end of my project findings, I was wondering what it would be like if I created a safe virtual platform that was designed not only for interns but to all the people out there dealing with the stress of daily life. Thus as an extension of my small work, I decided to transform lived experience into practical support. This website will try to provide simple tools and resources such as personalised chatbot, relaxation techniques, breathing exercises, fun games, and guided content to help interns not only manage stress in their daily lives but also use stress for their personal growth.</p>
-      <h4>6. Scope and Impact</h4>
-      <p style="font-size: small;">Although data collected are from lived experiences of Gedu College of Business Studies' interns, the challenges addressed are universal. Stress, burnout, and wellbeing are common among professional settings, making this solution applicable beyond geographical boundaries.</p>
-      <h4>7. Learning Outcome</h4>
-      <p style="font-size: small;">This journey helped me understand people, their struggles, and how data and technology can be used to create meaningful impact. I gained practical skills and a deeper appreciation of human-centered problem solving.</p>
-    </div>
-    <button class = "read-more-btn" id = 'readMoreBtn' onclick = "toggleIntro()">Read More</button> </div>
+      <h4>About This Project</h4>
+      <p class="intro-teaser">
+        My name is Jamyang Chozom. I completed my six-month internship at
+        <a href="#" onclick="window.open('https://datascientists.bt/', '_blank'); return false;">Bhutan Data Scientist Pvt. Ltd</a>,
+        where I originally planned to work on AI in credit default analysis. But as my internship progressed,
+        I noticed that many interns including myself, were struggling with stress.
+        Managing deadlines, adjusting to professional environments, and balancing personal life was taking a real toll.
+      </p>
 
-    <button onclick="showPage('mood')" class="pema-btn">Next: mood check➡️</button> 
+      <div id="introFull" style="margin-top: 1.7rem; text-align: left; font-size: small;">
+
+        <h4>Why Stress and Wellbeing?</h4>
+        <p style="font-size: small;">
+          Stress during internships is more common than people talk about. It can affect focus, motivation, and mental health.
+          But stress is not always harmful. When understood and managed, it can also drive personal growth and resilience.
+          I wanted to explore this dual nature of stress: what causes it, how it affects interns, and what can help.
+        </p>
+
+        <h4>What Came Out of It</h4>
+        <p style="font-size: small;">
+          I surveyed 156 interns from Gedu College of Business Studies, gathering data on their stress levels,
+          causes, coping strategies, and outcomes. What I found was that over half reported feeling stressed, yet most also reported personal growth through the experience.
+          That data became the foundation for this platform.
+        </p>
+
+        <h4>This Platform</h4>
+        <p style="font-size: small;">
+          This website is the result of turning lived experience into practical support. It offers a mood tracking calendar, calming videos, breathing exercises, fun games, and a virtual friend to talk to. Although the data comes from GCBS interns, stress does not discriminate.
+          This space is for anyone who needs a moment to pause, reset, and feel a little less alone.
+        </p>
+
+      </div>
+      <button class="read-more-btn" id="readMoreBtn" onclick="toggleIntro()">Read More</button>
     </div>
+
+    <button onclick="showPage('mood')" class="pema-btn">Next: mood check ➡️</button>
   </section>
+
 
   <!-- HOME -->
   <section class="page" id="page-home">
@@ -84,15 +100,14 @@
     <div class="about-cards">
       <div class="about-card" style="justify-content: center; align-items: center; text-align: center;">
         <div style="font-size: 2.5rem; margin-bottom: 1rem; color: black"></div>
-        <p class="about-card-tag">Game Zone</p> 
+        <p class="about-card-tag">Game Zone</p>
         <p class="about-card-desc">Sometimes it is just a few minutes' break that you need to relieve stress. Check out few of the fun activities brought to you by the wellness team.</p>
         <a href="fun_activities.html" target="_blank" style="font-size: small; margin-top: 8px; color: #012b0c;">More fun activities</a>
       </div>
       <div class="about-card">
         <div class="about-card-body">
           <p class="about-card-tag">Fictional Story</p>
-          <p class="about-card-desc">A story about an experience from excitement to stress, and how she learns to cope and grow.</p> 
-      
+          <p class="about-card-desc">A story about an experience from excitement to stress, and how she learns to cope and grow.</p>
           <a href="story_video.mp4" class="about-card-btn">Watch video</a>
         </div>
       </div>
@@ -107,7 +122,7 @@
     <div style="margin-top: 3rem; padding: 0 1rem;">
       <p style="max-width: 100%; text-align: center; margin-bottom: 1.25rem; font-weight: 500; color:#043004">Always remember the following</p>
       <div class="about-info-cards">
-        <div class="about-info-card" >
+        <div class="about-info-card">
           <h4>Talk to your friends, elders and parents</h4>
           <p style="font-size: small; color:#043004">Whenever stress starts to build up, don't keep it to yourself. Talk to your friends, your family, or anyone you trust. The people who care about you want to be there for you.</p>
         </div>
@@ -129,6 +144,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- ABOUT -->
   <section class="page" id="page-about">
@@ -162,10 +178,28 @@
     </div>
   </section>
 
-  <!-- MOOD CHECK -->
+
+  <!-- ============================================================
+       MOOD CHECK — CHANGE 2 & 3:
+       Added survey link context above the mood buttons.
+       Added visible hint that a game/activity follows after mood selection.
+       ============================================================ -->
   <section class="page" id="page-mood">
     <div class="mood-wrapper">
       <h2>How are you feeling today?</h2>
+
+      <!-- Survey link context -->
+      <p style="text-align: center; font-size: small; color: #2e6b45; max-width: 520px; margin: 0.75rem auto 0;">
+        In my survey of 156 GCBS interns <strong>53%</strong> reported feeling stressed during their internship
+        and one of the challenges was not having definite ways to manage it.
+        That's why I built this mood tracker: to help you check in with yourself and suggest a quick activity or game to help you feel better based on your mood.
+      </p>
+
+      <!-- Game hint -->
+      <p style="text-align: center; font-size: small; color: #555; margin: 0.6rem auto 0; max-width: 460px;">
+        🎮 <em>Tell us your mood and we'll suggest an activity or game to help you feel better!</em>
+      </p>
+
       <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:20px;">
         <button onclick="setMood('happy')" class="mood-btn"> 😃 Happy</button>
         <button onclick="setMood('neutral')" class="mood-btn"> 😐 Neutral</button>
@@ -177,16 +211,19 @@
         <iframe id="musicFrame" style="width:100%; max-width:500px; height:170px;" src="" allow="autoplay"></iframe>
       </div>
     </div>
-    
-  </div>
-  <a href="calendar.html" class="pema-btn"> track your mood daily and you can always come back and see 📅 </a>
+
+  <p>track your mood daily and you can always come back and see 📅  </p><a href="calendar.html" class="pema-btn">View Calendar</a>
   <div style="margin-top: 3rem; text-align: center;">
-      <button onclick="showPage('resources')" class="pema-btn">Next: resources ➡️</button>
-    </div>
+    <button onclick="showPage('resources')" class="pema-btn">Next: resources ➡️</button>
+  </div>
 </section>
 
 
-  <!-- RESOURCES -->
+  <!-- ============================================================
+       RESOURCES — CHANGE 3 (continued):
+       Added survey-linked context in the resources header explaining
+       WHY these resources were built, based on survey findings.
+       ============================================================ -->
 <section class="page" id="page-resources">
 
   <div class="resources-page">
@@ -194,6 +231,14 @@
     <div class="resources-header">
       <h1>What do you need<br><em>right now?</em></h1>
       <p>Browse tools for your mind and mood.</p>
+
+      <!-- Survey link context -->
+      <p style="font-size: small; color: #2e6b45; max-width: 560px; margin: 0.75rem auto 0; text-align: center; line-height: 1.6;">
+        In my survey, interns said their most common ways of coping with stress were calling family and friends,
+        doing physical exercise, and seeking advice — but many didn't have easy access to structured support.
+        The top stressor was <strong>time management (41.98%)</strong>, followed by tasks not aligning with their studies.
+        These resources are designed to fill that gap: quick, accessible tools you can use anytime, wherever you are.
+      </p>
     </div>
 
     <div class="filter-row">
@@ -209,81 +254,50 @@
 
       <!-- MUSIC -->
       <div class="resource-card" data-tag="calm">
-
         <div class="resource-icon-wrap icon-music">🎵</div>
-
         <span class="resource-tag tag-calm">Calming</span>
-
         <div class="resource-title">Soothing Music</div>
-
         <div class="resource-desc">
           Relax with peaceful music and calm sounds.
         </div>
-
         <div class="resource-meta">
           <span>⏱ Anytime</span>
-
-          <button class="resource-cta"
-            onclick="playCategory('music')">
-            Play
-          </button>
+          <button class="resource-cta" onclick="playCategory('music')">Play</button>
         </div>
-
       </div>
 
       <!-- MEDITATION -->
       <div class="resource-card" data-tag="guided">
-
         <div class="resource-icon-wrap icon-meditate">🧘</div>
-
         <span class="resource-tag tag-guided">Guided</span>
-
         <div class="resource-title">Meditation</div>
-
         <div class="resource-desc">
           Guided meditation sessions to help calm your thoughts.
         </div>
-
         <div class="resource-meta">
           <span>⏱ 5 min</span>
-
-          <button class="resource-cta"
-            onclick="playCategory('meditation')">
-            Start
-          </button>
+          <button class="resource-cta" onclick="playCategory('meditation')">Start</button>
         </div>
-      
-
       </div>
 
       <!-- BREATHING -->
       <div class="resource-card" data-tag="quick">
-
         <div class="resource-icon-wrap icon-breath">💨</div>
-
         <span class="resource-tag tag-quick">Quick</span>
-
         <div class="resource-title">Breathing Exercise</div>
-
         <div class="resource-desc">
           Calm your nervous system with breathing techniques.
         </div>
-
         <div class="resource-meta">
           <span>⏱ 2 min</span>
-
-          <button class="resource-cta"
-            onclick="playCategory('breathing')">
-            Begin
-          </button>
+          <button class="resource-cta" onclick="playCategory('breathing')">Begin</button>
         </div>
-
       </div>
 
     <!-- VIDEO PLAYER -->
       <div id="message" style="text-align:center; width:100%;"></div>
       <div id="videoPlayer" style="display:flex; justify-content:center; width:100%;"></div>
-    
+
     <!-- FUN SLIDER -->
 <p class="section-label">Fun & Relaxing Activities</p>
 
@@ -296,18 +310,11 @@
     <!-- Fluid Simulation -->
     <div class="resource-card" data-tag="fun">
       <div class="resource-icon-wrap icon-game">🌊</div>
-
       <span class="resource-tag tag-fun">Fun</span>
-
       <div class="resource-title">Fluid Simulation</div>
-
-      <div class="resource-desc">
-        Move your mouse to create calming streams of color.
-      </div>
-
+      <div class="resource-desc">Move your mouse to create calming streams of color.</div>
       <div class="resource-meta">
         <span>⏱ Anytime</span>
-
         <a href="https://paveldogreat.github.io/WebGL-Fluid-Simulation/" target="_blank">
           <button class="resource-cta">Open</button>
         </a>
@@ -317,18 +324,11 @@
     <!-- Short Trip -->
     <div class="resource-card" data-tag="fun">
       <div class="resource-icon-wrap icon-game">🚃</div>
-
       <span class="resource-tag tag-fun">Fun</span>
-
       <div class="resource-title">Short Trip</div>
-
-      <div class="resource-desc">
-        Guide a little cat on a peaceful tram ride.
-      </div>
-
+      <div class="resource-desc">Guide a little cat on a peaceful tram ride.</div>
       <div class="resource-meta">
         <span>⏱ Relaxing</span>
-
         <a href="https://alexanderperrin.com.au/paper/shorttrip/" target="_blank">
           <button class="resource-cta">Open</button>
         </a>
@@ -338,18 +338,11 @@
     <!-- Typatone -->
     <div class="resource-card" data-tag="fun">
       <div class="resource-icon-wrap icon-game">🎹</div>
-
       <span class="resource-tag tag-fun">Fun</span>
-
       <div class="resource-title">Typatone</div>
-
-      <div class="resource-desc">
-        Turn your typing into calming music.
-      </div>
-
+      <div class="resource-desc">Turn your typing into calming music.</div>
       <div class="resource-meta">
         <span>⏱ Creative</span>
-
         <a href="https://typatone.com/" target="_blank">
           <button class="resource-cta">Open</button>
         </a>
@@ -359,102 +352,67 @@
     <!-- Rainy Mood -->
     <div class="resource-card" data-tag="fun">
       <div class="resource-icon-wrap icon-game">🌧️</div>
-
       <span class="resource-tag tag-fun">Fun</span>
-
       <div class="resource-title">Rainy Mood</div>
-
-      <div class="resource-desc">
-        Listen to calming rain sounds.
-      </div>
-
+      <div class="resource-desc">Listen to calming rain sounds.</div>
       <div class="resource-meta">
         <span>⏱ Calm</span>
-
         <a href="https://www.rainymood.com/" target="_blank">
           <button class="resource-cta">Open</button>
         </a>
       </div>
     </div>
 
-    <!-- pixel thought -->
+    <!-- Pixel Thoughts -->
     <div class="resource-card" data-tag="fun">
       <div class="resource-icon-wrap icon-game">🌔</div>
-
       <span class="resource-tag tag-fun">Fun</span>
-
       <div class="resource-title">Pixel Thoughts</div>
-
-      <div class="resource-desc">
-        Write what's been weighing on your mind, send it to the moon, and let it go.
-      </div>
-
+      <div class="resource-desc">Write what's been weighing on your mind, send it to the moon, and let it go.</div>
       <div class="resource-meta">
         <span>⏱ Calm</span>
-
         <a href="https://www.pixelthoughts.co/" target="_blank">
           <button class="resource-cta">Open</button>
         </a>
       </div>
     </div>
 
-    <!-- glass smash -->
+    <!-- Glass Smash -->
     <div class="resource-card" data-tag="fun">
       <div class="resource-icon-wrap icon-game">🔨</div>
-
       <span class="resource-tag tag-fun">Fun</span>
-
       <div class="resource-title">Glass Smash</div>
-
-      <div class="resource-desc">
-        Think of what's been bothering you — then smash it to pieces
-      </div>
-
+      <div class="resource-desc">Think of what's been bothering you — then smash it to pieces</div>
       <div class="resource-meta">
         <span>⏱ Calm</span>
-
         <a href="https://glass.funwebsite.fun/" target="_blank">
           <button class="resource-cta">Open</button>
         </a>
       </div>
     </div>
 
-    <!-- sand art -->
+    <!-- Sand Art -->
     <div class="resource-card" data-tag="fun">
       <div class="resource-icon-wrap icon-game">🖼️</div>
-
       <span class="resource-tag tag-fun">Fun</span>
-
       <div class="resource-title">Sand Art</div>
-
-      <div class="resource-desc">
-        Create beautiful sand art with just a few clicks.
-      </div>
-
+      <div class="resource-desc">Create beautiful sand art with just a few clicks.</div>
       <div class="resource-meta">
         <span>⏱ Calm</span>
-
         <a href="https://thisissand.com/" target="_blank">
           <button class="resource-cta">Open</button>
         </a>
       </div>
     </div>
 
-    <!-- squish them-->
+    <!-- Squish 'em -->
     <div class="resource-card" data-tag="fun">
       <div class="resource-icon-wrap icon-game">🎮</div>
-
       <span class="resource-tag tag-fun">Fun</span>
-
       <div class="resource-title">Squish 'em</div>
-
-      <div class="resource-desc">
-        squish them.
-      </div>
-
+      <div class="resource-desc">squish them.</div>
       <div class="resource-meta">
         <span>⏱ Calm</span>
-
         <a href="https://mindyourmind.ca/apps/squishem_2023/index.html" target="_blank">
           <button class="resource-cta">Open</button>
         </a>
@@ -471,18 +429,17 @@
   Games are sourced from
   <a href="https://hongkiat.com" target="_blank">Hongkiat</a>
   and
-  <a href="https://mindyourmind.ca/apps/squishem_2023/index.html" target="_blank">
-    mindyourmind
-  </a>.
+  <a href="https://mindyourmind.ca/apps/squishem_2023/index.html" target="_blank">mindyourmind</a>.
 </p>
   </div>
   <div style="margin-top: 3rem; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-      <button onclick="openChat()" class="pema-btn">Chat with your virtual friend 💚 ➡️</button>
-    </div>
+    <button onclick="openChat()" class="pema-btn">Chat with your virtual friend 💚 ➡️</button>
+  </div>
 
 </section>
 
-  <!-- FINDINGS PAGE -->
+
+  <!-- FINDINGS PAGE — unchanged -->
   <section class="page" id="page-findings">
 
     <h2 style="margin-bottom: 6px;">What We Found</h2>
@@ -498,7 +455,7 @@
         <div class="fstat-num" data-target="156">156</div>
         <div class="fstat-label">Interns Surveyed</div>
       </div>
-      <div class="fstat-card" style="animation-delay:0.1s ;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+      <div class="fstat-card" style="animation-delay:0.1s; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
         <div class="fstat-icon">😓</div>
         <div class="fstat-num" data-target="53" data-suffix="%">53.21%</div>
         <div class="fstat-label">Reported being stressed</div>
@@ -525,13 +482,13 @@
           <span class="facc-arrow">▾</span>
         </button>
         <div class="facc-body" style="color: black; font-size: medium; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-          The top stressors among GCBS interns were <strong>time management with 41.98% </strong>, followed by <strong> misalignment between tasks and course of study with 37.04%</strong>, being unable to meet supervisor's expectations, difficulty adjusting to professional environments, and balancing personal responsibilities alongside work commitments.
+          The top stressors among GCBS interns were <strong>time management with 41.98%</strong>, followed by <strong>misalignment between tasks and course of study with 37.04%</strong>, being unable to meet supervisor's expectations, difficulty adjusting to professional environments, and balancing personal responsibilities alongside work commitments.
         </div>
       </div>
 
       <div class="facc-item">
         <button class="facc-q" onclick="toggleAcc(this)">
-          <span style =" font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> 🤔 Were those stresses good or bad?</span>
+          <span style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> 🤔 Were those stresses good or bad?</span>
           <span class="facc-arrow">▾</span>
         </button>
         <div class="facc-body" style="color: rgb(0, 0, 0); font-size: medium; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
@@ -541,11 +498,11 @@
 
       <div class="facc-item">
         <button class="facc-q" onclick="toggleAcc(this)">
-          <span style = "font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> 🧐 How did interns cope with stress?</span>
+          <span style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> 🧐 How did interns cope with stress?</span>
           <span class="facc-arrow">▾</span>
         </button>
         <div class="facc-body" style="color: black; font-size: medium; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-          Common coping methods included calling family and friends, ignoring the problem, doing physical exercise and seeking advice from supervisors. 
+          Common coping methods included calling family and friends, ignoring the problem, doing physical exercise and seeking advice from supervisors.
         </div>
       </div>
 
@@ -598,7 +555,7 @@
 <!-- MOBILE ONLY -->
 <div class="tableau-mobile">
   <p>📊 View the full data visualization on Tableau Public</p>
-  <a href="https://public.tableau.com/views/stressandwellbeingofinternsGCBSfinal/Story1" 
+  <a href="https://public.tableau.com/views/stressandwellbeingofinternsGCBSfinal/Story1"
      target="_blank" class="pema-btn">
     Open Visualization ↗️
   </a>
@@ -609,9 +566,8 @@
 </div>
 </section>
 
-  
 
-  <!-- GET HELP PAGE -->
+  <!-- GET HELP PAGE — unchanged -->
   <section class="page" id="page-contact">
 
     <h2>You don't have to face it alone💚</h2>
@@ -636,7 +592,7 @@
           <div class="hcard-emoji">🚨</div>
         </div>
         <div class="hcard-body">
-          <div class="hcard-tag"style="color: black;">Emergency</div>
+          <div class="hcard-tag" style="color: black;">Emergency</div>
           <div class="hcard-val">1010</div>
           <p class="hcard-desc" style="color: black;">For immediate help in a crisis or emergency. Available 24 hours, every day.</p>
           <a href="tel:1010" class="hcard-btn-call">Call Now</a>
@@ -700,30 +656,31 @@
     </div>
   </section>
 
+
   <!-- CHAT -->
-  <button id="chat-toggle"><img src="" width="45" onerror="this.style.display='none'"/></button>
+  <button id="chat-toggle" aria-label="Open chat with virtual friend"></button>
   <div id="chat-win">
     <div class="chdr">
       <div>virtual friend</div>
       <p style="color: #ffffff; font-size:small; font-weight: bold;">💡 Tip: Tell me if you prefer short or detailed responses!</p>
       <button id="chx">✕</button>
     </div>
-
     <p style="font-size: 11px; color: #011f01; text-align: center; padding: 6px 12px; margin: 0; border-bottom: 1px solid rgba(255,255,255,0.15);">
       🔒 Your messages are not stored or shared. This is a safe space.
     </p>
     <div id="cmsgs"></div>
     <div class="cinp">
-      <textarea id="cci"></textarea>
+      <textarea id="cci" aria-label="Type your message"></textarea>
       <button id="csb">Send</button>
     </div>
   </div>
+
 
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2026 Jamyang Chozom. All rights reserved.</p>
     <p>Bhutan Data Scientist Pvt. Ltd</p>
-    <a href="https://github.com/jamyangc/BDS-project" target="_blank">
+    <a href="https://github.com/jamyangc/BDS-project" target="_blank" aria-label="View project on GitHub">
       <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
            alt="GitHub" style="width:26px;height:26px;opacity:0.6;">
     </a>

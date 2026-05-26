@@ -884,7 +884,7 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
 .fun-slider > div {
   flex: 0 0 230px;
   width: 230px;
-  background: rgba(255,255,255,0.93);
+  background: #ffe5d0;
   border-radius: 22px;
   padding: 20px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.08);
@@ -1188,3 +1188,11 @@ footer img { width: 24px; height: auto; display: block; margin: 5px auto; }
     display: none;
   }
 }
+
+.nav-pulse-btn {
+      animation: navFlash 1.8s ease-in-out infinite;
+    }
+    @keyframes navFlash {
+      0%, 100% { background-color: transparent; color: inherit; }
+      50%       { background-color: rgba(97, 2, 83, 0.25); color: #2e6b45; }
+    }
