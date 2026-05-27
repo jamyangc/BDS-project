@@ -130,24 +130,57 @@ const breathingVideos = [
   "YRPh_GaiL8s", "aXItOY0sLRY", "odADwWzHR24", "tEmt1Znux58"
 ];
 
+function getOrCreateDiv(id, styles) {
+  let el = document.getElementById(id);
+  if (!el) {
+    el = document.createElement('div');
+    el.id = id;
+    Object.assign(el.style, styles);
+
+    // Insert right after the 3 tool cards, before the fun slider section
+    const funSection = document.getElementById('fun-section');
+    funSection.parentNode.insertBefore(el, funSection);
+  }
+  return el;
+}
+
 function playCategory(type) {
   let videos = [];
   let message = "";
 
-  if (type === "music") { videos = musicVideos; message = "Relax with soothing music 🎵"; }
+  if (type === "music")           { videos = musicVideos;     message = "Relax with soothing music 🎵"; }
   else if (type === "meditation") { videos = meditationVideos; message = "Take a moment to meditate 🧘"; }
-  else if (type === "breathing") { videos = breathingVideos; message = "Follow this breathing exercise 💨"; }
+  else if (type === "breathing")  { videos = breathingVideos;  message = "Follow this breathing exercise 💨"; }
 
   const videoId = videos[Math.floor(Math.random() * videos.length)];
-  document.getElementById("message").innerText = message;
-  document.getElementById("videoPlayer").innerHTML = `
+
+  const msg = getOrCreateDiv('message', {
+    textAlign: 'center',
+    width: '100%',
+    paddingTop: '16px',
+    fontSize: '1rem',
+    fontWeight: '500',
+    color: '#2e6b45'
+  });
+
+  const vp = getOrCreateDiv('videoPlayer', {
+    display: 'flex',
+    justifyContent: 'center',
+    width: '100%',
+    paddingBottom: '16px'
+  });
+
+  msg.innerText = message;
+  vp.innerHTML = `
     <iframe width="400" height="220" loading="lazy"
       src="https://www.youtube.com/embed/${videoId}"
       frameborder="0" allowfullscreen
-      style="border-radius:12px; margin-top:15px; max-width:100%;">
+      style="border-radius:12px; margin-top:10px; max-width:100%;">
     </iframe>
   `;
 }
+
+
 
 /* =========================================
    RESOURCES FILTER
@@ -164,24 +197,21 @@ function filterRes(btn, tag) {
   const toolSection = document.getElementById('tool-cards');
   if (toolSection) toolSection.style.display = tag === 'fun' ? 'none' : 'flex';
 
-  const funSection = document.querySelector('#fun-section');
-  const gameSource = document.querySelector('.game-source');
-  const showFun = tag === 'all' || tag === 'fun';
+  const funSection  = document.querySelector('#fun-section');
+  const gameSource  = document.querySelector('.game-source');
+  const showFun     = tag === 'all' || tag === 'fun';
 
   if (funSection) funSection.style.display = showFun ? 'flex' : 'none';
   if (gameSource) gameSource.style.display = showFun ? 'block' : 'none';
 
+  // Remove player divs entirely when switching to fun tab
   if (tag === 'fun') {
-    document.getElementById('message').innerText = '';
-    document.getElementById('videoPlayer').innerHTML = '';
+    const msg = document.getElementById('message');
+    const vp  = document.getElementById('videoPlayer');
+    if (msg) msg.remove();
+    if (vp)  vp.remove();
   }
 }
-
-
-/* =========================================
-   SLIDESHOW
-========================================= */
-
 
 /* =========================================
    MOBILE MENU
@@ -198,7 +228,7 @@ function closeMenu() {
    ACCORDION
 ========================================= */
 function toggleAcc(btn) {
-  const item = btn.parentElement;
+  const item   = btn.parentElement;
   const isOpen = item.classList.contains('open');
   document.querySelectorAll('.facc-item').forEach(i => i.classList.remove('open'));
   if (!isOpen) item.classList.add('open');
@@ -207,9 +237,9 @@ function toggleAcc(btn) {
 /* =========================================
    BREATHING EXERCISE
 ========================================= */
-let breathPaused = false;
+let breathPaused  = false;
 let breathInterval = null;
-const breathSteps = ["Breathe in…", "Hold…", "Breathe out…", "Rest…"];
+const breathSteps     = ["Breathe in…", "Hold…", "Breathe out…", "Rest…"];
 const breathDurations = [4000, 4000, 4000, 2000];
 let breathStep = 0;
 
@@ -534,6 +564,23 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+/* =========================================
+   DARK MODE TOGGLE
+========================================= */
+function toggleDark() {
+  const isDark = document.body.classList.toggle('dark');
+  document.getElementById('darkToggle').textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+(function () {
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
+    const btn = document.getElementById('darkToggle');
+    if (btn) btn.textContent = '☀️';
+  }
+})();
 
 /* =========================================
    CHATBOT CSS INJECTION
